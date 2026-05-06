@@ -1,0 +1,13 @@
+:root {
+  --ssbu-bg-primary: #0a0a1a;
+  --ssbu-bg-panel: #12122a;
+  --ssbu-gold: #f5c518;
+  --ssbu-gold-light: #ffe066;
+  --ssbu-red: #cc2200;
+  --ssbu-blue: #1a4fff;
+  --ssbu-white: #ffffff;
+  --ssbu-glow: 0 0 16px rgba(245, 197, 24, 0.7);
+  --ssbu-font-display: 'Rajdhani', 'Bebas Neue', sans-serif;
+  --ssbu-font-body: 'Exo 2', sans-serif;
+  --ssbu-transition-speed: 180ms;
+}

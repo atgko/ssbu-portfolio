@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@400;500;600&display=swap');
+@import './ssbu-tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--ssbu-bg-primary);
+  color: var(--ssbu-white);
+  font-family: var(--ssbu-font-body);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--ssbu-font-display);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+a {
+  color: var(--ssbu-gold);
+  text-decoration: none;
+  transition: filter var(--ssbu-transition-speed) ease;
+}
+
+a:hover,
+a:focus-visible {
+  filter: drop-shadow(0 0 8px var(--ssbu-gold));
+  outline: none;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+button {
+  font-family: var(--ssbu-font-display);
+  cursor: pointer;
+}
