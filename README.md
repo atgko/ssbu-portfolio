@@ -2,7 +2,7 @@
 
 Personal portfolio of **Athavan Elangko**, styled as the Super Smash Bros. Ultimate home screen.
 
-Live: _coming soon (Vercel)_
+Live: **https://ssbu-portfolio.vercel.app**
 
 ## Stack
 
