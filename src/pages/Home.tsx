@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { HomeMenu } from '../components/HomeMenu/HomeMenu.tsx'
 import { MENU } from '../components/HomeMenu/menu.ts'
 import { PressStart } from '../components/PressStart/PressStart.tsx'
@@ -27,7 +28,12 @@ export function Home() {
     <>
       <StarsBackground />
       <PressStart />
-      <main className={styles.home}>
+      <motion.main
+        className={styles.home}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.22, ease: 'easeOut' }}
+      >
         <header className={styles.topBar}>
           <span className={styles.brand}>
             Athavan <em>Elangko</em>
@@ -49,7 +55,7 @@ export function Home() {
           <span className={styles.tagline}>{active.tagline}</span>
           <span className={styles.clock}>{formatTime(now)}</span>
         </footer>
-      </main>
+      </motion.main>
     </>
   )
 }

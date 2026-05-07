@@ -78,7 +78,7 @@ export function About() {
         >
           <div className={styles.nameBanner}>
             <span className={styles.fighterNum}>#01</span>
-            <h1 className={styles.fighterName}>[YOUR NAME]</h1>
+            <h1 className={styles.fighterName}>Athavan</h1>
           </div>
 
           <p className={styles.fighterTitle}>
@@ -93,7 +93,10 @@ export function About() {
           </dl>
 
           <p className={styles.bio}>
-            [2–3 sentence bio placeholder: who you are, what you build, and what drives you.]
+            Athavan enjoys building and improving things—taking something ambiguous and shaping it
+            into something that works. His current focus is exploring how AI tools can help bring
+            ideas to life faster and more practically. Athavan is driven by curiosity, iteration,
+            and the process of making things better over time.
           </p>
 
           <div className={styles.statsSection}>
