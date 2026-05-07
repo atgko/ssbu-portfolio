@@ -23,8 +23,8 @@ function StatBar({ label, value, delay }: { label: string; value: number; delay:
           <motion.span
             key={i}
             className={[styles.segment, i < filled ? styles.segOn : styles.segOff].join(' ')}
-            initial={{ scaleY: 0, opacity: 0 }}
-            animate={{ scaleY: 1, opacity: 1 }}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
             transition={{ delay: delay + i * 0.022, duration: 0.1 }}
           />
         ))}
@@ -35,14 +35,14 @@ function StatBar({ label, value, delay }: { label: string; value: number; delay:
 
 export function About() {
   return (
-    <motion.main
-      className={styles.page}
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-    >
+    <>
       <StarsBackground />
+      <motion.main
+        className={styles.page}
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+      >
 
       <header className={styles.topBar}>
         <Link to="/" className={styles.backBtn}>← SMASH</Link>
@@ -110,6 +110,7 @@ export function About() {
           <kbd>↑↓←→</kbd> Navigate &nbsp;·&nbsp; <kbd>Enter</kbd> Select
         </span>
       </footer>
-    </motion.main>
+      </motion.main>
+    </>
   )
 }
