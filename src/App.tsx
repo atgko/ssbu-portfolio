@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { Home } from './pages/Home.tsx'
 import { About } from './pages/About.tsx'
 import { Projects } from './pages/Projects.tsx'
@@ -9,16 +10,19 @@ import { BuildStory } from './pages/BuildStory.tsx'
 import { NotFound } from './pages/NotFound.tsx'
 
 export function App() {
+  const location = useLocation()
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/skills" element={<Skills />} />
-      <Route path="/resume" element={<Resume />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/build-story" element={<BuildStory />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/build-story" element={<BuildStory />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
   )
 }

@@ -1,0 +1,323 @@
+.page {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--ssbu-bg-primary);
+  overflow: hidden;
+  font-family: var(--ssbu-font-body);
+  color: var(--ssbu-white);
+}
+
+/* ─── Top bar ─────────────────────────────────────────────────────── */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0.48rem 1.25rem;
+  background: var(--switch-bar-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--ssbu-font-display);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ssbu-white);
+  padding: 5px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition:
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.backBtn:hover {
+  border-color: var(--ssbu-gold);
+  color: var(--ssbu-gold);
+  filter: none;
+}
+
+.screenTitle {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+}
+
+.p1Badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ssbu-gold);
+  padding: 3px 8px;
+  border: 1px solid var(--ssbu-gold);
+}
+
+/* ─── Stage ───────────────────────────────────────────────────────── */
+
+.stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ─── Fighter art (left) ──────────────────────────────────────────── */
+
+.fighterArea {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 72px;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 105%, rgba(200, 40, 31, 0.38) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 58%,  rgba(255, 255, 255, 0.06) 0%, transparent 52%);
+  pointer-events: none;
+}
+
+.figureArt {
+  position: relative;
+  z-index: 1;
+  width: clamp(160px, 26vw, 340px);
+  height: clamp(160px, 26vw, 340px);
+  color: rgba(255, 255, 255, 0.94);
+  filter:
+    drop-shadow(0 0 28px rgba(255, 255, 255, 0.28))
+    drop-shadow(0 0 56px rgba(200, 40, 31, 0.45));
+}
+
+.platform {
+  position: absolute;
+  bottom: 58px;
+  left: 8%;
+  right: 8%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.12),
+    0 -2px 0  rgba(255, 255, 255, 0.06);
+  z-index: 2;
+}
+
+.selectedBadge {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--ssbu-gold);
+  padding: 3px 10px;
+  border: 1px solid rgba(245, 197, 24, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* ─── Info panel (right) ──────────────────────────────────────────── */
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 36px 48px 36px 36px;
+  overflow-y: auto;
+}
+
+.nameBanner {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-left: 14px;
+  border-left: 5px solid var(--tile-smash);
+}
+
+.fighterNum {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
+}
+
+.fighterName {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ssbu-white);
+  text-shadow:
+    0 0 22px rgba(200, 40, 31, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.fighterTitle {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(0.8rem, 1.3vw, 1.12rem);
+  font-weight: 600;
+  color: var(--ssbu-gold);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Metadata box */
+
+.metaBox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 14px;
+  padding: 12px 14px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(200, 40, 31, 0.55);
+}
+
+.metaKey {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ssbu-gold);
+  text-transform: uppercase;
+  align-self: center;
+  white-space: nowrap;
+}
+
+.metaVal {
+  font-family: var(--ssbu-font-body);
+  font-size: clamp(0.74rem, 1.04vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Bio */
+
+.bio {
+  font-family: var(--ssbu-font-body);
+  font-size: clamp(0.78rem, 1.1vw, 0.97rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Stats */
+
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statsHeading {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.36);
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.statLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(0.66rem, 0.94vw, 0.84rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.statBar {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.segment {
+  display: block;
+  width: clamp(7px, 1vw, 13px);
+  height: 13px;
+  flex-shrink: 0;
+  transform-origin: bottom;
+}
+
+.segOn {
+  background: var(--ssbu-gold);
+  box-shadow: 0 0 5px rgba(245, 197, 24, 0.55);
+}
+
+.segOff {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Bottom bar ─────────────────────────────────────────────────── */
+
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.48rem 1.25rem;
+  background: var(--switch-bar-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--ssbu-font-body);
+  font-size: 0.78rem;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.36);
+  letter-spacing: 0.04em;
+}
+
+.hint kbd {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.52);
+  padding: 1px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page {
+    transition: none;
+  }
+}
