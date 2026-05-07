@@ -1,0 +1,331 @@
+.grid {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  /* 5-tile reference layout: Smash dominates the left column (rows 1-2);
+     Spirits sits below it. Right column is Skills / Resume / Contact stacked,
+     each 1/3 of the height. Central circle hits the col1/col2 boundary at
+     the row 2 vertical midpoint and reaches every tile. */
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    'smash games'
+    'smash vault'
+    'spirits online';
+  gap: 5px;
+  background: #000;
+  padding: 5px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ssbu-white);
+  background: var(--tile-color);
+  background-image: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0) 38%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
+  outline: none;
+  transition:
+    transform 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    filter 180ms ease,
+    box-shadow 180ms ease;
+}
+
+/* Radial glow overlay — emanates from where the circle meets each tile.
+   Opacity is low at rest and rises on hover to create the "lights up" bite. */
+.tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--circle-glow, transparent);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.tile:hover::before,
+.tile:focus-visible::before,
+.tileActive::before {
+  opacity: 0.65;
+}
+
+/* Outer-edge oval glow — runs along the tile's outer perimeter (away from
+   the circle). Subtle at rest, brightens to near-white on hover/active so it
+   blends with the white border gap and the circle's white ring. */
+.tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--outer-glow, transparent);
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.tile:hover::after,
+.tile:focus-visible::after,
+.tileActive::after {
+  opacity: 0.75;
+}
+
+/* Circle center is at the col1/col2 boundary (≈100% of col1 width) and
+   50% of the total grid height (≈75% of Smash height, ≈50% of Vault, etc.).
+   --circle-glow positions the radial gradient origin accordingly. */
+.tileSmash {
+  grid-area: smash;
+  --tile-color: var(--tile-smash);
+  --circle-glow: radial-gradient(circle at 100% 75%, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+  --outer-glow: radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.9) 0%, transparent 60%);
+  transform-origin: left center;
+}
+.tileSpirits {
+  grid-area: spirits;
+  --tile-color: var(--tile-spirits);
+  --circle-glow: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.9) 0%, transparent 48%);
+  --outer-glow: radial-gradient(ellipse at bottom left, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+  transform-origin: bottom left;
+}
+.tileGames {
+  grid-area: games;
+  --tile-color: var(--tile-games);
+  --circle-glow: radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.9) 0%, transparent 48%);
+  --outer-glow: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+  transform-origin: top right;
+}
+.tileVault {
+  grid-area: vault;
+  --tile-color: var(--tile-vault);
+  --circle-glow: radial-gradient(circle at 0% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+  --outer-glow: radial-gradient(ellipse at center right, rgba(255, 255, 255, 0.9) 0%, transparent 60%);
+  transform-origin: right center;
+}
+.tileOnline {
+  grid-area: online;
+  --tile-color: var(--tile-online);
+  --circle-glow: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.9) 0%, transparent 48%);
+  --outer-glow: radial-gradient(ellipse at bottom right, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+  transform-origin: bottom right;
+}
+
+/* Abstract decorative background — fills the tile with subtle shapes. */
+.bgIcon {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bgDecoration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.tileInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  z-index: 2;
+  gap: 0.6rem;
+}
+
+/* Per-tile content positioning — shift away from the center circle. */
+.tileSmash .tileInner   { align-items: flex-start; padding-left: 10%; padding-right: 20%; }
+.tileSpirits .tileInner { align-items: flex-start; padding-left: 10%; padding-right: 16%; }
+.tileGames .tileInner   { align-items: flex-end;   padding-right: 10%; padding-left: 16%; }
+.tileVault .tileInner   { align-items: flex-end;   padding-right: 10%; padding-left: 18%; }
+.tileOnline .tileInner  { align-items: flex-end;   padding-right: 10%; padding-left: 16%; }
+
+.icon {
+  width: clamp(44px, 5.4vw, 76px);
+  height: clamp(44px, 5.4vw, 76px);
+  color: rgba(255, 255, 255, 0.95);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  transition:
+    filter 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.label {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  color: var(--ssbu-white);
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    0 0 1px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  transition:
+    text-shadow 180ms ease,
+    -webkit-text-stroke-width 180ms ease;
+}
+
+/* Active state — tile shrinks slightly so the black gutter around it turns
+   white. The single white ring fills the gap; no dark outer shadow so the
+   circle's indicator doesn't look trapped inside a second ring. */
+.tile:hover,
+.tile:focus-visible,
+.tileActive {
+  z-index: 5;
+  filter: brightness(1.08) saturate(1.1);
+  transform: scale(0.965);
+  box-shadow:
+    0 0 0 6px var(--ssbu-white),
+    0 0 0 12px var(--tile-color);
+}
+
+.tile:hover .icon,
+.tile:focus-visible .icon,
+.tileActive .icon {
+  color: var(--ssbu-white);
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.85))
+    drop-shadow(0 0 22px rgba(255, 255, 255, 0.5));
+  transform: scale(1.06);
+}
+
+/* Active label — thick black outline matching the SSBU reference.
+   Multi-directional text-shadow is the reliable fallback. */
+.tile:hover .label,
+.tile:focus-visible .label,
+.tileActive .label {
+  -webkit-text-stroke: 3px #000;
+  paint-order: stroke fill;
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.95),
+     2px -2px 0 rgba(0, 0, 0, 0.95),
+    -2px  2px 0 rgba(0, 0, 0, 0.95),
+     2px  2px 0 rgba(0, 0, 0, 0.95);
+}
+
+.tile:active {
+  transform: scale(0.95);
+}
+
+/* ─── Center character splash ─────────────────────────────────────── */
+
+.splashWrap {
+  position: absolute;
+  /* Anchor at col1/col2 boundary (horizontally) and row 2 midpoint (vertically). */
+  left: calc(1.2 / 2.2 * 100%);
+  top: 50%;
+  width: clamp(240px, 32vw, 380px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.centerSplash {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(255, 255, 255, 0.22) 0%,
+      transparent 60%
+    ),
+    radial-gradient(circle, #2c2c5a 0%, #0a0a1a 95%);
+  border: 14px solid var(--ssbu-white);
+  box-shadow:
+    0 0 0 6px var(--ring-color, #ffffff),
+    0 14px 36px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.splashFigure {
+  width: 70%;
+  height: 70%;
+  color: var(--ssbu-gold-light);
+  filter: drop-shadow(0 0 14px rgba(245, 197, 24, 0.55));
+}
+
+/* Rotating wrapper — rotates around the splash center. Driven by a
+   CUMULATIVE --arrow-angle from Home so transitions take the shortest path.
+   clip-path clips the dome corners so they never bleed into neighboring tiles. */
+.arrowOrbit {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--arrow-angle, 0deg));
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 11;
+  clip-path: circle(calc(50% + 9px) at 50% 50%);
+}
+
+/* Selector tab — hugs the outer ring, tall dome with tile-color outline. */
+.bulge {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  width: var(--bulge-width, 76px);
+  height: 24px;
+  border-radius: 50% 50% 0 0;
+  background: var(--ssbu-white);
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  border-top: 3px solid var(--ring-color, #ffffff);
+  border-left: 3px solid var(--ring-color, #ffffff);
+  border-right: 3px solid var(--ring-color, #ffffff);
+}
+
+/* Black arrow inside the dome pointing outward toward the active tile. */
+.arrowTip {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid #0a0a0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .tile::before,
+  .tile::after,
+  .icon,
+  .label,
+  .arrowOrbit,
+  .centerSplash {
+    transition: none;
+  }
+  .tile:hover,
+  .tile:focus-visible,
+  .tileActive {
+    transform: none;
+  }
+  .tile:hover .icon,
+  .tile:focus-visible .icon,
+  .tileActive .icon {
+    transform: none;
+  }
+}
