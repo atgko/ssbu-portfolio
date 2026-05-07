@@ -281,6 +281,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
               <MenuIcon kind={item.icon} />
               <span className={styles.label}>{item.section}</span>
             </span>
+            <span className={styles.perimeterLight} aria-hidden="true" />
           </Link>
         )
       })}
