@@ -133,19 +133,29 @@ function TileBgDecoration({ area }: { area: MenuItem['area'] }) {
     case 'vault':
       return (
         <svg {...shared} viewBox="0 0 100 100" fill="currentColor">
-          {/* Tiger stripe shapes — organic elongated blobs, diagonal orientation */}
-          <path d="M 0,-24 C 7,-18 11,-8 8,6 C 10,18 6,26 -1,27 C -6,23 -9,14 -7,2 C -10,-10 -5,-20 0,-24 Z"
-                transform="translate(16 22) rotate(-20)" />
-          <path d="M 0,-30 C 8,-23 13,-10 10,6 C 12,20 8,30 0,32 C -6,29 -10,18 -8,4 C -10,-10 -6,-24 0,-30 Z"
-                transform="translate(44 54) rotate(-22)" />
-          <path d="M 0,-18 C 5,-13 8,-5 6,5 C 8,13 5,19 0,20 C -4,18 -6,11 -4,3 C -6,-6 -3,-14 0,-18 Z"
-                transform="translate(70 18) rotate(-18)"
-                opacity={0.7} />
-          <path d="M 0,-26 C 7,-20 11,-9 8,5 C 10,17 6,26 -1,28 C -5,24 -8,14 -6,2 C -8,-10 -4,-21 0,-26 Z"
-                transform="translate(86 76) rotate(-24)" />
-          <path d="M 0,-16 C 5,-12 7,-4 5,5 C 7,12 4,18 0,19 C -3,17 -5,10 -3,2 C -5,-5 -3,-13 0,-16 Z"
-                transform="translate(28 82) rotate(-16)"
-                opacity={0.65} />
+          {/* 5-pointed star path centered at origin, outer r=12 inner r=5 */}
+          <path
+            d="M 0,-12 L 2.9,-4.1 L 11.4,-3.7 L 4.8,1.5 L 7.1,9.7 L 0,5 L -7.1,9.7 L -4.8,1.5 L -11.4,-3.7 L -2.9,-4.1 Z"
+            transform="translate(25 28) scale(2.0) rotate(10)"
+          />
+          <path
+            d="M 0,-12 L 2.9,-4.1 L 11.4,-3.7 L 4.8,1.5 L 7.1,9.7 L 0,5 L -7.1,9.7 L -4.8,1.5 L -11.4,-3.7 L -2.9,-4.1 Z"
+            transform="translate(62 58) scale(2.5) rotate(-15)"
+            opacity={0.6}
+          />
+          <path
+            d="M 0,-12 L 2.9,-4.1 L 11.4,-3.7 L 4.8,1.5 L 7.1,9.7 L 0,5 L -7.1,9.7 L -4.8,1.5 L -11.4,-3.7 L -2.9,-4.1 Z"
+            transform="translate(84 18) scale(1.6) rotate(22)"
+          />
+          <path
+            d="M 0,-12 L 2.9,-4.1 L 11.4,-3.7 L 4.8,1.5 L 7.1,9.7 L 0,5 L -7.1,9.7 L -4.8,1.5 L -11.4,-3.7 L -2.9,-4.1 Z"
+            transform="translate(38 85) scale(1.8) rotate(-8)"
+            opacity={0.65}
+          />
+          <path
+            d="M 0,-12 L 2.9,-4.1 L 11.4,-3.7 L 4.8,1.5 L 7.1,9.7 L 0,5 L -7.1,9.7 L -4.8,1.5 L -11.4,-3.7 L -2.9,-4.1 Z"
+            transform="translate(80 80) scale(1.4) rotate(30)"
+          />
         </svg>
       )
     case 'online':
