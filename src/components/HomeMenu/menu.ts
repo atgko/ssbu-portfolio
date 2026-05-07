@@ -15,8 +15,6 @@ export type MenuItem = {
    * shortest path (no whip-around).
    */
   arrowAngle: number
-  /** Width of the bulge tab in px — should span the full edge where the circle meets the tile. */
-  bulgeWidth: number
 }
 
 export const MENU: readonly MenuItem[] = [
@@ -29,7 +27,6 @@ export const MENU: readonly MenuItem[] = [
     icon: 'smash',
     color: '#c8281f',
     arrowAngle: 300,
-    bulgeWidth: 90,
   },
   {
     ssbu: 'Spirits',
@@ -40,7 +37,6 @@ export const MENU: readonly MenuItem[] = [
     icon: 'spirits',
     color: '#1f8f43',
     arrowAngle: 220,
-    bulgeWidth: 75,
   },
   {
     ssbu: 'Games & More',
@@ -51,7 +47,6 @@ export const MENU: readonly MenuItem[] = [
     icon: 'games',
     color: '#2a78ff',
     arrowAngle: 35,
-    bulgeWidth: 75,
   },
   {
     ssbu: 'Vault',
@@ -62,7 +57,6 @@ export const MENU: readonly MenuItem[] = [
     icon: 'vault',
     color: '#d4377d',
     arrowAngle: 90,
-    bulgeWidth: 75,
   },
   {
     ssbu: 'Online',
@@ -73,6 +67,5 @@ export const MENU: readonly MenuItem[] = [
     icon: 'online',
     color: '#efa322',
     arrowAngle: 145,
-    bulgeWidth: 75,
   },
 ]

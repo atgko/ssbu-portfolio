@@ -1,0 +1,64 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(26, 79, 255, 0.18), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(204, 34, 0, 0.12), transparent 60%),
+    var(--ssbu-bg-primary);
+}
+
+.layer {
+  position: absolute;
+  inset: -50% -50% -50% -50%;
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+/* Three layers of stars at varying densities and drift speeds.
+   Each layer uses two radial-gradients so stars don't fall on a perfect grid. */
+.layerFar {
+  background-image:
+    radial-gradient(1px 1px at 23px 47px, rgba(255, 255, 255, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 137px 211px, rgba(255, 255, 255, 0.35), transparent 60%);
+  background-size: 220px 280px;
+  animation: drift 240s linear infinite;
+  opacity: 0.7;
+}
+
+.layerMid {
+  background-image:
+    radial-gradient(1.4px 1.4px at 71px 109px, rgba(255, 224, 102, 0.6), transparent 60%),
+    radial-gradient(1.2px 1.2px at 19px 233px, rgba(255, 255, 255, 0.5), transparent 60%);
+  background-size: 320px 360px;
+  animation: drift 160s linear infinite;
+  opacity: 0.8;
+}
+
+.layerNear {
+  background-image:
+    radial-gradient(1.8px 1.8px at 53px 67px, rgba(255, 255, 255, 0.85), transparent 60%),
+    radial-gradient(1.6px 1.6px at 199px 281px, rgba(245, 197, 24, 0.7), transparent 60%);
+  background-size: 460px 520px;
+  animation: drift 90s linear infinite;
+  opacity: 0.95;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-220px, -280px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layerFar,
+  .layerMid,
+  .layerNear {
+    animation: none;
+  }
+}

@@ -15,14 +15,14 @@ Live: **https://ssbu-portfolio.vercel.app**
 
 ## Scripts
 
-| Command | What it does |
-| --- | --- |
-| `npm run dev` | Start the Vite dev server |
-| `npm run build` | Type-check and produce a production bundle in `dist/` |
-| `npm run preview` | Serve the production bundle locally |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format the codebase with Prettier |
-| `npm run format:check` | Check formatting without writing |
+| Command                | What it does                                          |
+| ---------------------- | ----------------------------------------------------- |
+| `npm run dev`          | Start the Vite dev server                             |
+| `npm run build`        | Type-check and produce a production bundle in `dist/` |
+| `npm run preview`      | Serve the production bundle locally                   |
+| `npm run lint`         | Run ESLint                                            |
+| `npm run format`       | Format the codebase with Prettier                     |
+| `npm run format:check` | Check formatting without writing                      |
 
 ## Documentation
 

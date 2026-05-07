@@ -1,34 +1,55 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { HomeMenu } from '../components/HomeMenu/HomeMenu.tsx'
+import { MENU } from '../components/HomeMenu/menu.ts'
+import { PressStart } from '../components/PressStart/PressStart.tsx'
+import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import styles from './Home.module.css'
 
-type MenuItem = {
-  ssbu: string
-  label: string
-  path: string
+function formatTime(d: Date): string {
+  const hh = d.getHours().toString().padStart(2, '0')
+  const mm = d.getMinutes().toString().padStart(2, '0')
+  return `${hh}:${mm}`
 }
 
-const menu: readonly MenuItem[] = [
-  { ssbu: 'Smash', label: 'About', path: '/about' },
-  { ssbu: 'Spirits', label: 'Projects', path: '/projects' },
-  { ssbu: 'Games & More', label: 'Skills', path: '/skills' },
-  { ssbu: 'Vault', label: 'Resume', path: '/resume' },
-  { ssbu: 'Online', label: 'Contact', path: '/contact' },
-  { ssbu: 'Build Story', label: 'Build Story', path: '/build-story' },
-]
-
 export function Home() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [now, setNow] = useState<Date>(() => new Date())
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(new Date()), 30_000)
+    return () => window.clearInterval(id)
+  }, [])
+
+  const active = MENU[activeIndex] ?? MENU[0]
+  if (!active) return null
+
   return (
-    <main>
-      <h1>SSBU Portfolio — Athavan Elangko</h1>
-      <p>M0 scaffold. The SSBU home screen replica arrives in M1.</p>
-      <ul>
-        {menu.map((item) => (
-          <li key={item.path}>
-            <Link to={item.path}>
-              <strong>{item.ssbu}</strong> → {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <StarsBackground />
+      <PressStart />
+      <main className={styles.home}>
+        <header className={styles.topBar}>
+          <span className={styles.brand}>
+            Athavan <em>Elangko</em>
+          </span>
+          <span className={styles.topRight}>
+            <span>P1</span>
+            <span className={styles.battery} aria-hidden="true" />
+          </span>
+        </header>
+
+        <section className={styles.stage}>
+          <HomeMenu activeIndex={activeIndex} onActiveChange={setActiveIndex} />
+        </section>
+
+        <footer className={styles.bottomBar}>
+          <span className={styles.activeSection}>
+            {active.section}
+          </span>
+          <span className={styles.tagline}>{active.tagline}</span>
+          <span className={styles.clock}>{formatTime(now)}</span>
+        </footer>
+      </main>
+    </>
   )
 }

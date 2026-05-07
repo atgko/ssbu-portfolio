@@ -10,4 +10,15 @@
   --ssbu-font-display: 'Rajdhani', 'Bebas Neue', sans-serif;
   --ssbu-font-body: 'Exo 2', sans-serif;
   --ssbu-transition-speed: 180ms;
+
+  /* SSBU home-screen tile colors. Each tile maps to one menu item. */
+  --tile-smash: #c8281f;
+  --tile-spirits: #1f8f43;
+  --tile-games: #2a78ff;
+  --tile-vault: #d4377d;
+  --tile-online: #efa322;
+  --tile-build: #6c3ad1;
+
+  --switch-bar-bg: #0a0a0a;
+  --switch-bar-fg: #cfcfcf;
 }

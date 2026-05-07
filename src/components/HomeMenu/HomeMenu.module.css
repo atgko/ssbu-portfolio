@@ -267,8 +267,7 @@
 }
 
 /* Rotating wrapper — rotates around the splash center. Driven by a
-   CUMULATIVE --arrow-angle from Home so transitions take the shortest path.
-   clip-path clips the dome corners so they never bleed into neighboring tiles. */
+   CUMULATIVE --arrow-angle from Home so transitions take the shortest path. */
 .arrowOrbit {
   position: absolute;
   inset: 0;
@@ -276,36 +275,21 @@
   transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   z-index: 11;
-  clip-path: circle(calc(50% + 9px) at 50% 50%);
 }
 
-/* Selector tab — hugs the outer ring, tall dome with tile-color outline. */
-.bulge {
-  position: absolute;
-  top: -26px;
-  left: 50%;
-  width: var(--bulge-width, 76px);
-  height: 24px;
-  border-radius: 50% 50% 0 0;
-  background: var(--ssbu-white);
-  transform: translateX(-50%);
-  box-sizing: border-box;
-  border-top: 3px solid var(--ring-color, #ffffff);
-  border-left: 3px solid var(--ring-color, #ffffff);
-  border-right: 3px solid var(--ring-color, #ffffff);
-}
-
-/* Black arrow inside the dome pointing outward toward the active tile. */
+/* Arrow sits inside the 14px white ring, pointing outward toward the active tile.
+   top: 1px places the tip 1px below the ring's outer edge; the 12px height fills
+   most of the ring before hitting the inner edge at ~14px. */
 .arrowTip {
   position: absolute;
-  top: -4px;
+  top: 1px;
   left: 50%;
   width: 0;
   height: 0;
   transform: translateX(-50%);
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 5px solid #0a0a0a;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 12px solid #0a0a0a;
 }
 
 @media (prefers-reduced-motion: reduce) {
