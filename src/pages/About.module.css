@@ -141,8 +141,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
-  padding: 36px 48px 36px 36px;
+  gap: 11px;
+  padding: 20px 36px 20px 28px;
   overflow-y: auto;
 }
 
@@ -164,7 +164,7 @@
 
 .fighterName {
   font-family: var(--ssbu-font-display);
-  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.02em;
@@ -189,8 +189,8 @@
 .metaBox {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 7px 14px;
-  padding: 12px 14px;
+  gap: 5px 12px;
+  padding: 8px 12px;
   margin: 0;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -220,11 +220,11 @@
 
 .bio {
   font-family: var(--ssbu-font-body);
-  font-size: clamp(0.78rem, 1.1vw, 0.97rem);
-  line-height: 1.65;
+  font-size: clamp(0.76rem, 1.05vw, 0.92rem);
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.62);
   margin: 0;
-  padding-top: 16px;
+  padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -233,8 +233,8 @@
 .statsSection {
   display: flex;
   flex-direction: column;
-  gap: 9px;
-  padding-top: 16px;
+  gap: 6px;
+  padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -274,7 +274,7 @@
 .segment {
   display: block;
   width: clamp(7px, 1vw, 13px);
-  height: 13px;
+  height: 11px;
   flex-shrink: 0;
   transform-origin: bottom;
 }
