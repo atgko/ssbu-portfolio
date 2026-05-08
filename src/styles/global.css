@@ -52,3 +52,14 @@ button {
   font-family: var(--ssbu-font-display);
   cursor: pointer;
 }
+
+/* ─── Melee grid overlay ──────────────────────────────────────────── */
+
+html[data-theme="melee"] body {
+  background-image:
+    linear-gradient(rgba(20, 90, 220, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 90, 220, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(20, 90, 220, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 90, 220, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px;
+}

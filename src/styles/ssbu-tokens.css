@@ -22,3 +22,24 @@
   --switch-bar-bg: #0a0a0a;
   --switch-bar-fg: #cfcfcf;
 }
+
+/* ─── Melee Easter-egg theme (activated via L → R → A → SPACE) ────── */
+
+[data-theme="melee"] {
+  --ssbu-bg-primary: #020c1e;
+  --ssbu-bg-panel: #041830;
+  --ssbu-gold: #ffd200;
+  --ssbu-gold-light: #ffee66;
+  --ssbu-blue: #0055ff;
+  --ssbu-glow: 0 0 16px rgba(255, 210, 0, 0.9);
+
+  --tile-smash:   #dd1100;
+  --tile-spirits: #00bb44;
+  --tile-games:   #0066ff;
+  --tile-vault:   #cc1177;
+  --tile-online:  #ffcc00;
+  --tile-build:   #7722ee;
+
+  --switch-bar-bg: #010810;
+  --switch-bar-fg: #99bbdd;
+}
