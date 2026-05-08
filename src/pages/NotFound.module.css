@@ -1,0 +1,75 @@
+/* Full-screen dark background, stars behind */
+.screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 14, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* Switch-style error dialog */
+.dialog {
+  background: #26262e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 28px 32px 24px;
+  width: min(540px, 88vw);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* "Error Code: 404-0001" — small muted label at top */
+.errorCode {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.44);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* Main error message — matches Switch dialog body style */
+.message {
+  font-family: var(--ssbu-font-body);
+  font-size: 1.0rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: pre-line;
+  margin: 0;
+}
+
+/* OK / Return button — full-width, blue Switch-style border */
+.okBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #0090d8;
+  border-radius: 5px;
+  font-family: var(--ssbu-font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ssbu-white);
+  background: transparent;
+  text-decoration: none;
+  box-shadow:
+    0 0 0 1px rgba(0, 144, 216, 0.25),
+    0 0 16px rgba(0, 144, 216, 0.25);
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.okBtn:hover {
+  background: rgba(0, 144, 216, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(0, 144, 216, 0.5),
+    0 0 24px rgba(0, 144, 216, 0.4);
+}

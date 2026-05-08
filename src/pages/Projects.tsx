@@ -24,6 +24,7 @@ interface Project {
   tags: string[]
   demoUrl: string | null
   githubUrl: string | null
+  buildStoryUrl: string | null
   artGradient: [string, string, string]
   artLetter: string
 }
@@ -84,6 +85,7 @@ const PROJECTS: Project[] = [
     tags: ['AI', 'B2B SaaS', 'Product Management', 'Roadmap'],
     demoUrl: 'https://wayfound-chi.vercel.app/',
     githubUrl: null,
+    buildStoryUrl: null,
     artGradient: ['#060e24', '#0a2a6e', '#1a6fff'],
     artLetter: 'W',
   },
@@ -104,6 +106,7 @@ const PROJECTS: Project[] = [
     tags: ['React', 'Vite', 'TypeScript', 'Framer Motion'],
     demoUrl: null,
     githubUrl: null,
+    buildStoryUrl: '/build-story',
     artGradient: ['#1a0505', '#6e0a0a', '#cc3300'],
     artLetter: 'S',
   },
@@ -124,6 +127,7 @@ const PROJECTS: Project[] = [
     tags: ['Coming Soon', 'U of U', 'M.S. MSIS'],
     demoUrl: null,
     githubUrl: null,
+    buildStoryUrl: null,
     artGradient: ['#0d0d14', '#1a1a28', '#2a2a44'],
     artLetter: '?',
   },
@@ -241,11 +245,13 @@ export function Projects() {
                 <span className={styles.controlDivider} />
                 <span className={styles.controlHint}>
                   <span className={styles.controlBtn}>X</span>
-                  {selected.demoUrl
-                    ? <a href={selected.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.controlLink}>Visit Site</a>
-                    : selected.githubUrl
-                      ? <a href={selected.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.controlLink}>GitHub</a>
-                      : <span className={styles.controlDimmed}>Details</span>
+                  {selected.buildStoryUrl
+                    ? <Link to={selected.buildStoryUrl} className={styles.controlLink}>Patch Notes</Link>
+                    : selected.demoUrl
+                      ? <a href={selected.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.controlLink}>Visit Site</a>
+                      : selected.githubUrl
+                        ? <a href={selected.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.controlLink}>GitHub</a>
+                        : <span className={styles.controlDimmed}>Details</span>
                   }
                 </span>
               </div>
@@ -334,7 +340,7 @@ export function Projects() {
                         <span key={t} className={styles.descTag}>{t}</span>
                       ))}
                     </div>
-                    {(selected.demoUrl || selected.githubUrl) && (
+                    {(selected.demoUrl || selected.githubUrl || selected.buildStoryUrl) && (
                       <div className={styles.descLinks}>
                         {selected.demoUrl && (
                           <a href={selected.demoUrl} target="_blank" rel="noopener noreferrer" className={styles.descLink}>
@@ -345,6 +351,11 @@ export function Projects() {
                           <a href={selected.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.descLink}>
                             GitHub
                           </a>
+                        )}
+                        {selected.buildStoryUrl && (
+                          <Link to={selected.buildStoryUrl} className={styles.descLink}>
+                            ▶ Patch Notes
+                          </Link>
                         )}
                       </div>
                     )}
