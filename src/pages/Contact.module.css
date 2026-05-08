@@ -585,6 +585,44 @@
   letter-spacing: 0.02em;
 }
 
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .page {
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(10, 40, 120, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 30%, rgba(20, 60, 160, 0.14) 0%, transparent 45%),
+    var(--ssbu-bg-primary);
+}
+
+:global([data-theme="melee"]) .matchBar {
+  border-bottom-color: rgba(93, 200, 255, 0.15);
+}
+
+:global([data-theme="melee"]) .pulseDot {
+  background: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .connBar {
+  background: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .rulesBar {
+  border-bottom-color: rgba(93, 200, 255, 0.1);
+}
+
+:global([data-theme="melee"]) .card {
+  border-color: rgba(93, 200, 255, 0.2);
+}
+
+:global([data-theme="melee"]) .atIcon {
+  color: var(--melee-accent);
+  text-shadow: 0 0 22px rgba(93, 200, 255, 0.5);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
   .pulseDot { animation: none; }

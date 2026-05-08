@@ -265,3 +265,26 @@
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
 }
+
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .patchVersion {
+  color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .patchAccent {
+  background: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .buildBadge {
+  color: var(--melee-accent);
+  border-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .changeBullet {
+  color: var(--melee-accent);
+}

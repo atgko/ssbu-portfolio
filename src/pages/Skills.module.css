@@ -369,3 +369,24 @@
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
 }
+
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .menuPanel {
+  border-right-color: rgba(93, 200, 255, 0.18);
+  background: linear-gradient(180deg, rgba(93, 200, 255, 0.06) 0%, rgba(0, 0, 0, 0.32) 100%);
+}
+
+:global([data-theme="melee"]) .menuRow:hover {
+  background: rgba(93, 200, 255, 0.06);
+  border-left-color: rgba(93, 200, 255, 0.55);
+}
+
+:global([data-theme="melee"]) .menuRowActive {
+  background: rgba(93, 200, 255, 0.1) !important;
+  box-shadow: inset 0 0 0 1px rgba(93, 200, 255, 0.18), 0 0 16px rgba(93, 200, 255, 0.1);
+}

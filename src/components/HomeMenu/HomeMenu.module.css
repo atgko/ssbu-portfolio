@@ -360,7 +360,7 @@
 /* Flat dark tiles — strip colour and gradient */
 :global([data-theme="melee"]) .tile {
   background-image: none;
-  border: 2px solid rgba(255, 210, 0, 0.38);
+  border: 2px solid rgba(93, 200, 255, 0.28);
 }
 
 /* Hide radial-glow overlays in Melee mode */

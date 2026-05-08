@@ -596,3 +596,18 @@
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
 }
+
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .downloadBtn {
+  background: var(--melee-accent);
+  color: #020c1e;
+}
+
+:global([data-theme="melee"]) .contentHeader {
+  border-left-color: var(--melee-accent);
+}

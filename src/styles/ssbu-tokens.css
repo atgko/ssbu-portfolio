@@ -32,6 +32,11 @@
   --ssbu-gold-light: #ffee66;
   --ssbu-blue: #0055ff;
   --ssbu-glow: 0 0 16px rgba(255, 210, 0, 0.9);
+  --ssbu-font-display: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+
+  /* Melee blue palette */
+  --melee-accent: #5dc8ff;
+  --melee-accent-dim: rgba(93, 200, 255, 0.12);
 
   /* All tiles → same dark navy for Melee monochrome look */
   --tile-smash:   #060e20;
@@ -42,5 +47,5 @@
   --tile-build:   #060e20;
 
   --switch-bar-bg: #010810;
-  --switch-bar-fg: #99bbdd;
+  --switch-bar-fg: #5dc8ff;
 }

@@ -337,3 +337,18 @@
     transition: none;
   }
 }
+
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .nameBanner {
+  border-left-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .segOn {
+  background: var(--melee-accent);
+  box-shadow: 0 0 5px rgba(93, 200, 255, 0.55);
+}

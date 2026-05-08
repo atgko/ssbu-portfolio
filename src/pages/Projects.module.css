@@ -698,3 +698,17 @@
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
 }
+
+/* ─── Melee mode overrides ───────────────────────────────────────── */
+
+:global([data-theme="melee"]) .topBar {
+  border-bottom-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .powerNum {
+  text-shadow: 0 0 18px rgba(93, 200, 255, 0.7);
+}
+
+:global([data-theme="melee"]) .skillBar {
+  background: linear-gradient(90deg, rgba(10, 30, 80, 0.85), rgba(30, 100, 200, 0.65));
+}
