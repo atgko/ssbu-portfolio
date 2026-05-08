@@ -416,3 +416,12 @@
   color: #020c1e;
   filter: none;
 }
+
+/* Category header left stripe + skill chip borders override inline styles */
+:global([data-theme="melee"]) .categoryHeader {
+  border-left-color: var(--melee-accent) !important;
+}
+
+:global([data-theme="melee"]) .chip {
+  border-color: rgba(93, 200, 255, 0.38) !important;
+}
