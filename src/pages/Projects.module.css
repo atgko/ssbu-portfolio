@@ -1,0 +1,688 @@
+/* ─── Page shell ──────────────────────────────────────────────────── */
+
+.page {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  font-family: var(--ssbu-font-body);
+  color: var(--ssbu-white);
+  background: var(--ssbu-bg-primary);
+}
+
+/* ─── Top bar ─────────────────────────────────────────────────────── */
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0.48rem 1.25rem;
+  background: var(--switch-bar-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--ssbu-font-display);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.backBtn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ssbu-white);
+  padding: 5px 12px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.backBtn:hover {
+  border-color: var(--ssbu-gold);
+  color: var(--ssbu-gold);
+  filter: none;
+}
+
+.screenTitle {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: auto;
+}
+
+.p1Badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ssbu-gold);
+  padding: 3px 8px;
+  border: 1px solid var(--ssbu-gold);
+}
+
+/* ─── Content split ───────────────────────────────────────────────── */
+
+.content {
+  display: grid;
+  grid-template-columns: 36% 1fr;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ─── Detail panel (left) ─────────────────────────────────────────── */
+
+.detailPanel {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+/* Art area — upper 64% */
+.artArea {
+  position: relative;
+  flex: 0 0 64%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nebula1,
+.nebula2 {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+}
+
+/* Power overlay — top-right of art */
+.powerOverlay {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  text-align: right;
+  z-index: 2;
+}
+
+.powerNum {
+  display: block;
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 900;
+  color: #55aaff;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 18px rgba(85, 170, 255, 0.6);
+}
+
+.powerLabel {
+  display: block;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+/* Spirit art letter */
+.artLetter {
+  position: relative;
+  z-index: 1;
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(6rem, 14vw, 11rem);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  opacity: 0.82;
+  user-select: none;
+}
+
+/* ─── Info area ───────────────────────────────────────────────────── */
+
+.infoArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 14px 8px;
+  background: linear-gradient(180deg, rgba(4, 10, 24, 0.96) 0%, rgba(6, 8, 18, 0.98) 100%);
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Name row */
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nameStar {
+  font-size: 0.8rem;
+  color: var(--ssbu-gold);
+  flex-shrink: 0;
+}
+
+.nameTypeIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.spiritName {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ssbu-white);
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* Level + team row */
+.levelSlotRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.levelPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px 3px 6px;
+  border-radius: 99px;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ssbu-white);
+  letter-spacing: 0.04em;
+}
+
+.levelTypeIcon {
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.levelText {
+  line-height: 1;
+}
+
+.slotsGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slotsLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.hexRow {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.hexSlot {
+  display: block;
+  width: 15px;
+  height: 17px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexFilled {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.hexEmpty {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Metadata box: ROLE + STATUS */
+.metaBox {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 5px 10px;
+  margin: 0;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.metaKey {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ssbu-gold);
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.metaVal {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ssbu-white);
+  letter-spacing: 0.04em;
+  margin: 0;
+  align-self: center;
+}
+
+/* Skill bar */
+.skillBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  background: linear-gradient(90deg, #0a33cc, #1a5fff);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.skillIcon {
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.skillText {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ssbu-white);
+  flex: 1;
+}
+
+.skillArrow {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+/* ─── Controls bar ────────────────────────────────────────────────── */
+
+.controls {
+  display: flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.controlHint {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+}
+
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.56rem;
+  font-weight: 900;
+  color: var(--ssbu-white);
+  background: #333344;
+  padding: 2px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+.controlDivider {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 12px;
+}
+
+.controlLink {
+  color: var(--ssbu-gold);
+  font-size: 0.7rem;
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: filter 120ms ease;
+}
+
+.controlLink:hover {
+  filter: drop-shadow(0 0 6px var(--ssbu-gold));
+}
+
+.controlDimmed {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.7rem;
+}
+
+/* ─── Grid panel (right) ──────────────────────────────────────────── */
+
+.gridPanel {
+  background: #08080f;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sort bar */
+.sortBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.sortBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #111120;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--ssbu-white);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  letter-spacing: 0.04em;
+  cursor: default;
+  border-radius: 99px;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #111120;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--ssbu-white);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  letter-spacing: 0.04em;
+  border-radius: 99px;
+}
+
+.filterOff {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.7rem;
+  margin-left: 2px;
+}
+
+.sortBtnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2a2a44;
+  font-size: 0.58rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* Card grid — bottom padding reserves space for description panel */
+.cardGrid {
+  flex: 1;
+  padding: 18px 20px 170px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-content: start;
+  overflow-y: auto;
+}
+
+/* ─── Spirit card ─────────────────────────────────────────────────── */
+
+.card {
+  position: relative;
+  background: #111120;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  text-align: left;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.cardSelected {
+  border-color: #efa322 !important;
+  box-shadow: 0 0 0 1px #efa322, 0 0 20px rgba(239, 163, 34, 0.42);
+}
+
+.cardArt {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.cardArtLetter {
+  font-family: var(--ssbu-font-display);
+  font-size: clamp(3rem, 5.5vw, 6.5rem);
+  font-weight: 900;
+  font-style: italic;
+  opacity: 0.65;
+  line-height: 1;
+  user-select: none;
+}
+
+.cardTypeIcon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--ssbu-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  z-index: 2;
+  line-height: 1;
+}
+
+.cardStar {
+  position: absolute;
+  top: 36px;
+  left: 8px;
+  font-size: 0.65rem;
+  color: var(--ssbu-gold);
+  z-index: 2;
+  line-height: 1;
+}
+
+.cardLevel {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--ssbu-white);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1px 5px;
+  z-index: 2;
+  letter-spacing: 0.04em;
+}
+
+.cardNew {
+  position: absolute;
+  top: 28px;
+  right: 6px;
+  font-family: var(--ssbu-font-display);
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--ssbu-white);
+  background: #efa322;
+  padding: 1px 4px;
+  z-index: 2;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 7px 3px;
+  background: rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.cardPower {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: var(--ssbu-white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.cardHexRow {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.cardHex {
+  display: block;
+  width: 11px;
+  height: 13px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.cardStripe {
+  height: 3px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ─── Description panel (overlay at bottom of grid) ───────────────── */
+
+.descPanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(8, 8, 18, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Thin type-colored accent line at the very top */
+.descAccent {
+  height: 3px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.descBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 20px 14px;
+}
+
+.descText {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+.descFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.descTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.descTag {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.descLinks {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.descLink {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ssbu-gold);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  transition: border-color 150ms ease, filter 150ms ease;
+}
+
+.descLink:hover {
+  border-color: var(--ssbu-gold);
+  filter: drop-shadow(0 0 6px var(--ssbu-gold));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page { transition: none; }
+}

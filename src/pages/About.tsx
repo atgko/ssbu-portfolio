@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import fighterImg from '../assets/personal/fighter.jfif'
 import styles from './About.module.css'
 
 const STATS = [
@@ -57,15 +58,13 @@ export function About() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
         >
+          <img
+            src={fighterImg}
+            alt="Athavan"
+            className={styles.fighterImage}
+          />
           <div className={styles.spotlight} aria-hidden="true" />
-          <svg
-            className={styles.figureArt}
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M12 2a4 4 0 014 4v1a4 4 0 11-8 0V6a4 4 0 014-4zm-7 20a7 7 0 0114 0z" />
-          </svg>
+          <div className={styles.scanlines} aria-hidden="true" />
           <div className={styles.platform} aria-hidden="true" />
           <div className={styles.selectedBadge} aria-hidden="true">SELECTED</div>
         </motion.div>
