@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
-import fighterImg from '../assets/personal/fighter.jfif'
+import fighterImg from '../assets/personal/fighter.jpg'
 import styles from './About.module.css'
 
 const STATS = [

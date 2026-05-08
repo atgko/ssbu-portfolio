@@ -6,6 +6,7 @@ import styles from './Projects.module.css'
 
 type SpiritType = 'shield' | 'attack' | 'neutral'
 type ProjectStatus = 'Shipped' | 'In Progress' | 'Coming Soon'
+type SortMode = 'power-desc' | 'power-asc' | 'name-asc'
 
 interface Project {
   id: string
@@ -45,6 +46,26 @@ const STATUS_COLOR: Record<ProjectStatus, string> = {
   'Coming Soon':  '#888899',
 }
 
+const SORT_LABEL: Record<SortMode, string> = {
+  'power-desc': 'By Power (Descending)',
+  'power-asc':  'By Power (Ascending)',
+  'name-asc':   'By Name (A–Z)',
+}
+
+const SORT_NEXT: Record<SortMode, SortMode> = {
+  'power-desc': 'power-asc',
+  'power-asc':  'name-asc',
+  'name-asc':   'power-desc',
+}
+
+function sortProjects(projects: Project[], mode: SortMode): Project[] {
+  return [...projects].sort((a, b) => {
+    if (mode === 'power-desc') return b.power - a.power
+    if (mode === 'power-asc')  return a.power - b.power
+    return a.name.localeCompare(b.name)
+  })
+}
+
 const PROJECTS: Project[] = [
   {
     id: 'wayfound',
@@ -74,7 +95,7 @@ const PROJECTS: Project[] = [
     power: 7420,
     role: 'Solo Developer',
     status: 'In Progress',
-    slots: 1,
+    slots: 2,
     skill: 'Frontend Craft ↑',
     isNew: false,
     starred: false,
@@ -113,7 +134,9 @@ function HexSlot({ filled }: { filled: boolean }) {
 }
 
 export function Projects() {
-  const [selected, setSelected] = useState<Project>(PROJECTS[0])
+  const [sortMode, setSortMode] = useState<SortMode>('power-desc')
+  const sorted = sortProjects(PROJECTS, sortMode)
+  const [selected, setSelected] = useState<Project>(PROJECTS[0]!)
 
   return (
     <>
@@ -183,7 +206,7 @@ export function Projects() {
                     <span className={styles.levelText}>Lv. {selected.level}</span>
                   </div>
                   <div className={styles.slotsGroup}>
-                    <span className={styles.slotsLabel}>TEAM</span>
+                    <span className={styles.slotsLabel}>SCOPE</span>
                     <div className={styles.hexRow}>
                       {Array.from({ length: 3 }, (_, i) => (
                         <HexSlot key={i} filled={i < selected.slots} />
@@ -233,9 +256,13 @@ export function Projects() {
           <div className={styles.gridPanel}>
             {/* Sort bar */}
             <div className={styles.sortBar}>
-              <button className={styles.sortBtn} type="button">
+              <button
+                className={styles.sortBtn}
+                type="button"
+                onClick={() => setSortMode(SORT_NEXT[sortMode])}
+              >
                 <span className={styles.sortBtnIcon}>Y</span>
-                By Power (Descending)
+                {SORT_LABEL[sortMode]}
               </button>
               <div className={styles.filterBtn}>
                 <span className={styles.sortBtnIcon}>R</span>
@@ -246,7 +273,7 @@ export function Projects() {
 
             {/* Card grid */}
             <div className={styles.cardGrid}>
-              {PROJECTS.map(p => (
+              {sorted.map(p => (
                 <motion.button
                   key={p.id}
                   type="button"
