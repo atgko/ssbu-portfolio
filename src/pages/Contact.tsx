@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import styles from './Contact.module.css'
 
-type PlatformIcon = 'linkedin' | 'email' | 'github'
+type PlatformIcon = 'linkedin' | 'email' | 'github' | 'location'
 
 interface Platform {
   id: string
   label: string
-  desc: string
-  href: string
+  subtitle: string
+  cta: string
+  href: string | null
   icon: PlatformIcon
   bgGlow: string
 }
@@ -18,15 +19,17 @@ const PLATFORMS: Platform[] = [
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    desc: 'Connect professionally',
+    subtitle: 'in/athavan-elangko',
+    cta: 'View Profile →',
     href: 'https://www.linkedin.com/in/athavan-elangko',
     icon: 'linkedin',
-    bgGlow: 'rgba(10, 102, 194, 0.3)',
+    bgGlow: 'rgba(10, 102, 194, 0.32)',
   },
   {
     id: 'email',
     label: 'Email',
-    desc: 'Send a direct message',
+    subtitle: 'athavan.elangko@gmail.com',
+    cta: 'Send Message →',
     href: 'mailto:athavan.elangko@gmail.com',
     icon: 'email',
     bgGlow: 'rgba(239, 163, 34, 0.28)',
@@ -34,14 +37,37 @@ const PLATFORMS: Platform[] = [
   {
     id: 'github',
     label: 'GitHub',
-    desc: 'Browse the code',
+    subtitle: '@atgko',
+    cta: 'See Repositories →',
     href: 'https://github.com/atgko',
     icon: 'github',
-    bgGlow: 'rgba(200, 200, 230, 0.14)',
+    bgGlow: 'rgba(200, 200, 230, 0.16)',
+  },
+  {
+    id: 'location',
+    label: 'Home Stage',
+    subtitle: 'Salt Lake City, UT',
+    cta: '⌖  Mountain West · MST (UTC−7)',
+    href: null,
+    icon: 'location',
+    bgGlow: 'rgba(55, 85, 210, 0.24)',
   },
 ]
 
-function TileIcon({ type }: { type: PlatformIcon }) {
+function MountainSvg() {
+  return (
+    <svg className={styles.mountainIcon} width="72" height="50" viewBox="0 0 72 50" fill="none">
+      <path
+        d="M0 50 L8 36 L15 43 L23 24 L31 36 L37 16 L43 30 L51 20 L59 34 L65 26 L72 38 L72 50 Z"
+        fill="rgba(180,205,255,0.45)"
+      />
+      <path d="M37 16 L32 27 L42 27 Z" fill="rgba(235,245,255,0.85)" />
+      <path d="M51 20 L48 27 L54 27 Z" fill="rgba(235,245,255,0.65)" />
+    </svg>
+  )
+}
+
+function CardIcon({ type }: { type: PlatformIcon }) {
   if (type === 'linkedin') {
     return (
       <span className={styles.liIcon}>
@@ -52,13 +78,13 @@ function TileIcon({ type }: { type: PlatformIcon }) {
   if (type === 'email') {
     return <span className={styles.atIcon}>@</span>
   }
-  return <span className={styles.codeIcon}>{'</>'}</span>
+  if (type === 'github') {
+    return <span className={styles.codeIcon}>{'</>'}</span>
+  }
+  return <MountainSvg />
 }
 
 export function Contact() {
-  const big = PLATFORMS.filter(p => p.id !== 'github')
-  const small = PLATFORMS.filter(p => p.id === 'github')
-
   return (
     <>
       <StarsBackground />
@@ -68,73 +94,121 @@ export function Contact() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
       >
+        {/* ── Top bar ── */}
         <header className={styles.topBar}>
           <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
           <span className={styles.screenTitle}>ONLINE</span>
           <span className={styles.p1Badge}>P1</span>
         </header>
 
-        <div className={styles.arena}>
-          {/* Sun gradient — reference Online screen warm sunburst */}
-          <div className={styles.sunGlow} aria-hidden="true" />
-
-          {/* ── Big tiles (LinkedIn + Email) ── */}
-          <div className={styles.bigRow}>
-            {big.map((p, i) => (
-              <motion.a
-                key={p.id}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.tile}
-                style={{ background: `radial-gradient(ellipse at 50% 38%, ${p.bgGlow} 0%, #0d0d1c 62%)` }}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.3 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <div className={styles.tileIconWrap}>
-                  <TileIcon type={p.icon} />
-                </div>
-                <div className={styles.tileLabelGroup}>
-                  <span className={styles.tileLabel}>{p.label}</span>
-                  <span className={styles.tileDesc}>{p.desc}</span>
-                </div>
-              </motion.a>
+        {/* ── Matchmaking status bar ── */}
+        <div className={styles.matchBar}>
+          <span className={styles.pulseDot} />
+          <div className={styles.connBars}>
+            {[8, 12, 16, 20].map(h => (
+              <span key={h} className={styles.connBar} style={{ height: `${h}px` }} />
             ))}
           </div>
+          <span className={styles.matchText}>Searching for Opponent…</span>
+          <span className={styles.matchDivider}>·</span>
+          <span className={styles.matchSub}>Open to New Opportunities</span>
+        </div>
 
-          {/* ── Small tile row (GitHub) ── */}
-          <div className={styles.smallRow}>
-            {small.map(p => (
-              <motion.a
-                key={p.id}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={[styles.tile, styles.tileSmall].join(' ')}
-                style={{ background: `radial-gradient(ellipse at 28% 50%, ${p.bgGlow} 0%, #0d0d1c 65%)` }}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.22, duration: 0.28 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <div className={styles.tileIconWrap}>
-                  <TileIcon type={p.icon} />
-                </div>
-                <div className={styles.tileLabelGroup}>
-                  <span className={styles.tileLabel}>{p.label}</span>
-                  <span className={styles.tileDesc}>{p.desc}</span>
-                </div>
-              </motion.a>
-            ))}
+        {/* ── Player card ── */}
+        <div className={styles.playerCard}>
+          <div className={styles.playerBadge}>P1</div>
+          <div className={styles.playerInfo}>
+            <span className={styles.playerName}>Athavan Elangko</span>
+            <span className={styles.playerTitle}>Product Manager · Technical Program Manager</span>
+          </div>
+          <div className={styles.playerStatus}>
+            <span className={styles.statusDot} />
+            Available Jan 2026
           </div>
         </div>
 
+        {/* ── Match preferences / rules bar ── */}
+        <div className={styles.rulesBar}>
+          <span className={styles.rulesLabel}>Preferred Rules</span>
+          <span className={styles.rulesVDivider} />
+          <div className={styles.rulesRow}>
+            <span className={styles.ruleKey}>Stock</span>
+            <span className={styles.ruleVal}>Full-time</span>
+            <span className={styles.ruleDot}>·</span>
+            <span className={styles.ruleKey}>Stage</span>
+            <span className={styles.ruleVal}>Seattle or Bay Area</span>
+            <span className={styles.ruleDot}>·</span>
+            <span className={styles.ruleKey}>Items</span>
+            <span className={styles.ruleVal}>Remote-friendly</span>
+            <span className={styles.ruleDot}>·</span>
+            <span className={styles.ruleKey}>FS Meter</span>
+            <span className={styles.ruleVal}>Open to Relocation</span>
+          </div>
+        </div>
+
+        {/* ── Arena ── */}
+        <div className={styles.arena}>
+          <div className={styles.sunGlow} aria-hidden="true" />
+
+          <div className={styles.cardGrid}>
+            {PLATFORMS.map((p, i) => {
+              const inner = (
+                <>
+                  <div className={styles.cardIconWrap}>
+                    <CardIcon type={p.icon} />
+                  </div>
+                  <div className={styles.cardLabelGroup}>
+                    <span className={styles.cardLabel}>{p.label}</span>
+                    <span className={styles.cardSubtitle}>{p.subtitle}</span>
+                  </div>
+                  {p.id === 'location' && <div className={styles.mountainBg} aria-hidden="true" />}
+                  <div className={styles.cardCta}>{p.cta}</div>
+                </>
+              )
+
+              const cardClass = [styles.card, p.href ? '' : styles.cardStatic].filter(Boolean).join(' ')
+
+              if (!p.href) {
+                return (
+                  <motion.div
+                    key={p.id}
+                    className={cardClass}
+                    style={{ background: `radial-gradient(ellipse at 50% 40%, ${p.bgGlow} 0%, #0d0d1c 65%)` }}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08, duration: 0.3 }}
+                  >
+                    {inner}
+                  </motion.div>
+                )
+              }
+
+              return (
+                <motion.a
+                  key={p.id}
+                  href={p.href}
+                  target={p.href.startsWith('mailto') ? undefined : '_blank'}
+                  rel={p.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                  className={cardClass}
+                  style={{ background: `radial-gradient(ellipse at 50% 40%, ${p.bgGlow} 0%, #0d0d1c 65%)` }}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  {inner}
+                </motion.a>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* ── Footer ── */}
         <footer className={styles.statusBar}>
-          <span className={styles.statusText}>Battle players from all over the world!</span>
+          <span className={styles.closerText}>P1 has entered the arena</span>
+          <span className={styles.statusSep}>·</span>
+          <span className={styles.creditText}>© Athavan Elangko · Built with React + Claude Code</span>
         </footer>
       </motion.div>
     </>

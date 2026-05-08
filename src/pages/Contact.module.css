@@ -7,11 +7,10 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto auto 1fr auto;
   overflow: hidden;
   font-family: var(--ssbu-font-body);
   color: var(--ssbu-white);
-  /* Deep warm amber base — matches Online screen's overall warmth */
   background:
     radial-gradient(ellipse at 50% 42%, rgba(255, 210, 80, 0.1) 0%, rgba(239, 130, 20, 0.08) 30%, transparent 58%),
     var(--ssbu-bg-primary);
@@ -64,34 +63,234 @@
   border: 1px solid var(--ssbu-gold);
 }
 
+/* ─── Matchmaking bar ─────────────────────────────────────────────── */
+
+.matchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 1.25rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(239, 163, 34, 0.15);
+  flex-shrink: 0;
+}
+
+@keyframes dotBeat {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.6); }
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tile-online);
+  flex-shrink: 0;
+  animation: dotBeat 1.4s ease-in-out infinite;
+}
+
+.connBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.connBar {
+  width: 4px;
+  background: var(--tile-online);
+  border-radius: 1px;
+  opacity: 0.65;
+}
+
+.matchText {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ssbu-gold);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.matchDivider {
+  color: rgba(255, 255, 255, 0.22);
+  flex-shrink: 0;
+}
+
+.matchSub {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.48);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Player card ─────────────────────────────────────────────────── */
+
+.playerCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 1.25rem;
+  background: rgba(10, 10, 26, 0.72);
+  border-bottom: 1px solid rgba(239, 163, 34, 0.2);
+  flex-shrink: 0;
+}
+
+.playerBadge {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ssbu-gold);
+  padding: 3px 8px;
+  border: 1px solid var(--ssbu-gold);
+  flex-shrink: 0;
+}
+
+.playerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.playerName {
+  font-family: var(--ssbu-font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--ssbu-white);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.playerTitle {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.48);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playerStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ssbu-font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #22cc66;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22cc66;
+  flex-shrink: 0;
+}
+
+/* ─── Rules bar ───────────────────────────────────────────────────── */
+
+.rulesBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 1.25rem;
+  background: rgba(4, 4, 16, 0.7);
+  border-bottom: 1px solid rgba(239, 163, 34, 0.1);
+  flex-shrink: 0;
+}
+
+.rulesLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(245, 197, 24, 0.55);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.rulesVDivider {
+  width: 1px;
+  height: 14px;
+  background: rgba(239, 163, 34, 0.22);
+  flex-shrink: 0;
+}
+
+.rulesRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.ruleKey {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.ruleKey::after {
+  content: ':';
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.ruleVal {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.34);
+  flex-shrink: 0;
+}
+
+.ruleDot {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 0.66rem;
+  flex-shrink: 0;
+}
+
 /* ─── Arena ───────────────────────────────────────────────────────── */
 
 .arena {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 28px 48px;
+  padding: 16px 48px;
   min-height: 0;
+  overflow: hidden;
 }
 
-/* Sun gradient — recreates the SSBU Online screen warm sunburst */
 .sunGlow {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse at 50% 60%,
-      rgba(255, 230, 100, 0.22) 0%,
-      rgba(255, 165, 40, 0.17) 18%,
-      rgba(239, 120, 15, 0.1)  36%,
+      rgba(255, 230, 100, 0.18) 0%,
+      rgba(255, 165, 40, 0.12) 20%,
+      rgba(239, 120, 15, 0.07) 38%,
       transparent 62%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Two big tiles side-by-side (LinkedIn + Email) */
-.bigRow {
-  display: flex;
+/* ─── 2×2 card grid ───────────────────────────────────────────────── */
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 12px;
   flex: 1;
   min-height: 0;
@@ -99,38 +298,27 @@
   z-index: 1;
 }
 
-/* One small tile (GitHub) */
-.smallRow {
-  display: flex;
-  gap: 12px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-}
+/* ─── Card base ───────────────────────────────────────────────────── */
 
-/* ─── Tile base ───────────────────────────────────────────────────── */
-
-.tile {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 32px 24px 24px;
-  /* background set via inline style per tile */
+  gap: 8px;
+  padding: 20px 24px 40px;
   border: 2px solid rgba(239, 163, 34, 0.2);
   border-radius: 4px;
   text-decoration: none;
   color: var(--ssbu-white);
   cursor: pointer;
-  flex: 1;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
   position: relative;
   overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
-/* Orange ambient strip at top of tile */
-.tile::before {
+/* Ambient top strip */
+.card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -138,114 +326,216 @@
   right: 0;
   height: 3px;
   background: var(--tile-online);
-  opacity: 0.5;
+  opacity: 0.45;
   transition: opacity 150ms ease;
 }
 
-.tile:hover {
+.card:not(.cardStatic):hover {
   border-color: var(--ssbu-gold);
-  background: #141425;
   box-shadow: 0 0 0 1px var(--ssbu-gold), 0 0 28px rgba(245, 197, 24, 0.2);
 }
 
-.tile:hover::before {
+.card:not(.cardStatic):hover::before {
   opacity: 1;
 }
 
-/* Small tile variant (row layout) */
-.tileSmall {
-  flex: 0 0 auto;
-  flex-direction: row;
-  padding: 16px 24px;
-  gap: 18px;
-  justify-content: flex-start;
-  width: 260px;
+/* ── Location / stage card ── */
+.cardStatic {
+  cursor: default;
 }
 
-.tileSmall .tileLabelGroup {
-  align-items: flex-start;
+.cardStatic::before {
+  background: rgba(120, 150, 255, 0.9);
+}
+
+.cardStatic:hover {
+  border-color: rgba(140, 165, 255, 0.45);
+  box-shadow: 0 0 18px rgba(100, 130, 255, 0.15);
+}
+
+.cardStatic:hover::before {
+  opacity: 0.85;
+}
+
+/* ─── Slide-up CTA panel ──────────────────────────────────────────── */
+
+.cardCta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 9px 16px;
+  background: rgba(0, 0, 0, 0.65);
+  border-top: 1px solid rgba(239, 163, 34, 0.22);
+  transform: translateY(101%);
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ssbu-gold);
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 2;
+}
+
+.card:hover .cardCta {
+  transform: translateY(0);
+}
+
+.cardStatic .cardCta {
+  border-top: 1px solid rgba(100, 130, 255, 0.22);
+  color: rgba(180, 205, 255, 0.75);
+  font-family: var(--ssbu-font-body);
+  font-size: 0.71rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: none;
 }
 
 /* ─── Icon area ───────────────────────────────────────────────────── */
 
-.tileIconWrap {
+.cardIconWrap {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
-/* LinkedIn "in" badge */
+/* ── LinkedIn ── */
+
 .liIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
+  width: 50px;
+  height: 50px;
   background: #0a66c2;
-  border-radius: 14px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
 .liIconText {
-  font-family: var(--ssbu-font-display);
-  font-size: 2.4rem;
-  font-weight: 900;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #ffffff;
-  font-style: italic;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-/* Email @ symbol */
+/* ── Email ── */
+
 .atIcon {
   font-family: var(--ssbu-font-display);
-  font-size: 4.2rem;
+  font-size: 3.6rem;
   font-weight: 900;
   color: var(--tile-online);
   line-height: 1;
-  text-shadow: 0 0 24px rgba(239, 163, 34, 0.5);
+  text-shadow: 0 0 22px rgba(239, 163, 34, 0.5);
 }
 
-/* GitHub </> code icon */
+/* ── GitHub ── */
+
 .codeIcon {
   font-family: 'Courier New', 'Consolas', monospace;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
-.tileSmall .liIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
+/* ── Mountain (Home Stage) ── */
+
+.mountainIcon {
+  filter: drop-shadow(0 0 10px rgba(100, 140, 255, 0.4));
 }
 
-.tileSmall .liIconText {
-  font-size: 1.5rem;
+/* ─── Icon hover animations ───────────────────────────────────────── */
+
+@keyframes iconBounce {
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(-3px); }
+  45%  { transform: translateY(0); }
+  65%  { transform: translateY(-2px); }
+  85%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
 }
 
-.tileSmall .atIcon {
-  font-size: 2.4rem;
+@keyframes iconWobble {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(-8deg); }
+  40%  { transform: rotate(7deg); }
+  60%  { transform: rotate(-4deg); }
+  80%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
 }
 
-.tileSmall .codeIcon {
-  font-size: 1.5rem;
+@keyframes iconGlitch {
+  0%   { transform: scale(1);    opacity: 1; }
+  20%  { transform: scale(1.14); opacity: 0.78; }
+  42%  { transform: scale(0.96); opacity: 1; }
+  62%  { transform: scale(1.07); opacity: 0.88; }
+  82%  { transform: scale(0.99); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes iconFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.card:not(.cardStatic):hover .liIcon {
+  animation: iconBounce 600ms ease;
+}
+
+.card:not(.cardStatic):hover .atIcon {
+  animation: iconWobble 500ms ease;
+}
+
+.card:not(.cardStatic):hover .codeIcon {
+  animation: iconGlitch 420ms ease;
+}
+
+.cardStatic:hover .mountainIcon {
+  animation: iconFloat 800ms ease;
+}
+
+/* ─── Mountain background texture (Home Stage card) ──────────────── */
+
+.mountainBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 46%;
+  background: linear-gradient(to top, rgba(80, 110, 255, 0.1) 0%, transparent 100%);
+  clip-path: polygon(
+    0 100%, 6% 58%, 13% 70%, 21% 36%, 30% 54%, 38% 22%, 44% 46%, 52% 32%,
+    60% 50%, 68% 36%, 76% 56%, 84% 42%, 92% 62%, 100% 48%, 100% 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ─── Label group ─────────────────────────────────────────────────── */
 
-.tileLabelGroup {
+.cardLabelGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  position: relative;
+  z-index: 1;
 }
 
-.tileLabel {
+.cardLabel {
   font-family: var(--ssbu-font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -253,36 +543,53 @@
   line-height: 1;
 }
 
-.tileSmall .tileLabel {
-  font-size: 1rem;
-}
-
-.tileDesc {
+.cardSubtitle {
   font-family: var(--ssbu-font-body);
   font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.38);
+  color: rgba(255, 255, 255, 0.42);
   letter-spacing: 0.04em;
 }
 
-/* ─── Status bar ──────────────────────────────────────────────────── */
+/* ─── Footer ──────────────────────────────────────────────────────── */
 
 .statusBar {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0;
   padding: 10px 24px;
   background: rgba(0, 0, 0, 0.55);
   border-top: 1px solid rgba(239, 163, 34, 0.18);
   flex-shrink: 0;
 }
 
-.statusText {
+.closerText {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.statusSep {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.18);
+  margin: 0 10px;
+}
+
+.creditText {
   font-family: var(--ssbu-font-body);
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.26);
   letter-spacing: 0.02em;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
+  .pulseDot { animation: none; }
+  .card:not(.cardStatic):hover .liIcon,
+  .card:not(.cardStatic):hover .atIcon,
+  .card:not(.cardStatic):hover .codeIcon,
+  .cardStatic:hover .mountainIcon { animation: none; }
 }
