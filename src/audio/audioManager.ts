@@ -4,7 +4,7 @@ type EffectType = 'break' | 'forward' | 'back'
 const EFFECTS: Record<Theme, Record<EffectType, string>> = {
   ssbu: {
     break:   '/sounds/ssbubreak.wav',
-    forward: '/sounds/ssbuforward.wav',
+    forward: '/sounds/se_menu_movieedit_cut.wav',
     back:    '/sounds/ssbuback.wav',
   },
   melee: {
