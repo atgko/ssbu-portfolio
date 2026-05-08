@@ -53,7 +53,7 @@ interface SkillGroup {
 
 const VAULT_SECTIONS: VaultSection[] = [
   { id: 'experience',     label: 'Experience',     icon: '⚔',  color: '#2a78ff', count: '4' },
-  { id: 'education',      label: 'Education',      icon: '🎓', color: '#22aa55', count: '2' },
+  { id: 'education',      label: 'Education',      icon: '◎', color: '#22aa55', count: '2' },
   { id: 'certifications', label: 'Certifications', icon: '★',  color: '#f5c518', count: '5' },
   { id: 'skills',         label: 'Skills',         icon: '◈',  color: '#d4377d', count: '6' },
 ]
