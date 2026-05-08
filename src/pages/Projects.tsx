@@ -53,7 +53,7 @@ const PROJECTS: Project[] = [
     level: 34,
     power: 9800,
     role: 'PM Lead',
-    status: 'Shipped',
+    status: 'In Progress',
     slots: 3,
     skill: 'Product Strategy ↑',
     isNew: false,
@@ -61,7 +61,7 @@ const PROJECTS: Project[] = [
     description:
       'AI-powered platform enabling organizations to capture, surface, and communicate institutional knowledge. Led product roadmap, stakeholder alignment, and go-to-market strategy across cross-functional teams.',
     tags: ['AI', 'B2B SaaS', 'Product Management', 'Roadmap'],
-    demoUrl: 'https://wayfound.ai',
+    demoUrl: 'https://wayfound-chi.vercel.app/',
     githubUrl: null,
     artGradient: ['#060e24', '#0a2a6e', '#1a6fff'],
     artLetter: 'W',
