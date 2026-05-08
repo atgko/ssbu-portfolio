@@ -46,7 +46,7 @@ export function About() {
       >
 
       <header className={styles.topBar}>
-        <Link to="/" className={styles.backBtn}>← SMASH</Link>
+        <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
         <span className={styles.screenTitle}>FIGHTER SELECT</span>
         <span className={styles.p1Badge}>P1</span>
       </header>

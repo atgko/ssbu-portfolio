@@ -149,7 +149,7 @@ export function Projects() {
       >
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
-          <Link to="/" className={styles.backBtn}>← SPIRITS</Link>
+          <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
           <span className={styles.screenTitle}>SPIRIT COLLECTION</span>
           <span className={styles.p1Badge}>P1</span>
         </header>
