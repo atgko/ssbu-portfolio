@@ -391,8 +391,28 @@
   box-shadow: inset 0 0 0 1px rgba(93, 200, 255, 0.18), 0 0 16px rgba(93, 200, 255, 0.1);
 }
 
-:global([data-theme="melee"]) .menuIcon,
-:global([data-theme="melee"]) .categoryIcon,
+/* Keep exp stripe desaturated; icons get gold border treatment instead */
 :global([data-theme="melee"]) .expStripe {
-  filter: grayscale(1) brightness(0.7);
+  filter: grayscale(1) brightness(0.6);
+}
+
+/* At rest: dark bg + gold border */
+:global([data-theme="melee"]) .menuIcon {
+  background: #060e20 !important;
+  border: 2px solid var(--ssbu-gold);
+  filter: none;
+}
+
+/* Active menu row: gold fill, dark content */
+:global([data-theme="melee"]) .menuRowActive .menuIcon {
+  background: var(--ssbu-gold) !important;
+  color: #020c1e;
+}
+
+/* Detail panel icon always reflects active category — always gold fill */
+:global([data-theme="melee"]) .categoryIcon {
+  background: var(--ssbu-gold) !important;
+  border: 2px solid var(--ssbu-gold);
+  color: #020c1e;
+  filter: none;
 }

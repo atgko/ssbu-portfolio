@@ -612,10 +612,30 @@
   border-left-color: var(--melee-accent);
 }
 
-:global([data-theme="melee"]) .vaultTileIcon,
-:global([data-theme="melee"]) .contentHeaderIcon,
+/* Cert badges desaturated; tile icons get gold border treatment */
 :global([data-theme="melee"]) .certCode {
-  filter: grayscale(1) brightness(0.7);
+  filter: grayscale(1) brightness(0.6);
+}
+
+/* At rest: dark bg + gold border */
+:global([data-theme="melee"]) .vaultTileIcon {
+  background: #060e20 !important;
+  border: 2px solid var(--ssbu-gold);
+  filter: none;
+}
+
+/* Active vault tile: gold fill, dark content */
+:global([data-theme="melee"]) .vaultTileActive .vaultTileIcon {
+  background: var(--ssbu-gold) !important;
+  color: #020c1e;
+}
+
+/* Content panel header icon always reflects active section — always gold fill */
+:global([data-theme="melee"]) .contentHeaderIcon {
+  background: var(--ssbu-gold) !important;
+  border: 2px solid var(--ssbu-gold);
+  color: #020c1e;
+  filter: none;
 }
 
 :global([data-theme="melee"]) .expCardAccent {
