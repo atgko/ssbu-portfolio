@@ -124,7 +124,7 @@ const PROJECTS: Project[] = [
     starred: false,
     description:
       'University of Utah M.S. Information Systems capstone project. Direction and details TBD — watch this space.',
-    tags: ['Coming Soon', 'U of U', 'M.S. MSIS'],
+    tags: ['Coming Soon', 'U of U', 'MSIS'],
     demoUrl: null,
     githubUrl: null,
     buildStoryUrl: null,

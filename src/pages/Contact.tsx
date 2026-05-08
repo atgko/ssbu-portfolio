@@ -11,6 +11,7 @@ interface Platform {
   desc: string
   href: string
   icon: PlatformIcon
+  bgGlow: string
 }
 
 const PLATFORMS: Platform[] = [
@@ -20,6 +21,7 @@ const PLATFORMS: Platform[] = [
     desc: 'Connect professionally',
     href: 'https://www.linkedin.com/in/athavan-elangko',
     icon: 'linkedin',
+    bgGlow: 'rgba(10, 102, 194, 0.3)',
   },
   {
     id: 'email',
@@ -27,6 +29,7 @@ const PLATFORMS: Platform[] = [
     desc: 'Send a direct message',
     href: 'mailto:athavan.elangko@gmail.com',
     icon: 'email',
+    bgGlow: 'rgba(239, 163, 34, 0.28)',
   },
   {
     id: 'github',
@@ -34,6 +37,7 @@ const PLATFORMS: Platform[] = [
     desc: 'Browse the code',
     href: 'https://github.com/atgko',
     icon: 'github',
+    bgGlow: 'rgba(200, 200, 230, 0.14)',
   },
 ]
 
@@ -71,6 +75,9 @@ export function Contact() {
         </header>
 
         <div className={styles.arena}>
+          {/* Sun gradient — reference Online screen warm sunburst */}
+          <div className={styles.sunGlow} aria-hidden="true" />
+
           {/* ── Big tiles (LinkedIn + Email) ── */}
           <div className={styles.bigRow}>
             {big.map((p, i) => (
@@ -80,6 +87,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.tile}
+                style={{ background: `radial-gradient(ellipse at 50% 38%, ${p.bgGlow} 0%, #0d0d1c 62%)` }}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.3 }}
@@ -106,6 +114,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={[styles.tile, styles.tileSmall].join(' ')}
+                style={{ background: `radial-gradient(ellipse at 28% 50%, ${p.bgGlow} 0%, #0d0d1c 65%)` }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.22, duration: 0.28 }}

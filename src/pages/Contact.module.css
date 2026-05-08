@@ -11,9 +11,9 @@
   overflow: hidden;
   font-family: var(--ssbu-font-body);
   color: var(--ssbu-white);
+  /* Deep warm amber base — matches Online screen's overall warmth */
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(239, 163, 34, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 0% 100%, rgba(239, 163, 34, 0.07) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 42%, rgba(255, 210, 80, 0.1) 0%, rgba(239, 130, 20, 0.08) 30%, transparent 58%),
     var(--ssbu-bg-primary);
 }
 
@@ -67,11 +67,26 @@
 /* ─── Arena ───────────────────────────────────────────────────────── */
 
 .arena {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding: 28px 48px;
   min-height: 0;
+}
+
+/* Sun gradient — recreates the SSBU Online screen warm sunburst */
+.sunGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 60%,
+      rgba(255, 230, 100, 0.22) 0%,
+      rgba(255, 165, 40, 0.17) 18%,
+      rgba(239, 120, 15, 0.1)  36%,
+      transparent 62%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Two big tiles side-by-side (LinkedIn + Email) */
@@ -80,6 +95,8 @@
   gap: 12px;
   flex: 1;
   min-height: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* One small tile (GitHub) */
@@ -87,6 +104,8 @@
   display: flex;
   gap: 12px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* ─── Tile base ───────────────────────────────────────────────────── */
@@ -98,14 +117,14 @@
   justify-content: center;
   gap: 14px;
   padding: 32px 24px 24px;
-  background: #111120;
+  /* background set via inline style per tile */
   border: 2px solid rgba(239, 163, 34, 0.2);
   border-radius: 4px;
   text-decoration: none;
   color: var(--ssbu-white);
   cursor: pointer;
   flex: 1;
-  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
   position: relative;
   overflow: hidden;
 }

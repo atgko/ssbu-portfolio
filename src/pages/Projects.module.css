@@ -112,10 +112,10 @@
   font-family: var(--ssbu-font-display);
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 900;
-  color: #55aaff;
+  color: #33dd77;
   line-height: 1;
   letter-spacing: 0.02em;
-  text-shadow: 0 0 18px rgba(85, 170, 255, 0.6);
+  text-shadow: 0 0 18px rgba(31, 143, 67, 0.7);
 }
 
 .powerLabel {
@@ -289,7 +289,7 @@
   align-items: center;
   gap: 8px;
   padding: 7px 10px;
-  background: linear-gradient(90deg, #0a33cc, #1a5fff);
+  background: linear-gradient(90deg, #0a3d1a, #1f8f43);
   border-radius: 2px;
   flex-shrink: 0;
 }
