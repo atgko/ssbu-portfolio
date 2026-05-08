@@ -338,17 +338,17 @@
   }
 }
 
-/* ─── Melee mode overrides ───────────────────────────────────────── */
+/* ─── Melee mode overrides (red palette) ────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {
-  border-bottom-color: var(--melee-accent);
+  border-bottom-color: var(--melee-red);
 }
 
 :global([data-theme="melee"]) .nameBanner {
-  border-left-color: var(--melee-accent);
+  border-left-color: var(--melee-red);
 }
 
 :global([data-theme="melee"]) .segOn {
-  background: var(--melee-accent);
-  box-shadow: 0 0 5px rgba(93, 200, 255, 0.55);
+  background: var(--melee-red);
+  box-shadow: 0 0 5px rgba(204, 17, 34, 0.55);
 }

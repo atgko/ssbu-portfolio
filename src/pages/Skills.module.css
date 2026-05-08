@@ -370,7 +370,7 @@
   .page { transition: none; }
 }
 
-/* ─── Melee mode overrides ───────────────────────────────────────── */
+/* ─── Melee mode overrides (blue palette) ────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {
   border-bottom-color: var(--melee-accent);
@@ -389,4 +389,10 @@
 :global([data-theme="melee"]) .menuRowActive {
   background: rgba(93, 200, 255, 0.1) !important;
   box-shadow: inset 0 0 0 1px rgba(93, 200, 255, 0.18), 0 0 16px rgba(93, 200, 255, 0.1);
+}
+
+:global([data-theme="melee"]) .menuIcon,
+:global([data-theme="melee"]) .categoryIcon,
+:global([data-theme="melee"]) .expStripe {
+  filter: grayscale(1) brightness(0.7);
 }

@@ -597,7 +597,7 @@
   .page { transition: none; }
 }
 
-/* ─── Melee mode overrides ───────────────────────────────────────── */
+/* ─── Melee mode overrides (blue palette) ────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {
   border-bottom-color: var(--melee-accent);
@@ -610,4 +610,25 @@
 
 :global([data-theme="melee"]) .contentHeader {
   border-left-color: var(--melee-accent);
+}
+
+:global([data-theme="melee"]) .vaultTileIcon,
+:global([data-theme="melee"]) .contentHeaderIcon,
+:global([data-theme="melee"]) .certCode {
+  filter: grayscale(1) brightness(0.7);
+}
+
+:global([data-theme="melee"]) .expCardAccent {
+  background: rgba(93, 200, 255, 0.45) !important;
+}
+
+:global([data-theme="melee"]) .vaultTile:hover {
+  border-color: rgba(93, 200, 255, 0.45);
+  background: rgba(93, 200, 255, 0.05);
+}
+
+:global([data-theme="melee"]) .vaultTileActive {
+  border-color: var(--ssbu-gold) !important;
+  background: rgba(93, 200, 255, 0.08) !important;
+  box-shadow: 0 0 0 1px rgba(245, 192, 0, 0.35), 0 0 16px rgba(93, 200, 255, 0.18) !important;
 }

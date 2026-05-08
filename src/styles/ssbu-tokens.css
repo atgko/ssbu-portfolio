@@ -37,6 +37,9 @@
   /* Melee blue palette */
   --melee-accent: #5dc8ff;
   --melee-accent-dim: rgba(93, 200, 255, 0.12);
+  /* Melee red palette (used on About + Contact) */
+  --melee-red: #cc1122;
+  --melee-red-dim: rgba(204, 17, 34, 0.12);
 
   /* All tiles → same dark navy for Melee monochrome look */
   --tile-smash:   #060e20;
