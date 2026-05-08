@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import type { CSSProperties, KeyboardEvent } from 'react'
-import { Link } from 'react-router-dom'
+import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { MENU, type MenuItem } from './menu.ts'
 import styles from './HomeMenu.module.css'
 
@@ -212,6 +212,8 @@ type Props = {
 }
 
 export function HomeMenu({ activeIndex, onActiveChange }: Props) {
+  const navigate = useNavigate()
+  const [flashIdx, setFlashIdx] = useState<number | null>(null)
   const linkRefs = useRef<Array<HTMLAnchorElement | null>>([])
   const targetAngle = MENU[activeIndex]?.arrowAngle ?? 0
 
@@ -227,6 +229,12 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
       return prev + delta
     })
   }, [targetAngle])
+
+  function handleTileClick(e: MouseEvent, path: string, idx: number) {
+    e.preventDefault()
+    setFlashIdx(idx)
+    setTimeout(() => navigate(path), 160)
+  }
 
   function focusIndex(index: number) {
     onActiveChange(index)
@@ -263,9 +271,10 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
           .filter(Boolean)
           .join(' ')
         return (
-          <Link
+          <a
             key={item.path}
-            to={item.path}
+            href={item.path}
+            onClick={(e) => handleTileClick(e, item.path, idx)}
             className={tileClass}
             ref={(el) => {
               linkRefs.current[idx] = el
@@ -274,6 +283,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
             onFocus={() => onActiveChange(idx)}
             aria-label={`${item.section} — ${item.ssbu}`}
           >
+            {flashIdx === idx && <span className={styles.tileFlash} aria-hidden="true" />}
             <span className={styles.bgIcon} aria-hidden="true">
               <TileBgDecoration area={item.area} />
             </span>
@@ -282,7 +292,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
               <span className={styles.label}>{item.section}</span>
             </span>
             <span className={styles.perimeterLight} aria-hidden="true" />
-          </Link>
+          </a>
         )
       })}
       <CenterSplash

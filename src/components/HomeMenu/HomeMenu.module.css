@@ -338,6 +338,100 @@
   animation: perimeterSpin 2s linear infinite;
 }
 
+/* ─── Tile click flash ────────────────────────────────────────────── */
+
+@keyframes tileFlash {
+  0%   { opacity: 0; }
+  20%  { opacity: 0.92; }
+  100% { opacity: 0; }
+}
+
+.tileFlash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  animation: tileFlash 180ms ease-out forwards;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* ─── Melee Easter-egg tile overrides ────────────────────────────── */
+
+/* Flat dark tiles — strip colour and gradient */
+:global([data-theme="melee"]) .tile {
+  background-image: none;
+  border: 2px solid rgba(255, 210, 0, 0.38);
+}
+
+/* Hide radial-glow overlays in Melee mode */
+:global([data-theme="melee"]) .tile::before,
+:global([data-theme="melee"]) .tile::after {
+  display: none;
+}
+
+/* Hover/active → solid gold fill, dark text */
+:global([data-theme="melee"]) .tile:hover,
+:global([data-theme="melee"]) .tile:focus-visible,
+:global([data-theme="melee"]) .tileActive {
+  background: var(--ssbu-gold);
+  background-image: none;
+  filter: none;
+  box-shadow: 0 0 0 4px var(--ssbu-gold);
+  transform: scale(0.965);
+}
+
+:global([data-theme="melee"]) .tile:hover .label,
+:global([data-theme="melee"]) .tile:focus-visible .label,
+:global([data-theme="melee"]) .tileActive .label {
+  color: #020c1e;
+  -webkit-text-stroke: 0px;
+  text-shadow: none;
+}
+
+:global([data-theme="melee"]) .tile:hover .icon,
+:global([data-theme="melee"]) .tile:focus-visible .icon,
+:global([data-theme="melee"]) .tileActive .icon {
+  color: #020c1e;
+  filter: none;
+  transform: scale(1.04);
+}
+
+/* Grid background */
+:global([data-theme="melee"]) .grid {
+  background: #000008;
+}
+
+/* Gold perimeter light */
+:global([data-theme="melee"]) .perimeterLight {
+  background: conic-gradient(
+    from var(--light-angle),
+    transparent 0deg,
+    rgba(255, 210, 0, 0.95) 14deg,
+    rgba(255, 210, 0, 0.5) 28deg,
+    rgba(255, 210, 0, 0.15) 44deg,
+    transparent 58deg
+  );
+}
+
+/* Center splash: gold ring instead of white */
+:global([data-theme="melee"]) .centerSplash {
+  border-color: var(--ssbu-gold);
+  box-shadow:
+    0 0 0 4px var(--ssbu-gold),
+    0 0 24px rgba(255, 210, 0, 0.3),
+    0 14px 36px rgba(0, 0, 0, 0.7);
+}
+
+:global([data-theme="melee"]) .splashFigure {
+  color: var(--ssbu-gold);
+  filter: drop-shadow(0 0 12px rgba(255, 210, 0, 0.5));
+}
+
+/* Arrow tip: gold */
+:global([data-theme="melee"]) .arrowTip {
+  border-bottom-color: var(--ssbu-gold);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tile,
   .tile::before,

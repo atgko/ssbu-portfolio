@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home.tsx'
 import { About } from './pages/About.tsx'
@@ -12,17 +12,15 @@ import { useSecretCombo } from './hooks/useSecretCombo.ts'
 import styles from './App.module.css'
 
 export function App() {
-  const [meleeMode, setMeleeMode] = useState(false)
+  const isMelee = useRef(false)
   const [toast, setToast] = useState<string | null>(null)
 
   const handleCombo = useCallback(() => {
-    setMeleeMode(prev => {
-      const next = !prev
-      document.documentElement.setAttribute('data-theme', next ? 'melee' : '')
-      setToast(next ? 'MELEE MODE' : 'ULTIMATE MODE')
-      setTimeout(() => setToast(null), 1800)
-      return next
-    })
+    isMelee.current = !isMelee.current
+    const next = isMelee.current
+    document.documentElement.setAttribute('data-theme', next ? 'melee' : '')
+    setToast(next ? 'MELEE MODE' : 'ULTIMATE MODE')
+    setTimeout(() => setToast(null), 1800)
   }, [])
 
   useSecretCombo(handleCombo)

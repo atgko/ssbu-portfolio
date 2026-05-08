@@ -554,6 +554,11 @@
   letter-spacing: 0.04em;
 }
 
+@keyframes newBadgePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.9); }
+}
+
 .cardNew {
   position: absolute;
   top: 28px;
@@ -566,6 +571,7 @@
   background: #efa322;
   padding: 1px 4px;
   z-index: 2;
+  animation: newBadgePulse 1.8s ease-in-out infinite;
 }
 
 .cardBottom {
