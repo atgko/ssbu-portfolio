@@ -608,40 +608,12 @@
   color: #020c1e;
 }
 
+/* Needs !important — inline borderLeftColor beats class selectors */
 :global([data-theme="melee"]) .contentHeader {
-  border-left-color: var(--melee-accent);
+  border-left-color: var(--melee-accent) !important;
 }
 
-/* Cert badges desaturated; tile icons get gold border treatment */
-:global([data-theme="melee"]) .certCode {
-  filter: grayscale(1) brightness(0.6);
-}
-
-/* At rest: dark bg + gold border */
-:global([data-theme="melee"]) .vaultTileIcon {
-  background: #060e20 !important;
-  border: 2px solid var(--ssbu-gold);
-  filter: none;
-}
-
-/* Active vault tile: gold fill, dark content */
-:global([data-theme="melee"]) .vaultTileActive .vaultTileIcon {
-  background: var(--ssbu-gold) !important;
-  color: #020c1e;
-}
-
-/* Content panel header icon always reflects active section — always gold fill */
-:global([data-theme="melee"]) .contentHeaderIcon {
-  background: var(--ssbu-gold) !important;
-  border: 2px solid var(--ssbu-gold);
-  color: #020c1e;
-  filter: none;
-}
-
-:global([data-theme="melee"]) .expCardAccent {
-  background: rgba(93, 200, 255, 0.45) !important;
-}
-
+/* Vault nav tabs */
 :global([data-theme="melee"]) .vaultTile:hover {
   border-color: rgba(93, 200, 255, 0.45);
   background: rgba(93, 200, 255, 0.05);
@@ -652,3 +624,57 @@
   background: rgba(93, 200, 255, 0.08) !important;
   box-shadow: 0 0 0 1px rgba(245, 192, 0, 0.35), 0 0 16px rgba(93, 200, 255, 0.18) !important;
 }
+
+/* Vault tab icons — dark bg + gold border at rest; gold fill when active */
+:global([data-theme="melee"]) .vaultTileIcon {
+  background: #060e20 !important;
+  border: 2px solid var(--ssbu-gold);
+  filter: none;
+}
+
+:global([data-theme="melee"]) .vaultTileActive .vaultTileIcon {
+  background: var(--ssbu-gold) !important;
+  color: #020c1e;
+}
+
+/* Content panel header icon always shows active section — always gold fill */
+:global([data-theme="melee"]) .contentHeaderIcon {
+  background: var(--ssbu-gold) !important;
+  border: 2px solid var(--ssbu-gold);
+  color: #020c1e;
+  filter: none;
+}
+
+/* Experience card left stripes — cycle blue / red / gold per card */
+:global([data-theme="melee"]) .expCard:nth-child(3n+1) .expCardAccent { background: var(--melee-accent) !important; }
+:global([data-theme="melee"]) .expCard:nth-child(3n+2) .expCardAccent { background: var(--melee-red) !important; }
+:global([data-theme="melee"]) .expCard:nth-child(3n+0) .expCardAccent { background: var(--ssbu-gold) !important; }
+
+/* Org name text matches its card's stripe color */
+:global([data-theme="melee"]) .expCard:nth-child(3n+1) .expCardOrg { color: var(--melee-accent) !important; }
+:global([data-theme="melee"]) .expCard:nth-child(3n+2) .expCardOrg { color: var(--melee-red) !important; }
+:global([data-theme="melee"]) .expCard:nth-child(3n+0) .expCardOrg { color: var(--ssbu-gold) !important; }
+
+/* Cert badges desaturated */
+:global([data-theme="melee"]) .certCode {
+  filter: grayscale(1) brightness(0.6);
+}
+
+/* Cert card borders and status badges → gold */
+:global([data-theme="melee"]) .certCard {
+  border-color: rgba(255, 210, 0, 0.5) !important;
+}
+
+:global([data-theme="melee"]) .certStatus {
+  color: var(--ssbu-gold) !important;
+  border-color: rgba(255, 210, 0, 0.4) !important;
+}
+
+/* Skills section — group labels and chip borders cycle blue / red / gold */
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+1) .skillGroupLabel { color: var(--melee-accent) !important; }
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+2) .skillGroupLabel { color: var(--melee-red) !important; }
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+0) .skillGroupLabel { color: var(--ssbu-gold) !important; }
+
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+1) .skillChip { border-color: rgba(93, 200, 255, 0.45) !important; }
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+2) .skillChip { border-color: rgba(204, 17, 34, 0.45) !important; }
+:global([data-theme="melee"]) .skillGroup:nth-child(3n+0) .skillChip { border-color: rgba(255, 210, 0, 0.45) !important; }
