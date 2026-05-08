@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import { audioManager } from '../audio/audioManager.ts'
 import styles from './Resume.module.css'
 
 type SectionId = 'experience' | 'education' | 'certifications' | 'skills'
@@ -345,7 +346,7 @@ export function Resume() {
       >
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
-          <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
+          <Link to="/" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← MAIN MENU</Link>
           <span className={styles.screenTitle}>ARCHIVE</span>
           <a
             href="/resume.pdf"

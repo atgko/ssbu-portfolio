@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import { audioManager } from '../audio/audioManager.ts'
 import styles from './BuildStory.module.css'
 
 interface PatchEntry {
@@ -68,7 +69,7 @@ export function BuildStory() {
       >
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
-          <Link to="/projects" className={styles.backBtn}>← SPIRITS</Link>
+          <Link to="/projects" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← SPIRITS</Link>
           <span className={styles.screenTitle}>PATCH NOTES</span>
           <span className={styles.buildBadge}>BUILD</span>
         </header>

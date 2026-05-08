@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import { audioManager } from '../audio/audioManager.ts'
 import fighterImg from '../assets/personal/fighter.jpg'
 import styles from './About.module.css'
 
@@ -46,7 +47,7 @@ export function About() {
       >
 
       <header className={styles.topBar}>
-        <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
+        <Link to="/" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← MAIN MENU</Link>
         <span className={styles.screenTitle}>FIGHTER SELECT</span>
         <span className={styles.p1Badge}>P1</span>
       </header>

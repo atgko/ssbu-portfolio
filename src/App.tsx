@@ -9,6 +9,7 @@ import { Contact } from './pages/Contact.tsx'
 import { BuildStory } from './pages/BuildStory.tsx'
 import { NotFound } from './pages/NotFound.tsx'
 import { useSecretCombo } from './hooks/useSecretCombo.ts'
+import { audioManager } from './audio/audioManager.ts'
 import styles from './App.module.css'
 
 export function App() {
@@ -19,6 +20,7 @@ export function App() {
     isMelee.current = !isMelee.current
     const next = isMelee.current
     document.documentElement.setAttribute('data-theme', next ? 'melee' : '')
+    audioManager.setTheme(next ? 'melee' : 'ssbu')
     setToast(next ? 'MELEE MODE' : 'ULTIMATE MODE')
     setTimeout(() => setToast(null), 1800)
   }, [])

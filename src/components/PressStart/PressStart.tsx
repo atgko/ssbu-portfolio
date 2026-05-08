@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { audioManager } from '../../audio/audioManager.ts'
 import styles from './PressStart.module.css'
 
 const STORAGE_KEY = 'ssbu.pressStart.dismissed'
@@ -45,9 +46,13 @@ export function PressStart() {
 
   function dismiss() {
     if (dismissing) return
+    audioManager.playEffect('break')
     writeDismissed()
     setDismissing(true)
-    window.setTimeout(() => setVisible(false), FLASH_DURATION_MS)
+    window.setTimeout(() => {
+      setVisible(false)
+      audioManager.unlock()
+    }, FLASH_DURATION_MS)
   }
 
   if (!visible) return null

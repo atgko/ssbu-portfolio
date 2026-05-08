@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { audioManager } from '../../audio/audioManager.ts'
 import { MENU, type MenuItem } from './menu.ts'
 import styles from './HomeMenu.module.css'
 
@@ -232,6 +233,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
 
   function handleTileClick(e: MouseEvent, path: string, idx: number) {
     e.preventDefault()
+    audioManager.playEffect('forward')
     setFlashIdx(idx)
     setTimeout(() => navigate(path), 160)
   }

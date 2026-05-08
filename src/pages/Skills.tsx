@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import { audioManager } from '../audio/audioManager.ts'
 import styles from './Skills.module.css'
 
 type Proficiency = 'Expert' | 'Advanced' | 'Intermediate'
@@ -160,7 +161,7 @@ export function Skills() {
         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
       >
         <header className={styles.topBar}>
-          <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
+          <Link to="/" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← MAIN MENU</Link>
           <span className={styles.screenTitle}>SKILLS &amp; EXPERIENCE</span>
           <span className={styles.p1Badge}>P1</span>
         </header>

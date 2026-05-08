@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
+import { audioManager } from '../audio/audioManager.ts'
 import styles from './Contact.module.css'
 
 type PlatformIcon = 'linkedin' | 'email' | 'github' | 'location'
@@ -96,7 +97,7 @@ export function Contact() {
       >
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
-          <Link to="/" className={styles.backBtn}>← MAIN MENU</Link>
+          <Link to="/" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← MAIN MENU</Link>
           <span className={styles.screenTitle}>ONLINE</span>
           <span className={styles.p1Badge}>P1</span>
         </header>
