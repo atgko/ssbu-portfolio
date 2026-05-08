@@ -27,6 +27,43 @@ class AudioManager {
   private bgMusic: HTMLAudioElement | null = null
   private currentMusicSrc: string | null = null
   private musicUnlocked = false
+  private ctx: AudioContext | null = null
+  private buffers = new Map<string, AudioBuffer>()
+
+  constructor() {
+    this.preload()
+  }
+
+  private getCtx(): AudioContext {
+    if (!this.ctx) {
+      this.ctx = new AudioContext()
+    }
+    return this.ctx
+  }
+
+  private preload(): void {
+    const paths = new Set<string>()
+    for (const themeEffects of Object.values(EFFECTS)) {
+      for (const path of Object.values(themeEffects)) {
+        paths.add(path)
+      }
+    }
+    for (const path of paths) {
+      this.loadBuffer(path).catch(() => {})
+    }
+  }
+
+  private async loadBuffer(path: string): Promise<void> {
+    try {
+      const ctx = this.getCtx()
+      const res = await fetch(path)
+      const raw = await res.arrayBuffer()
+      const buf = await ctx.decodeAudioData(raw)
+      this.buffers.set(path, buf)
+    } catch {
+      // Silently fail — HTMLAudioElement fallback handles it
+    }
+  }
 
   setTheme(theme: Theme): void {
     this.theme = theme
@@ -35,17 +72,33 @@ class AudioManager {
     }
   }
 
-  /** Call once, from the first user gesture (PressStart dismiss). */
   unlock(): void {
     this.musicUnlocked = true
+    this.getCtx().resume().catch(() => {})
     this.startMusic(MUSIC[this.theme])
   }
 
   playEffect(type: EffectType): void {
-    const src = EFFECTS[this.theme][type]
-    const audio = new Audio(src)
-    audio.volume = EFFECT_VOLUME
-    audio.play().catch(() => { /* autoplay blocked — ignore */ })
+    const path = EFFECTS[this.theme][type]
+    const ctx = this.getCtx()
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {})
+    }
+    const buf = this.buffers.get(path)
+    if (buf) {
+      const source = ctx.createBufferSource()
+      source.buffer = buf
+      const gain = ctx.createGain()
+      gain.gain.value = EFFECT_VOLUME
+      source.connect(gain)
+      gain.connect(ctx.destination)
+      source.start(0)
+    } else {
+      // Buffer not ready yet — fall back to HTMLAudioElement
+      const audio = new Audio(path)
+      audio.volume = EFFECT_VOLUME
+      audio.play().catch(() => {})
+    }
   }
 
   private startMusic(src: string): void {
@@ -57,7 +110,7 @@ class AudioManager {
     const audio = new Audio(src)
     audio.volume = MUSIC_VOLUME
     audio.loop = true
-    audio.play().catch(() => { /* autoplay blocked — ignore */ })
+    audio.play().catch(() => {})
     this.bgMusic = audio
     this.currentMusicSrc = src
   }
