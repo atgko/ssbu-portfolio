@@ -272,6 +272,13 @@
   overflow: hidden;
 }
 
+.arenaInner {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
 .sunGlow {
   position: absolute;
   inset: 0;
@@ -296,6 +303,105 @@
   min-height: 0;
   position: relative;
   z-index: 1;
+}
+
+/* ─── Battle Request form ─────────────────────────────────────────── */
+
+.requestPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 300px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(239, 163, 34, 0.2);
+  background: rgba(10, 10, 26, 0.72);
+  padding: 18px 20px;
+  align-self: stretch;
+}
+
+.formTitle {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ssbu-gold);
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(239, 163, 34, 0.2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.fieldInput,
+.fieldTextarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(239, 163, 34, 0.22);
+  color: var(--ssbu-white);
+  font-family: var(--ssbu-font-body);
+  font-size: 0.82rem;
+  padding: 7px 10px;
+  outline: none;
+  resize: none;
+  transition: border-color 150ms ease;
+}
+
+.fieldInput::placeholder,
+.fieldTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.fieldInput:focus,
+.fieldTextarea:focus {
+  border-color: rgba(239, 163, 34, 0.6);
+}
+
+.fieldTextarea {
+  flex: 1;
+  min-height: 80px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  border: 2px solid var(--ssbu-gold);
+  color: var(--ssbu-gold);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+  margin-top: auto;
+}
+
+.submitBtn:hover {
+  background: var(--ssbu-gold);
+  color: #0a0a1a;
 }
 
 /* ─── Card base ───────────────────────────────────────────────────── */

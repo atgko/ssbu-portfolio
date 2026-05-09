@@ -1,3 +1,4 @@
+import type React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -85,6 +86,17 @@ function CardIcon({ type }: { type: PlatformIcon }) {
   return <MountainSvg />
 }
 
+function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault()
+  const form = e.currentTarget
+  const name    = (form.elements.namedItem('name')    as HTMLInputElement).value
+  const email   = (form.elements.namedItem('email')   as HTMLInputElement).value
+  const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
+  const subject = encodeURIComponent(`Battle Request from ${name}`)
+  const body    = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
+  window.location.href = `mailto:athavan.elangko@gmail.com?subject=${subject}&body=${body}`
+}
+
 export function Contact() {
   return (
     <>
@@ -151,6 +163,7 @@ export function Contact() {
         <div className={styles.arena}>
           <div className={styles.sunGlow} aria-hidden="true" />
 
+          <div className={styles.arenaInner}>
           <div className={styles.cardGrid}>
             {PLATFORMS.map((p, i) => {
               const inner = (
@@ -202,6 +215,34 @@ export function Contact() {
                 </motion.a>
               )
             })}
+          </div>
+
+          {/* ── Battle Request form ── */}
+          <motion.div
+            className={styles.requestPanel}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            <p className={styles.formTitle}>SEND BATTLE REQUEST</p>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="name">Fighter Tag</label>
+                <input id="name" name="name" type="text" className={styles.fieldInput} placeholder="Your name" required />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="email">Home Stage</label>
+                <input id="email" name="email" type="email" className={styles.fieldInput} placeholder="your@email.com" required />
+              </div>
+              <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel} htmlFor="message">Challenge Message</label>
+                <textarea id="message" name="message" className={styles.fieldTextarea} rows={4} placeholder="Your message..." required />
+              </div>
+              <button type="submit" className={styles.submitBtn}>
+                ▶ SEND REQUEST
+              </button>
+            </form>
+          </motion.div>
           </div>
         </div>
 

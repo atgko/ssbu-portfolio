@@ -10,6 +10,7 @@ import { BuildStory } from './pages/BuildStory.tsx'
 import { NotFound } from './pages/NotFound.tsx'
 import { useSecretCombo } from './hooks/useSecretCombo.ts'
 import { audioManager } from './audio/audioManager.ts'
+import { MobileGate } from './components/MobileGate/MobileGate.tsx'
 import styles from './App.module.css'
 
 export function App() {
@@ -29,6 +30,7 @@ export function App() {
 
   return (
     <>
+      <MobileGate />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
