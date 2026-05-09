@@ -85,7 +85,7 @@ export function BuildStory() {
       >
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
-          <Link to="/projects" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← SPIRITS</Link>
+          <Link to="/projects" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← PROJECTS</Link>
           <span className={styles.screenTitle}>PATCH NOTES</span>
           <span className={styles.buildBadge}>BUILD</span>
         </header>
