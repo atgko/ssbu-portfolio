@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { audioManager } from '../../audio/audioManager.ts'
@@ -238,6 +238,15 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
     setTimeout(() => navigate(path), 160)
   }
 
+  function handleTileKeyUp(e: React.KeyboardEvent, path: string, idx: number) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      audioManager.playEffect('forward')
+      setFlashIdx(idx)
+      setTimeout(() => navigate(path), 160)
+    }
+  }
+
   function focusIndex(index: number) {
     onActiveChange(index)
     linkRefs.current[index]?.focus()
@@ -275,7 +284,8 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
         return (
           <a
             key={item.path}
-            href={item.path}
+            tabIndex={0}
+            role="link"
             onClick={(e) => handleTileClick(e, item.path, idx)}
             className={tileClass}
             ref={(el) => {
@@ -283,6 +293,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
             }}
             onMouseEnter={() => onActiveChange(idx)}
             onFocus={() => onActiveChange(idx)}
+            onKeyUp={(e) => handleTileKeyUp(e, item.path, idx)}
             aria-label={`${item.section} — ${item.ssbu}`}
           >
             {flashIdx === idx && <span className={styles.tileFlash} aria-hidden="true" />}
