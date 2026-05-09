@@ -136,7 +136,7 @@ export function Contact() {
           </div>
           <div className={styles.playerStatus}>
             <span className={styles.statusDot} />
-            Available Jan 2026
+            Available Jan 2027
           </div>
         </div>
 
