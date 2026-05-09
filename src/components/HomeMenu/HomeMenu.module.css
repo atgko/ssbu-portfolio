@@ -268,14 +268,14 @@
   object-fit: contain;
   /* screen blend removes the white PNG background on the dark circle */
   mix-blend-mode: screen;
-  /* remap purple/cyan → SSBU gold */
+  /* remap purple/cyan → SSBU tile blue (#2a78ff) */
   filter:
     grayscale(1)
     sepia(1)
     saturate(4)
-    hue-rotate(10deg)
-    brightness(1.2)
-    drop-shadow(0 0 16px rgba(245, 197, 24, 0.6));
+    hue-rotate(188deg)
+    brightness(1.1)
+    drop-shadow(0 0 10px rgba(42, 120, 255, 0.35));
 }
 
 /* Rotating wrapper — rotates around the splash center. Driven by a
