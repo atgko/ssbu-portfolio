@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { ReactElement } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
@@ -335,10 +335,12 @@ export function Resume() {
   const [activeSection, setActiveSection] = useState<SectionId>('experience')
   const ActiveContent = SECTION_COMPONENTS[activeSection]
 
+  useEffect(() => { document.title = 'Resume · Athavan Elangko' }, [])
+
   return (
     <>
       <StarsBackground />
-      <motion.div
+      <motion.main
         className={styles.page}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -439,7 +441,7 @@ export function Resume() {
             <kbd>↑↓</kbd> Navigate &nbsp;·&nbsp; <kbd>A</kbd> Open &nbsp;·&nbsp; <kbd>B</kbd> Back
           </span>
         </footer>
-      </motion.div>
+      </motion.main>
     </>
   )
 }

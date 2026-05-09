@@ -1,9 +1,14 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import styles from './NotFound.module.css'
 
 export function NotFound() {
+  const { pathname } = useLocation()
+
+  useEffect(() => { document.title = '404 · Athavan Elangko' }, [])
+
   return (
     <div className={styles.screen}>
       <StarsBackground />
@@ -18,6 +23,7 @@ export function NotFound() {
           A connection error has occurred.{'\n'}
           Fighter data not found in this stage.
         </p>
+        <p className={styles.path}>{pathname}</p>
         <Link to="/" className={styles.okBtn}>
           Return to Main Menu
         </Link>

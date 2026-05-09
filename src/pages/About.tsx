@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -20,7 +21,7 @@ function StatBar({ label, value, delay }: { label: string; value: number; delay:
   return (
     <div className={styles.statRow}>
       <span className={styles.statLabel}>{label}</span>
-      <div className={styles.statBar}>
+      <div className={styles.statBar} role="meter" aria-label={label} aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}>
         {Array.from({ length: SEGMENTS }, (_, i) => (
           <motion.span
             key={i}
@@ -36,6 +37,8 @@ function StatBar({ label, value, delay }: { label: string; value: number; delay:
 }
 
 export function About() {
+  useEffect(() => { document.title = 'About · Athavan Elangko' }, [])
+
   return (
     <>
       <StarsBackground />
@@ -52,7 +55,7 @@ export function About() {
         <span className={styles.p1Badge}>P1</span>
       </header>
 
-      <section className={styles.stage}>
+      <section className={styles.stage} aria-label="Fighter profile">
         <motion.div
           className={styles.fighterArea}
           initial={{ opacity: 0, scale: 0.92 }}
@@ -110,7 +113,7 @@ export function About() {
 
       <footer className={styles.bottomBar}>
         <span className={styles.hint}>
-          <kbd>↑↓←→</kbd> Navigate &nbsp;·&nbsp; <kbd>Enter</kbd> Select
+          <kbd>B</kbd> Back
         </span>
       </footer>
       </motion.main>

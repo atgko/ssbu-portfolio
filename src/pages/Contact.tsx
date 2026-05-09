@@ -1,4 +1,5 @@
-import type React from 'react'
+import { useState, useEffect } from 'react'
+import type { FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -86,22 +87,30 @@ function CardIcon({ type }: { type: PlatformIcon }) {
   return <MountainSvg />
 }
 
-function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault()
-  const form = e.currentTarget
-  const name    = (form.elements.namedItem('name')    as HTMLInputElement).value
-  const email   = (form.elements.namedItem('email')   as HTMLInputElement).value
-  const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
-  const subject = encodeURIComponent(`Battle Request from ${name}`)
-  const body    = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
-  window.location.href = `mailto:athavan.elangko@gmail.com?subject=${subject}&body=${body}`
-}
-
 export function Contact() {
+  const [sending, setSending] = useState(false)
+
+  useEffect(() => { document.title = 'Contact · Athavan Elangko' }, [])
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSending(true)
+    const form = e.currentTarget
+    const name    = (form.elements.namedItem('name')    as HTMLInputElement).value
+    const email   = (form.elements.namedItem('email')   as HTMLInputElement).value
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
+    const subject = encodeURIComponent(`Battle Request from ${name}`)
+    const body    = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
+    setTimeout(() => {
+      window.location.href = `mailto:athavan.elangko@gmail.com?subject=${subject}&body=${body}`
+      setSending(false)
+    }, 600)
+  }
+
   return (
     <>
       <StarsBackground />
-      <motion.div
+      <motion.main
         className={styles.page}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -238,8 +247,8 @@ export function Contact() {
                 <label className={styles.fieldLabel} htmlFor="message">Challenge Message</label>
                 <textarea id="message" name="message" className={styles.fieldTextarea} rows={4} placeholder="Your message..." required />
               </div>
-              <button type="submit" className={styles.submitBtn}>
-                ▶ SEND REQUEST
+              <button type="submit" className={styles.submitBtn} disabled={sending}>
+                {sending ? '▶ SENDING…' : '▶ SEND REQUEST'}
               </button>
             </form>
           </motion.div>
@@ -252,7 +261,7 @@ export function Contact() {
           <span className={styles.statusSep}>·</span>
           <span className={styles.creditText}>© Athavan Elangko · Built with React + Claude Code</span>
         </footer>
-      </motion.div>
+      </motion.main>
     </>
   )
 }

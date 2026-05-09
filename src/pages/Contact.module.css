@@ -121,7 +121,7 @@
 .matchSub {
   font-family: var(--ssbu-font-body);
   font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.02em;
 }
 
@@ -251,7 +251,7 @@
 .ruleVal {
   font-family: var(--ssbu-font-body);
   font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.34);
+  color: rgba(255, 255, 255, 0.62);
   flex-shrink: 0;
 }
 
@@ -652,7 +652,7 @@
 .cardSubtitle {
   font-family: var(--ssbu-font-body);
   font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.04em;
 }
 

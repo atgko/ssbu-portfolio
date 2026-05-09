@@ -15,7 +15,7 @@ export function MobileGate() {
         <h1 className={styles.heading}>Desktop Stage Required</h1>
         <p className={styles.body}>
           This arena was built for the Desktop Stage.<br />
-          Visit <span className={styles.url}>athavan.gg</span> on a larger screen for the full experience.
+          Visit <a href="https://athavan.gg" className={styles.url}>athavan.gg</a> on a larger screen for the full experience.
         </p>
         <div className={styles.hint}>
           <span className={styles.hintKey}>PC</span>

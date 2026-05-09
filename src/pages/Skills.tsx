@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -151,10 +151,12 @@ export function Skills() {
   const [activeId, setActiveId] = useState<string>(CATEGORIES[0]!.id)
   const active = CATEGORIES.find(c => c.id === activeId)!
 
+  useEffect(() => { document.title = 'Skills · Athavan Elangko' }, [])
+
   return (
     <>
       <StarsBackground />
-      <motion.div
+      <motion.main
         className={styles.page}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -268,7 +270,7 @@ export function Skills() {
             <kbd>↑↓</kbd> Browse &nbsp;·&nbsp; <kbd>A</kbd> Select &nbsp;·&nbsp; <kbd>B</kbd> Back
           </span>
         </footer>
-      </motion.div>
+      </motion.main>
     </>
   )
 }

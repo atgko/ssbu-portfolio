@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -143,10 +143,12 @@ export function Projects() {
   const sorted = sortProjects(PROJECTS, sortMode)
   const [selected, setSelected] = useState<Project>(PROJECTS[0]!)
 
+  useEffect(() => { document.title = 'Projects · Athavan Elangko' }, [])
+
   return (
     <>
       <StarsBackground />
-      <motion.div
+      <motion.main
         className={styles.page}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -327,6 +329,7 @@ export function Projects() {
               <motion.div
                 key={selected.id}
                 className={styles.descPanel}
+                aria-live="polite"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -366,7 +369,7 @@ export function Projects() {
             </AnimatePresence>
           </div>
         </div>
-      </motion.div>
+      </motion.main>
     </>
   )
 }

@@ -17,6 +17,10 @@ export function Home() {
   const [now, setNow] = useState<Date>(() => new Date())
 
   useEffect(() => {
+    document.title = 'Athavan Elangko — Portfolio'
+  }, [])
+
+  useEffect(() => {
     const id = window.setInterval(() => setNow(new Date()), 30_000)
     return () => window.clearInterval(id)
   }, [])

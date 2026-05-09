@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
@@ -58,10 +59,12 @@ const PATCHES: PatchEntry[] = [
 const TOTAL_CHANGES = PATCHES.reduce((n, p) => n + p.changes.length, 0)
 
 export function BuildStory() {
+  useEffect(() => { document.title = 'Build Story · Athavan Elangko' }, [])
+
   return (
     <>
       <StarsBackground />
-      <motion.div
+      <motion.main
         className={styles.page}
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -125,7 +128,7 @@ export function BuildStory() {
             3 days · {TOTAL_CHANGES} changes · Built with React + Claude Code
           </span>
         </footer>
-      </motion.div>
+      </motion.main>
     </>
   )
 }
