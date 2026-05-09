@@ -67,7 +67,10 @@ export function MobileGate() {
             <div className={styles.cardFront}>
               <div className={styles.p1Row}>
                 <span className={styles.p1Num}>P1</span>
-                <span className={styles.p1Tag}>Player 1</span>
+                <div className={styles.p1Info}>
+                  <span className={styles.p1Name}>Athavan</span>
+                  <span className={styles.p1Tag}>Player 1</span>
+                </div>
               </div>
               <img src={fighterImg} alt="Athavan" className={styles.fighterPhoto} />
               <div className={styles.frontFooter}>
@@ -82,6 +85,12 @@ export function MobileGate() {
                 <span className={styles.fighterName}>Athavan</span>
               </div>
               <p className={styles.fighterTitle}>Product Manager · TPM</p>
+
+              <div className={styles.metaBox}>
+                <span className={styles.metaLine}>M.S. Information Systems · University of Utah</span>
+                <span className={styles.metaLine}>8+ Years · Banking &amp; Fintech</span>
+                <span className={[styles.metaLine, styles.metaAvail].join(' ')}>Available Jan 2027</span>
+              </div>
 
               <div className={styles.statsSection}>
                 <p className={styles.statsHeading}>FIGHTER STATS</p>
@@ -98,6 +107,12 @@ export function MobileGate() {
           </motion.div>
         </div>
 
+        {/* Location */}
+        <p className={styles.location}>
+          <span className={styles.locationLabel}>LOCATION </span>
+          Salt Lake City · Open to Seattle &amp; Bay Area
+        </p>
+
         {/* Contact links */}
         <div className={styles.contactRow}>
           <a
@@ -106,12 +121,21 @@ export function MobileGate() {
             rel="noopener noreferrer"
             className={styles.contactBtn}
           >
-            <span className={styles.contactIcon}>in</span>
+            <span className={styles.contactIcon}>💼</span>
             LinkedIn
           </a>
           <a href="mailto:athavan.elangko@gmail.com" className={styles.contactBtn}>
             <span className={styles.contactIcon}>✉</span>
             Email
+          </a>
+          <a
+            href="https://github.com/atgko"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.contactBtn}
+          >
+            <span className={styles.contactIcon}>🐙</span>
+            GitHub
           </a>
         </div>
 

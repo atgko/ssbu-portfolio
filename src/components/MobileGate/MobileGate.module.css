@@ -83,11 +83,27 @@
   line-height: 1;
 }
 
+.p1Info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.p1Name {
+  font-family: var(--ssbu-font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ssbu-white);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
 .p1Tag {
   font-family: var(--ssbu-font-body);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -96,7 +112,7 @@
   flex: 1;
   width: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 25%;
   min-height: 0;
   display: block;
 }
@@ -107,6 +123,26 @@
   display: flex;
   justify-content: center;
   flex-shrink: 0;
+}
+
+/* Location line below card */
+.location {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.71rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+}
+
+.locationLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.57rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(245, 197, 24, 0.52);
+  text-transform: uppercase;
 }
 
 /* Back: dark stats panel */
@@ -234,6 +270,30 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(245, 197, 24, 0.48);
+}
+
+/* Back meta section */
+.metaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 5px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.metaLine {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.59rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.metaAvail {
+  color: rgba(245, 197, 24, 0.82);
+  font-weight: 600;
 }
 
 /* ── Contact buttons ──────────────────────────────────────────────── */
