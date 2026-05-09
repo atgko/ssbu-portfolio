@@ -68,7 +68,7 @@ export function MobileGate() {
               <div className={styles.p1Row}>
                 <span className={styles.p1Num}>P1</span>
                 <div className={styles.p1Info}>
-                  <span className={styles.p1Name}>Athavan</span>
+                  <span className={styles.p1Name}>Athavan Elangko</span>
                   <span className={styles.p1Tag}>Player 1</span>
                 </div>
               </div>
@@ -82,9 +82,16 @@ export function MobileGate() {
             <div className={styles.cardBack}>
               <div className={styles.nameBanner}>
                 <span className={styles.fighterNum}>#01</span>
-                <span className={styles.fighterName}>Athavan</span>
+                <span className={styles.fighterName}>Athavan Elangko</span>
               </div>
               <p className={styles.fighterTitle}>Product Manager · TPM</p>
+
+              <p className={styles.bio}>
+                Athavan enjoys building and improving things—taking something ambiguous and shaping
+                it into something that works. His current focus is exploring how AI tools can help
+                bring ideas to life faster and more practically. Athavan is driven by curiosity,
+                iteration, and the process of making things better over time.
+              </p>
 
               <div className={styles.metaBox}>
                 <span className={styles.metaLine}>M.S. Information Systems · University of Utah</span>
