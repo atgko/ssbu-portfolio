@@ -3,6 +3,7 @@ import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { audioManager } from '../../audio/audioManager.ts'
 import { MENU, type MenuItem } from './menu.ts'
+import aeLogo from '../../assets/personal/ae-logo.png'
 import styles from './HomeMenu.module.css'
 
 const areaClass: Record<MenuItem['area'], string> = {
@@ -191,14 +192,7 @@ function CenterSplash({ arrowAngle, ringColor }: SplashProps) {
   return (
     <div className={styles.splashWrap} aria-hidden="true" style={splashStyle}>
       <div className={styles.centerSplash}>
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={styles.splashFigure}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M12 2a4 4 0 014 4v1a4 4 0 11-8 0V6a4 4 0 014-4zm-7 20a7 7 0 0114 0z" />
-        </svg>
+        <img src={aeLogo} alt="AE" className={styles.splashLogo} />
       </div>
       <div className={styles.arrowOrbit} style={orbitStyle}>
         <span className={styles.arrowTip} />

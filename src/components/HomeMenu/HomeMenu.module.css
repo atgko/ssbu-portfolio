@@ -262,11 +262,20 @@
   overflow: hidden;
 }
 
-.splashFigure {
-  width: 70%;
-  height: 70%;
-  color: var(--ssbu-gold-light);
-  filter: drop-shadow(0 0 14px rgba(245, 197, 24, 0.55));
+.splashLogo {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  /* screen blend removes the white PNG background on the dark circle */
+  mix-blend-mode: screen;
+  /* remap purple/cyan → SSBU gold */
+  filter:
+    grayscale(1)
+    sepia(1)
+    saturate(4)
+    hue-rotate(10deg)
+    brightness(1.2)
+    drop-shadow(0 0 16px rgba(245, 197, 24, 0.6));
 }
 
 /* Rotating wrapper — rotates around the splash center. Driven by a
@@ -429,9 +438,15 @@
     0 14px 36px rgba(0, 0, 0, 0.7);
 }
 
-:global([data-theme="melee"]) .splashFigure {
-  color: var(--ssbu-gold);
-  filter: drop-shadow(0 0 12px rgba(255, 210, 0, 0.5));
+:global([data-theme="melee"]) .splashLogo {
+  /* hotter gold + electric glow for Melee palette */
+  filter:
+    grayscale(1)
+    sepia(1)
+    saturate(6)
+    hue-rotate(0deg)
+    brightness(1.3)
+    drop-shadow(0 0 18px rgba(255, 210, 0, 0.75));
 }
 
 /* Arrow tip: gold */
