@@ -69,7 +69,7 @@ export function MobileGate() {
                 <span className={styles.p1Num}>P1</span>
                 <div className={styles.p1Info}>
                   <span className={styles.p1Name}>Athavan Elangko</span>
-                  <span className={styles.p1Tag}>Player 1</span>
+                  <span className={styles.p1Tag}>Product Manager · TPM</span>
                 </div>
               </div>
               <img src={fighterImg} alt="Athavan" className={styles.fighterPhoto} />
