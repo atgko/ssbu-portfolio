@@ -11,8 +11,7 @@
     background: var(--ssbu-bg-primary);
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 2rem;
+    padding: 1.5rem 1.25rem;
   }
 }
 
@@ -22,122 +21,276 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.1rem;
+  width: 100%;
   max-width: 320px;
 }
 
-.iconRow {
+/* ── 3-D flip card ────────────────────────────────────────────────── */
+
+.cardScene {
+  width: min(280px, 84vw);
+  height: min(380px, 52vh);
+  perspective: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+}
+
+.cardScene:focus-visible {
+  outline: 2px solid rgba(245, 197, 24, 0.6);
+  outline-offset: 3px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 0.25rem;
+  flex-direction: column;
 }
 
-.icon {
-  font-size: 1.4rem;
-  color: var(--ssbu-gold);
-  opacity: 0.6;
+/* Front: red P1 victory panel */
+.cardFront {
+  background: linear-gradient(160deg, #cc2200 0%, #8a1500 58%, #1a0800 100%);
+  border: 2px solid rgba(245, 197, 24, 0.3);
 }
 
-.icon:nth-child(2) {
-  font-size: 2rem;
-  opacity: 1;
+.p1Row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 9px 13px 5px;
+  flex-shrink: 0;
 }
 
-.eyebrow {
+.p1Num {
   font-family: var(--ssbu-font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(245, 197, 24, 0.5);
-  margin: 0;
-}
-
-.heading {
-  font-family: var(--ssbu-font-display);
-  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-size: 1.45rem;
   font-weight: 800;
+  color: var(--ssbu-gold);
   letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.p1Tag {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fighterPhoto {
+  flex: 1;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  min-height: 0;
+  display: block;
+}
+
+.frontFooter {
+  padding: 7px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Back: dark stats panel */
+.cardBack {
+  background: var(--ssbu-bg-panel);
+  border: 2px solid rgba(245, 197, 24, 0.38);
+  transform: rotateY(180deg);
+  padding: 11px 13px;
+  gap: 5px;
+}
+
+.nameBanner {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(245, 197, 24, 0.22);
+  flex-shrink: 0;
+}
+
+.fighterNum {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ssbu-gold);
+  letter-spacing: 0.12em;
+}
+
+.fighterName {
+  font-family: var(--ssbu-font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--ssbu-white);
-  line-height: 1.1;
-  margin: 0;
+  letter-spacing: 0.05em;
+  line-height: 1;
 }
 
-.body {
+.fighterTitle {
   font-family: var(--ssbu-font-body);
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.48);
-  line-height: 1.6;
+  font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.03em;
   margin: 0;
+  flex-shrink: 0;
+}
+
+.statsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-height: 0;
+  margin-top: 2px;
+}
+
+.statsHeading {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 197, 24, 0.48);
+  margin: 0 0 3px;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statLabel {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.68);
+  width: 68px;
+  flex-shrink: 0;
+  text-align: left;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statBar {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.segment {
+  width: 10px;
+  height: 9px;
+  display: inline-block;
+  flex-shrink: 0;
+  transform-origin: bottom;
+}
+
+.segOn {
+  background: var(--ssbu-gold);
+  box-shadow: 0 0 4px rgba(245, 197, 24, 0.45);
+}
+
+.segOff {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.backFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Shared tap hint */
+.tapHint {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 197, 24, 0.48);
+}
+
+/* ── Contact buttons ──────────────────────────────────────────────── */
+
+.contactRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid rgba(245, 197, 24, 0.32);
+  background: rgba(245, 197, 24, 0.04);
+  color: var(--ssbu-gold);
+  font-family: var(--ssbu-font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.contactBtn:hover,
+.contactBtn:active {
+  background: rgba(245, 197, 24, 0.1);
+  border-color: rgba(245, 197, 24, 0.6);
+}
+
+.contactIcon {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* ── Footer text ──────────────────────────────────────────────────── */
+
+.footer {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.55;
+  margin: 0;
+  text-align: center;
 }
 
 .url {
   color: var(--ssbu-gold);
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid rgba(245, 197, 24, 0.4);
+  border-bottom: 1px solid rgba(245, 197, 24, 0.38);
 }
 
 .url:hover {
   border-bottom-color: var(--ssbu-gold);
-}
-
-.hint {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 0.5rem;
-  padding: 8px 18px;
-  border: 1px solid rgba(245, 197, 24, 0.2);
-  background: rgba(245, 197, 24, 0.04);
-}
-
-.hintKey {
-  font-family: var(--ssbu-font-display);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--ssbu-gold);
-  padding: 2px 8px;
-  border: 1px solid rgba(245, 197, 24, 0.4);
-  background: rgba(245, 197, 24, 0.08);
-}
-
-.hintText {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.04em;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 0.25rem;
-}
-
-.link {
-  font-family: var(--ssbu-font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ssbu-gold);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245, 197, 24, 0.3);
-  padding-bottom: 1px;
-  transition: border-color 150ms ease, color 150ms ease;
-}
-
-.link:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.linkDivider {
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 0.8rem;
 }
