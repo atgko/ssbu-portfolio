@@ -655,16 +655,19 @@
 :global([data-theme="melee"]) .expCard:nth-child(3n+2) .expCardOrg { color: var(--melee-red) !important; }
 :global([data-theme="melee"]) .expCard:nth-child(3n+0) .expCardOrg { color: var(--ssbu-gold) !important; }
 
-/* Cert badges desaturated */
-:global([data-theme="melee"]) .certCode {
-  filter: grayscale(1) brightness(0.6);
-}
+/* Cert badges cycle blue / red / gold */
+:global([data-theme="melee"]) .certCode { filter: none; }
 
-/* Cert card borders and status badges → gold */
-:global([data-theme="melee"]) .certCard {
-  border-color: rgba(255, 210, 0, 0.5) !important;
-}
+:global([data-theme="melee"]) .certCard:nth-child(3n+1) .certCode { background: var(--melee-accent) !important; }
+:global([data-theme="melee"]) .certCard:nth-child(3n+2) .certCode { background: var(--melee-red) !important; }
+:global([data-theme="melee"]) .certCard:nth-child(3n)   .certCode { background: var(--ssbu-gold) !important; color: #020c1e; }
 
+/* Cert card borders cycle to match */
+:global([data-theme="melee"]) .certCard:nth-child(3n+1) { border-color: rgba(93, 200, 255, 0.5) !important; }
+:global([data-theme="melee"]) .certCard:nth-child(3n+2) { border-color: rgba(204, 17, 34, 0.5) !important; }
+:global([data-theme="melee"]) .certCard:nth-child(3n)   { border-color: rgba(255, 210, 0, 0.5) !important; }
+
+/* Status badges stay gold */
 :global([data-theme="melee"]) .certStatus {
   color: var(--ssbu-gold) !important;
   border-color: rgba(255, 210, 0, 0.4) !important;
