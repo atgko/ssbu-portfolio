@@ -32,6 +32,15 @@ export function PressStart() {
     }
   }, [visible, dismissing])
 
+  useEffect(() => {
+    if (visible) {
+      document.documentElement.dataset.splash = 'visible'
+    } else {
+      delete document.documentElement.dataset.splash
+    }
+    return () => { delete document.documentElement.dataset.splash }
+  }, [visible])
+
   // If the splash was already dismissed in a previous visit (sessionStorage),
   // the overlay is skipped but audioManager.unlock() was never called this
   // page load. Re-unlock on the first user interaction.

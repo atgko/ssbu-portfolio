@@ -338,6 +338,13 @@
   animation: perimeterSpin 2s linear infinite;
 }
 
+:global([data-splash="visible"]) .tile:hover .perimeterLight,
+:global([data-splash="visible"]) .tile:focus-visible .perimeterLight,
+:global([data-splash="visible"]) .tileActive .perimeterLight {
+  animation: none;
+  opacity: 0;
+}
+
 /* ─── Tile click flash ────────────────────────────────────────────── */
 
 @keyframes tileFlash {
