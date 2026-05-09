@@ -23,6 +23,15 @@ export function MobileGate() {
           <span className={styles.hintKey}>Laptop</span>
           <span className={styles.hintText}>recommended</span>
         </div>
+        <div className={styles.links}>
+          <a href="https://www.linkedin.com/in/athavan-elangko" target="_blank" rel="noopener noreferrer" className={styles.link}>
+            LinkedIn
+          </a>
+          <span className={styles.linkDivider}>·</span>
+          <a href="mailto:athavan.elangko@gmail.com" className={styles.link}>
+            Email
+          </a>
+        </div>
       </div>
     </div>
   )

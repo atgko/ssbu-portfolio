@@ -105,3 +105,33 @@
   color: rgba(255, 255, 255, 0.3);
   letter-spacing: 0.04em;
 }
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0.25rem;
+}
+
+.link {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ssbu-gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245, 197, 24, 0.3);
+  padding-bottom: 1px;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.link:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.linkDivider {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+}
