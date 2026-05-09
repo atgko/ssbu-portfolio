@@ -31,4 +31,6 @@ Live: **https://athavan.gg**
 
 ## Status
 
-M0 (scaffolding) complete. M1 (SSBU home screen + Press Start splash) is next.
+**Shipped** — live at [athavan.gg](https://athavan.gg).
+
+All six sections complete: About (fighter card), Projects (Spirits), Skills (Games & More), Resume (Vault), Contact (Online lobby), Build Story (patch notes). Mobile view uses an interactive fighter flip card. Melee Easter egg (L→R→A→Space) toggles a monochromatic navy/gold palette site-wide.

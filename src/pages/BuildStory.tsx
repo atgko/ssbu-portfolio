@@ -15,6 +15,19 @@ interface PatchEntry {
 
 const PATCHES: PatchEntry[] = [
   {
+    version: 'DAY 4',
+    date: 'May 9, 2026',
+    codename: 'Mobile Fighter',
+    milestone: 'Mobile M1',
+    changes: [
+      'Replaced "desktop only" mobile gate with an interactive SSBU fighter flip card',
+      'Card front: full-body fighter photo, name, title (Product Manager · TPM), university badge',
+      'Card back: full bio, Universe/Series meta block, location badge, LinkedIn + email icon links',
+      'Gold divider between meta block and bio; space-between layout distributes content to card edges',
+      'Tap-to-flip interaction with CSS 3D perspective — no JS animation library needed',
+    ],
+  },
+  {
     version: 'DAY 3',
     date: 'May 8, 2026',
     codename: 'Full Roster',
@@ -125,7 +138,7 @@ export function BuildStory() {
         {/* ── Footer ── */}
         <footer className={styles.statusBar}>
           <span className={styles.statusText}>
-            3 days · {TOTAL_CHANGES} changes · Built with React + Claude Code
+            4 days · {TOTAL_CHANGES} changes · Built with React + Claude Code
           </span>
         </footer>
       </motion.main>
