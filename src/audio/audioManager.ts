@@ -73,6 +73,7 @@ class AudioManager {
   }
 
   unlock(): void {
+    if (this.musicUnlocked) return
     this.musicUnlocked = true
     this.getCtx().resume().catch(() => {})
     this.startMusic(MUSIC[this.theme])

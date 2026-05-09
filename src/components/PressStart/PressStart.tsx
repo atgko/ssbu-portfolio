@@ -32,6 +32,24 @@ export function PressStart() {
     }
   }, [visible, dismissing])
 
+  // If the splash was already dismissed in a previous visit (sessionStorage),
+  // the overlay is skipped but audioManager.unlock() was never called this
+  // page load. Re-unlock on the first user interaction.
+  useEffect(() => {
+    if (visible) return
+    function onInteract() {
+      audioManager.unlock()
+      window.removeEventListener('click',   onInteract, true)
+      window.removeEventListener('keydown', onInteract, true)
+    }
+    window.addEventListener('click',   onInteract, true)
+    window.addEventListener('keydown', onInteract, true)
+    return () => {
+      window.removeEventListener('click',   onInteract, true)
+      window.removeEventListener('keydown', onInteract, true)
+    }
+  }, [visible])
+
   useEffect(() => {
     if (!visible || dismissing) return
     function onKey(e: KeyboardEvent) {
