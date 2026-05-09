@@ -92,6 +92,7 @@ export function MobileGate() {
                 <span className={styles.metaLine}>8+ Years · Banking &amp; Fintech</span>
                 <span className={[styles.metaLine, styles.metaAvail].join(' ')}>Available Jan 2027</span>
               </div>
+              <div className={styles.divider} />
 
               <p className={styles.bio}>
                 Athavan enjoys building and improving things—taking something ambiguous and shaping
