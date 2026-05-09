@@ -85,6 +85,13 @@ export function MobileGate() {
                 <span className={styles.fighterName}>Athavan Elangko</span>
               </div>
               <p className={styles.fighterTitle}>Product Manager · TPM</p>
+              <div className={styles.divider} />
+
+              <div className={styles.metaBox}>
+                <span className={styles.metaLine}>M.S. Information Systems · University of Utah</span>
+                <span className={styles.metaLine}>8+ Years · Banking &amp; Fintech</span>
+                <span className={[styles.metaLine, styles.metaAvail].join(' ')}>Available Jan 2027</span>
+              </div>
 
               <p className={styles.bio}>
                 Athavan enjoys building and improving things—taking something ambiguous and shaping
@@ -92,12 +99,6 @@ export function MobileGate() {
                 bring ideas to life faster and more practically. Athavan is driven by curiosity,
                 iteration, and the process of making things better over time.
               </p>
-
-              <div className={styles.metaBox}>
-                <span className={styles.metaLine}>M.S. Information Systems · University of Utah</span>
-                <span className={styles.metaLine}>8+ Years · Banking &amp; Fintech</span>
-                <span className={[styles.metaLine, styles.metaAvail].join(' ')}>Available Jan 2027</span>
-              </div>
 
               <div className={styles.statsSection}>
                 <p className={styles.statsHeading}>FIGHTER STATS</p>

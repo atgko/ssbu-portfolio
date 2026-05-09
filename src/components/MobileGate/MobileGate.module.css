@@ -275,14 +275,15 @@
   color: rgba(245, 197, 24, 0.48);
 }
 
+.divider {
+  border-top: 1px solid rgba(245, 197, 24, 0.25);
+}
+
 /* Back meta section */
 .metaBox {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 5px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
 }
 
