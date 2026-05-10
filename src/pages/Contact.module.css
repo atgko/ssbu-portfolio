@@ -399,9 +399,32 @@
   margin-top: auto;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
   background: var(--ssbu-gold);
   color: #0a0a1a;
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.formSuccess {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.78rem;
+  color: #22cc66;
+  text-align: center;
+  margin: 6px 0 0;
+  letter-spacing: 0.04em;
+}
+
+.formError {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.78rem;
+  color: var(--ssbu-red);
+  text-align: center;
+  margin: 6px 0 0;
+  letter-spacing: 0.04em;
 }
 
 /* ─── Card base ───────────────────────────────────────────────────── */

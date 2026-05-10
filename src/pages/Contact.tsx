@@ -87,24 +87,37 @@ function CardIcon({ type }: { type: PlatformIcon }) {
   return <MountainSvg />
 }
 
+const FORMSPREE = 'https://formspree.io/f/mwvywaag'
+
 export function Contact() {
-  const [sending, setSending] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   useEffect(() => { document.title = 'Contact · Athavan Elangko' }, [])
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSending(true)
+    setStatus('sending')
     const form = e.currentTarget
-    const name    = (form.elements.namedItem('name')    as HTMLInputElement).value
-    const email   = (form.elements.namedItem('email')   as HTMLInputElement).value
-    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value
-    const subject = encodeURIComponent(`Battle Request from ${name}`)
-    const body    = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
-    setTimeout(() => {
-      window.location.href = `mailto:athavan.elangko@gmail.com?subject=${subject}&body=${body}`
-      setSending(false)
-    }, 600)
+    const data = {
+      name:    (form.elements.namedItem('name')    as HTMLInputElement).value,
+      email:   (form.elements.namedItem('email')   as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    }
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -247,9 +260,15 @@ export function Contact() {
                 <label className={styles.fieldLabel} htmlFor="message">Challenge Message</label>
                 <textarea id="message" name="message" className={styles.fieldTextarea} rows={4} placeholder="Your message..." required />
               </div>
-              <button type="submit" className={styles.submitBtn} disabled={sending}>
-                {sending ? '▶ SENDING…' : '▶ SEND REQUEST'}
+              <button type="submit" className={styles.submitBtn} disabled={status === 'sending' || status === 'success'}>
+                {status === 'sending' ? '▶ SENDING…' : status === 'success' ? '✓ REQUEST SENT' : '▶ SEND REQUEST'}
               </button>
+              {status === 'success' && (
+                <p className={styles.formSuccess}>Battle request received — I'll be in touch soon.</p>
+              )}
+              {status === 'error' && (
+                <p className={styles.formError}>Connection failed. Try emailing directly instead.</p>
+              )}
             </form>
           </motion.div>
           </div>
