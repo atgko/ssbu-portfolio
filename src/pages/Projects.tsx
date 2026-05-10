@@ -151,7 +151,7 @@ function HexSlot({ filled }: { filled: boolean }) {
 export function Projects() {
   const [sortMode, setSortMode] = useState<SortMode>('power-desc')
   const sorted = sortProjects(PROJECTS, sortMode)
-  const [selected, setSelected] = useState<Project>(PROJECTS[0]!)
+  const [selected, setSelected] = useState<Project>(() => sortProjects(PROJECTS, 'power-desc')[0]!)
 
   useEffect(() => { document.title = 'Projects · Athavan Elangko' }, [])
 
