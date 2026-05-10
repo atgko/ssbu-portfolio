@@ -29,6 +29,7 @@ interface Project {
   artGradient: [string, string, string]
   artLetter: string
   artImage?: string
+  stripeColor?: string
 }
 
 const TYPE_COLOR: Record<SpiritType, string> = {
@@ -120,6 +121,7 @@ const PROJECTS: Project[] = [
     artGradient: ['#1a0505', '#6e0a0a', '#cc3300'],
     artLetter: 'S',
     artImage: '/og-preview.png',
+    stripeColor: '#1f8f43',
   },
   {
     id: 'capstone',
@@ -335,7 +337,7 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <div className={styles.cardStripe} style={{ background: TYPE_COLOR[p.type] }} />
+                  <div className={styles.cardStripe} style={{ background: p.stripeColor ?? TYPE_COLOR[p.type] }} />
                 </motion.button>
               ))}
             </div>
