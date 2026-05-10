@@ -61,8 +61,16 @@ const SORT_NEXT: Record<SortMode, SortMode> = {
   'name-asc':   'power-desc',
 }
 
+const STATUS_ORDER: Record<ProjectStatus, number> = {
+  'Shipped':      0,
+  'In Progress':  1,
+  'Coming Soon':  2,
+}
+
 function sortProjects(projects: Project[], mode: SortMode): Project[] {
   return [...projects].sort((a, b) => {
+    const statusDiff = STATUS_ORDER[a.status] - STATUS_ORDER[b.status]
+    if (statusDiff !== 0) return statusDiff
     if (mode === 'power-desc') return b.power - a.power
     if (mode === 'power-asc')  return a.power - b.power
     return a.name.localeCompare(b.name)
