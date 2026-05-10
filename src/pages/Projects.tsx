@@ -82,7 +82,7 @@ const PROJECTS: Project[] = [
     isNew: false,
     starred: true,
     description:
-      'AI-powered platform enabling organizations to capture, surface, and communicate institutional knowledge. Led product roadmap, stakeholder alignment, and go-to-market strategy across cross-functional teams.',
+      'Conversational AI agent that synthesizes trail data, live weather, and photography conditions into a single opinionated weekend adventure plan. Built for outdoor enthusiasts in the Mountain West.',
     tags: ['AI', 'B2B SaaS', 'Product Management', 'Roadmap'],
     demoUrl: 'https://wayfound-chi.vercel.app/',
     githubUrl: null,
@@ -97,7 +97,7 @@ const PROJECTS: Project[] = [
     level: 15,
     power: 7420,
     role: 'Solo Developer',
-    status: 'In Progress',
+    status: 'Shipped',
     slots: 2,
     skill: 'Frontend Craft ↑',
     isNew: false,
