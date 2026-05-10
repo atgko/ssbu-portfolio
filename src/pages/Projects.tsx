@@ -92,7 +92,7 @@ const PROJECTS: Project[] = [
     starred: true,
     description:
       'Conversational AI agent that synthesizes trail data, live weather, and photography conditions into a single opinionated weekend adventure plan. Built for outdoor enthusiasts in the Mountain West.',
-    tags: ['AI', 'B2B SaaS', 'Product Management', 'Roadmap'],
+    tags: ['Conversational AI', 'Trail Data', 'Weather', 'Mountain West'],
     demoUrl: 'https://wayfound-chi.vercel.app/',
     githubUrl: null,
     buildStoryUrl: null,
@@ -114,7 +114,7 @@ const PROJECTS: Project[] = [
     description:
       'A personal portfolio website built as a pixel-faithful recreation of the Super Smash Bros. Ultimate UI. Demonstrates frontend craft, design fidelity, and product thinking applied to a personal project.',
     tags: ['React', 'Vite', 'TypeScript', 'Framer Motion'],
-    demoUrl: null,
+    demoUrl: 'https://athavan.gg',
     githubUrl: null,
     buildStoryUrl: '/build-story',
     artGradient: ['#1a0505', '#6e0a0a', '#cc3300'],
