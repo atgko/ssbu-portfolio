@@ -129,6 +129,27 @@
   margin-top: 1px;
 }
 
+/* Spirit art image (replaces letter when artImage is set) */
+.artImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+  opacity: 0.88;
+}
+
+/* Small card art image */
+.cardArtImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.85;
+}
+
 /* Spirit art letter */
 .artLetter {
   position: relative;

@@ -28,6 +28,7 @@ interface Project {
   buildStoryUrl: string | null
   artGradient: [string, string, string]
   artLetter: string
+  artImage?: string
 }
 
 const TYPE_COLOR: Record<SpiritType, string> = {
@@ -110,6 +111,7 @@ const PROJECTS: Project[] = [
     buildStoryUrl: '/build-story',
     artGradient: ['#1a0505', '#6e0a0a', '#cc3300'],
     artLetter: 'S',
+    artImage: '/og-preview.png',
   },
   {
     id: 'capstone',
@@ -187,12 +189,17 @@ export function Projects() {
                   <span className={styles.powerLabel}>Power</span>
                 </div>
 
-                <span
-                  className={styles.artLetter}
-                  style={{ color: selected.artGradient[2], textShadow: `0 0 60px ${selected.artGradient[2]}, 0 0 120px ${selected.artGradient[1]}` }}
-                >
-                  {selected.artLetter}
-                </span>
+                {selected.artImage
+                  ? <img src={selected.artImage} alt={selected.name} className={styles.artImage} />
+                  : (
+                    <span
+                      className={styles.artLetter}
+                      style={{ color: selected.artGradient[2], textShadow: `0 0 60px ${selected.artGradient[2]}, 0 0 120px ${selected.artGradient[1]}` }}
+                    >
+                      {selected.artLetter}
+                    </span>
+                  )
+                }
               </div>
 
               {/* Info area */}
@@ -295,9 +302,10 @@ export function Projects() {
                     className={styles.cardArt}
                     style={{ background: `radial-gradient(ellipse at 50% 55%, ${p.artGradient[1]}88 0%, ${p.artGradient[0]} 80%)` }}
                   >
-                    <span className={styles.cardArtLetter} style={{ color: p.artGradient[2] }}>
-                      {p.artLetter}
-                    </span>
+                    {p.artImage
+                      ? <img src={p.artImage} alt={p.name} className={styles.cardArtImage} />
+                      : <span className={styles.cardArtLetter} style={{ color: p.artGradient[2] }}>{p.artLetter}</span>
+                    }
                   </div>
 
                   <span className={styles.cardTypeIcon} style={{ background: TYPE_COLOR[p.type] }}>
