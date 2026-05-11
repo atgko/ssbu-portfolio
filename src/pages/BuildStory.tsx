@@ -102,6 +102,38 @@ export function BuildStory() {
               </p>
             </div>
 
+            <div className={styles.intro}>
+              <p className={styles.introParagraph}>
+                I recently designed and built my personal portfolio to replicate the menu experience from Super Smash Bros. Ultimate.
+              </p>
+              <p className={styles.introParagraph}>
+                I wanted to create something interactive and memorable—something that goes beyond a traditional portfolio and reflects both my work and a bit of my personality. In a market where many candidates have strong credentials, I saw this as an opportunity to differentiate through experience and design.
+              </p>
+              <p className={styles.introParagraph}>
+                I used Claude Code to bring the idea to life, breaking the build into structured phases and iterating quickly across each section. With reference images and detailed prompting, I was able to prototype, refine the UI, and ship a working version in just a few days.
+              </p>
+              <p className={styles.introParagraph}>
+                One of the most interesting parts of the process was balancing creativity with usability—staying true to the Smash Bros. inspiration while ensuring the site remained intuitive. It also meant making tradeoffs, particularly between desktop and mobile experiences, and being intentional about what made it into the initial version versus the backlog.
+              </p>
+
+              <div className={styles.introLinks}>
+                <span className={styles.introLinkRow}>
+                  <span className={styles.introLinkLabel}>Live site</span>
+                  <a href="https://athavan.gg" target="_blank" rel="noopener noreferrer" className={styles.introLink}>athavan.gg</a>
+                </span>
+                <span className={styles.introLinkRow}>
+                  <span className={styles.introLinkLabel}>GitHub</span>
+                  <a href="https://github.com/atgko" target="_blank" rel="noopener noreferrer" className={styles.introLink}>github.com/atgko</a>
+                </span>
+              </div>
+              <p className={styles.introNote}>(Desktop offers the full experience.)</p>
+
+              <p className={styles.introPS}>
+                <span className={styles.introPSLabel}>P.S.</span> If you're a Super Smash Bros. Melee fan, try the L + R + A + Start sequence — there's a small Easter egg built in.
+              </p>
+            </div>
+
+            <p className={styles.patchesLabel}>Version History</p>
             <div className={styles.patches}>
               {PATCHES.map((p, i) => (
                 <motion.article

@@ -106,6 +106,18 @@ const CATEGORIES: SkillCategory[] = [
     proficiency: 'Intermediate',
     years: '3+',
   },
+  {
+    id: 'ai-tools',
+    label: 'AI Tools & Prompting',
+    icon: '✦',
+    color: '#9966ff',
+    skills: [
+      'Claude / Claude Code', 'Prompt Engineering',
+      'ChatGPT / GPT-4', 'AI-assisted Workflows',
+    ],
+    proficiency: 'Intermediate',
+    years: '2+',
+  },
 ]
 
 const EXPERIENCE: ExperienceEntry[] = [

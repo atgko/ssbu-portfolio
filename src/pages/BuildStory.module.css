@@ -120,6 +120,115 @@
   margin: 0;
 }
 
+/* ─── Intro / About This Build ───────────────────────────────────── */
+
+.intro {
+  margin-bottom: 32px;
+  padding: 24px 28px;
+  border: 1px solid rgba(108, 58, 209, 0.25);
+  border-radius: 3px;
+  background: rgba(108, 58, 209, 0.05);
+  position: relative;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--tile-build);
+  border-radius: 3px 0 0 3px;
+}
+
+.introParagraph {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.88rem;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 13px;
+}
+
+.introLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 20px 0 12px;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 2px;
+}
+
+.introLinkRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ssbu-font-body);
+  font-size: 0.83rem;
+}
+
+.introLinkLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  min-width: 56px;
+}
+
+.introLink {
+  color: var(--tile-build);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 140ms ease;
+}
+
+.introLink:hover {
+  color: var(--ssbu-gold);
+}
+
+.introNote {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.32);
+  margin: 8px 0 0;
+  font-style: italic;
+}
+
+.introPS {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(108, 58, 209, 0.2);
+}
+
+.introPSLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ssbu-gold);
+  margin-right: 5px;
+}
+
+/* ─── Patches section label ───────────────────────────────────────── */
+
+.patchesLabel {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 12px;
+}
+
 /* ─── Patch list ──────────────────────────────────────────────────── */
 
 .patches {
