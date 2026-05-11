@@ -134,7 +134,7 @@ const PROJECTS: Project[] = [
     description:
       'A personal portfolio website built as a pixel-faithful recreation of the Super Smash Bros. Ultimate UI. Demonstrates frontend craft, design fidelity, and product thinking applied to a personal project.',
     tags: ['React', 'Vite', 'TypeScript', 'Framer Motion'],
-    demoUrl: 'https://athavan.gg',
+    demoUrl: null,
     githubUrl: 'https://github.com/atgko/ssbu-portfolio',
     buildStoryUrl: '/build-story',
     artGradient: ['#1a0505', '#6e0a0a', '#cc3300'],

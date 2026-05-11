@@ -104,7 +104,7 @@ export function BuildStory() {
 
             <div className={styles.intro}>
               <p className={styles.introParagraph}>
-                I recently designed and built my personal portfolio to replicate the menu experience from Super Smash Bros. Ultimate.
+                I recently designed and built my personal portfolio to replicate the menu experience from Super Smash Bros. Ultimate. 🎮
               </p>
               <p className={styles.introParagraph}>
                 I wanted to create something interactive and memorable—something that goes beyond a traditional portfolio and reflects both my work and a bit of my personality. In a market where many candidates have strong credentials, I saw this as an opportunity to differentiate through experience and design.
