@@ -24,7 +24,7 @@ _(no open items)_
 
 ### Skills page
 
-- [ ] **Experience timeline is missing the TA and event-chair roles.** CLAUDE.md spec calls out "teaching assistant role" and "Make Salt Lake Event Chair" in the Games & More section. Neither appears in `EXPERIENCE` in `Skills.tsx`. Add entries when ready. _Source: CLAUDE.md spec vs. code audit 2026-05-11._
+_(no open items)_
 
 ### Resume / Contact — time-sensitive
 
@@ -36,11 +36,18 @@ _(no open items)_
 
 ### Meta / SEO
 
-- [ ] **Verify OG / social-sharing meta tags.** `public/og-preview.png` exists but confirm `index.html` has the correct `<meta property="og:image">`, `og:title`, `og:description`, `twitter:card` tags wired up. _Source: code audit 2026-05-11._
+_(no open items)_
 
 ---
 
 ## Done
+
+### 2026-05-11 — Round 6 (experience timeline + meta audit)
+
+- [x] **Experience timeline — TA and event-chair roles added.** `Teaching Assistant, Eccles School of Business` (Feb–Aug 2026) and `Event Chair, Make Salt Lake` (Jan 2026–Present) added to `EXPERIENCE` in `Skills.tsx`. _Done: 2026-05-11._
+- [x] **OG / social-sharing meta tags verified.** `index.html` has `og:type`, `og:title`, `og:description`, `og:image`, `og:url`, and full Twitter card tags — all correctly wired to `https://athavan.gg`. _Verified: 2026-05-11._
+
+---
 
 ### 2026-05-11 — Round 5+ (all pages shipped; 5-tile layout restored)
 

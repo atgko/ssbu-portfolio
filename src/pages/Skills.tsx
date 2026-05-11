@@ -122,6 +122,24 @@ const CATEGORIES: SkillCategory[] = [
 
 const EXPERIENCE: ExperienceEntry[] = [
   {
+    id: 'uofutah-ta',
+    title: 'Teaching Assistant, Eccles School of Business',
+    org: 'University of Utah',
+    period: 'Feb 2026 – Aug 2026',
+    details:
+      'Supporting coursework in Project Management (Feb–May 2026) and Python Programming (May–Aug 2026). Facilitating labs, holding office hours, and grading student work.',
+    color: '#00bbcc',
+  },
+  {
+    id: 'make-slc',
+    title: 'Event Chair',
+    org: 'Make Salt Lake',
+    period: 'Jan 2026 – Present',
+    details:
+      'Organizing and leading community events at a local non-profit makerspace. Coordinating logistics, volunteers, and programming for hands-on maker and tech events.',
+    color: '#e86b1a',
+  },
+  {
     id: 'td-sm',
     title: 'Scrum Master, Wealth Management',
     org: 'TD',
