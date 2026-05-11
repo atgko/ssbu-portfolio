@@ -459,11 +459,34 @@
   padding: 5px 14px;
   letter-spacing: 0.04em;
   border-radius: 99px;
+  cursor: pointer;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.filterBtn:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.filterActive {
+  border-color: var(--ssbu-gold) !important;
+  box-shadow: 0 0 8px rgba(245, 197, 24, 0.3);
+}
+
+.filterActive:hover {
+  box-shadow: 0 0 14px rgba(245, 197, 24, 0.45);
 }
 
 .filterOff {
   color: rgba(255, 255, 255, 0.38);
   font-size: 0.7rem;
+  margin-left: 2px;
+}
+
+.filterOn {
+  color: var(--ssbu-gold);
+  font-size: 0.7rem;
+  font-weight: 700;
   margin-left: 2px;
 }
 

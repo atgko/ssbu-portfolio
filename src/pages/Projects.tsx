@@ -7,7 +7,8 @@ import styles from './Projects.module.css'
 
 type SpiritType = 'shield' | 'attack' | 'neutral'
 type ProjectStatus = 'Shipped' | 'In Progress' | 'Coming Soon'
-type SortMode = 'power-desc' | 'power-asc' | 'name-asc'
+type SortMode = 'status' | 'power-desc' | 'power-asc' | 'name-asc'
+type FilterStatus = ProjectStatus | 'all'
 
 interface Project {
   id: string
@@ -51,15 +52,31 @@ const STATUS_COLOR: Record<ProjectStatus, string> = {
 }
 
 const SORT_LABEL: Record<SortMode, string> = {
-  'power-desc': 'By Power (Descending)',
-  'power-asc':  'By Power (Ascending)',
+  'status':     'By Status',
+  'power-desc': 'By Power ↓',
+  'power-asc':  'By Power ↑',
   'name-asc':   'By Name (A–Z)',
 }
 
 const SORT_NEXT: Record<SortMode, SortMode> = {
+  'status':     'power-desc',
   'power-desc': 'power-asc',
   'power-asc':  'name-asc',
-  'name-asc':   'power-desc',
+  'name-asc':   'status',
+}
+
+const FILTER_NEXT: Record<FilterStatus, FilterStatus> = {
+  'all':          'Shipped',
+  'Shipped':      'In Progress',
+  'In Progress':  'Coming Soon',
+  'Coming Soon':  'all',
+}
+
+const FILTER_LABEL: Record<FilterStatus, string> = {
+  'all':          'All',
+  'Shipped':      'Shipped',
+  'In Progress':  'In Progress',
+  'Coming Soon':  'Coming Soon',
 }
 
 const STATUS_ORDER: Record<ProjectStatus, number> = {
@@ -70,8 +87,10 @@ const STATUS_ORDER: Record<ProjectStatus, number> = {
 
 function sortProjects(projects: Project[], mode: SortMode): Project[] {
   return [...projects].sort((a, b) => {
-    const statusDiff = STATUS_ORDER[a.status] - STATUS_ORDER[b.status]
-    if (statusDiff !== 0) return statusDiff
+    if (mode === 'status') {
+      const statusDiff = STATUS_ORDER[a.status] - STATUS_ORDER[b.status]
+      return statusDiff !== 0 ? statusDiff : b.power - a.power
+    }
     if (mode === 'power-desc') return b.power - a.power
     if (mode === 'power-asc')  return a.power - b.power
     return a.name.localeCompare(b.name)
@@ -151,9 +170,15 @@ function HexSlot({ filled }: { filled: boolean }) {
 }
 
 export function Projects() {
-  const [sortMode, setSortMode] = useState<SortMode>('power-desc')
-  const sorted = sortProjects(PROJECTS, sortMode)
-  const [selected, setSelected] = useState<Project>(() => sortProjects(PROJECTS, 'power-desc')[0]!)
+  const [sortMode, setSortMode] = useState<SortMode>('status')
+  const [filterStatus, setFilterStatus] = useState<FilterStatus>('all')
+
+  const visible = sortProjects(
+    filterStatus === 'all' ? PROJECTS : PROJECTS.filter(p => p.status === filterStatus),
+    sortMode,
+  )
+
+  const [selected, setSelected] = useState<Project>(() => sortProjects(PROJECTS, 'status')[0]!)
 
   useEffect(() => { document.title = 'Projects · Athavan Elangko' }, [])
 
@@ -290,16 +315,22 @@ export function Projects() {
                 <span className={styles.sortBtnIcon}>Y</span>
                 {SORT_LABEL[sortMode]}
               </button>
-              <div className={styles.filterBtn}>
+              <button
+                className={[styles.filterBtn, filterStatus !== 'all' ? styles.filterActive : ''].join(' ')}
+                type="button"
+                onClick={() => setFilterStatus(FILTER_NEXT[filterStatus])}
+              >
                 <span className={styles.sortBtnIcon}>R</span>
                 Filter
-                <span className={styles.filterOff}>Off</span>
-              </div>
+                <span className={filterStatus !== 'all' ? styles.filterOn : styles.filterOff}>
+                  {FILTER_LABEL[filterStatus]}
+                </span>
+              </button>
             </div>
 
             {/* Card grid */}
             <div className={styles.cardGrid}>
-              {sorted.map(p => (
+              {visible.map(p => (
                 <motion.button
                   key={p.id}
                   type="button"
