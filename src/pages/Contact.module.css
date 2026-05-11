@@ -418,6 +418,15 @@
   letter-spacing: 0.04em;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .formError {
   font-family: var(--ssbu-font-body);
   font-size: 0.78rem;

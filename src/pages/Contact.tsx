@@ -98,10 +98,17 @@ export function Contact() {
     e.preventDefault()
     setStatus('sending')
     const form = e.currentTarget
+    const honeypot = (form.elements.namedItem('_gotcha') as HTMLInputElement).value
+    if (honeypot) {
+      setStatus('success')
+      form.reset()
+      return
+    }
     const data = {
       name:    (form.elements.namedItem('name')    as HTMLInputElement).value,
       email:   (form.elements.namedItem('email')   as HTMLInputElement).value,
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      _gotcha: '',
     }
     try {
       const res = await fetch(FORMSPREE, {
@@ -260,6 +267,7 @@ export function Contact() {
                 <label className={styles.fieldLabel} htmlFor="message">Challenge Message</label>
                 <textarea id="message" name="message" className={styles.fieldTextarea} rows={4} placeholder="Your message..." required />
               </div>
+              <input type="text" name="_gotcha" className={styles.honeypot} tabIndex={-1} autoComplete="off" aria-hidden="true" />
               <button type="submit" className={styles.submitBtn} disabled={status === 'sending' || status === 'success'}>
                 {status === 'sending' ? '▶ SENDING…' : status === 'success' ? '✓ REQUEST SENT' : '▶ SEND REQUEST'}
               </button>
