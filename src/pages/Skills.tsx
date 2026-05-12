@@ -132,11 +132,11 @@ const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     id: 'make-slc',
-    title: 'Event Chair',
+    title: 'Event Committee Chair',
     org: 'Make Salt Lake',
     period: 'Jan 2026 – Present',
     details:
-      'Organizing and leading community events at a local non-profit makerspace. Coordinating logistics, volunteers, and programming for hands-on maker and tech events.',
+      'Coordinating planning and execution of monthly makerspace programming, supporting multi-session events (4+ concurrent classes) with ~60+ attendees. Leading biweekly planning meetings, managing on-site operations, and tracking schedules and resource needs across recurring programming.',
     color: '#e86b1a',
   },
   {
