@@ -129,7 +129,7 @@ export function BuildStory() {
               <p className={styles.introNote}>(Desktop offers the full experience.)</p>
 
               <p className={styles.introPS}>
-                <span className={styles.introPSLabel}>P.S.</span> If you're a Super Smash Bros. Melee fan, try the L + R + A + Start sequence — there's a small Easter egg built in.
+                <span className={styles.introPSLabel}>P.S.</span> If you're a Super Smash Bros. Melee fan, try the L + R + A + Spacebar sequence — there's a small Easter egg built in.
               </p>
             </div>
 
