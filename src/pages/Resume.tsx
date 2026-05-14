@@ -363,14 +363,17 @@ export function Resume() {
         {/* ── Top bar ── */}
         <header className={styles.topBar}>
           <Link to="/" className={styles.backBtn} onClick={() => audioManager.playEffect('back')}>← MAIN MENU</Link>
-          <span className={styles.screenTitle}>ARCHIVE</span>
-          <a
-            href="/resume.pdf"
-            download
-            className={styles.downloadBtn}
-          >
-            ↓ DOWNLOAD PDF
-          </a>
+          <span className={styles.topBarSpacer} />
+          <div className={styles.topBarRight}>
+            <span className={styles.screenTitle}>ARCHIVE</span>
+            <a
+              href="/resume.pdf"
+              download
+              className={styles.downloadBtn}
+            >
+              ↓ DOWNLOAD PDF
+            </a>
+          </div>
         </header>
 
         {/* ── Main content ── */}

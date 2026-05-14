@@ -2,27 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import { audioManager } from '../../audio/audioManager.ts'
 import styles from './PressStart.module.css'
 
-const STORAGE_KEY = 'ssbu.pressStart.dismissed'
+// Module-level flag: resets to false on every page load/refresh,
+// but stays true when navigating within the SPA so the splash
+// doesn't re-appear when the user returns to Home mid-session.
+let hasBeenDismissed = false
+
 const FLASH_DURATION_MS = 320
 
-function readDismissed(): boolean {
-  try {
-    return sessionStorage.getItem(STORAGE_KEY) === '1'
-  } catch {
-    return false
-  }
-}
-
-function writeDismissed(): void {
-  try {
-    sessionStorage.setItem(STORAGE_KEY, '1')
-  } catch {
-    /* sessionStorage may be unavailable; splash will simply re-show next load. */
-  }
-}
-
 export function PressStart() {
-  const [visible, setVisible] = useState<boolean>(() => !readDismissed())
+  const [visible, setVisible] = useState<boolean>(() => !hasBeenDismissed)
   const [dismissing, setDismissing] = useState(false)
   const buttonRef = useRef<HTMLButtonElement | null>(null)
 
@@ -41,9 +29,8 @@ export function PressStart() {
     return () => { delete document.documentElement.dataset.splash }
   }, [visible])
 
-  // If the splash was already dismissed in a previous visit (sessionStorage),
-  // the overlay is skipped but audioManager.unlock() was never called this
-  // page load. Re-unlock on the first user interaction.
+  // If the splash was skipped (navigating back to Home mid-session),
+  // re-unlock audio on the first user interaction.
   useEffect(() => {
     if (visible) return
     function onInteract() {
@@ -74,7 +61,7 @@ export function PressStart() {
   function dismiss() {
     if (dismissing) return
     audioManager.playEffect('break')
-    writeDismissed()
+    hasBeenDismissed = true
     setDismissing(true)
     window.setTimeout(() => {
       setVisible(false)

@@ -46,13 +46,21 @@
   filter: none;
 }
 
+.topBarSpacer {
+  flex: 1;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .screenTitle {
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   color: rgba(255, 255, 255, 0.4);
-  flex: 1;
-  text-align: center;
 }
 
 .downloadBtn {
