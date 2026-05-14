@@ -95,7 +95,7 @@ export function MobileGate() {
               <div className={styles.divider} />
 
               <p className={styles.bio}>
-                Athavan enjoys building and improving things—taking something ambiguous and shaping
+                Athavan enjoys building and improving things, taking something ambiguous and shaping
                 it into something that works. His current focus is exploring how AI tools can help
                 bring ideas to life faster and more practically. Athavan is driven by curiosity,
                 iteration, and the process of making things better over time.

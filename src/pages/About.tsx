@@ -90,13 +90,13 @@ export function About() {
 
           <dl className={styles.metaBox}>
             <dt className={styles.metaKey}>UNIVERSE</dt>
-            <dd className={styles.metaVal}>University of Utah — M.S. Information Systems</dd>
+            <dd className={styles.metaVal}>University of Utah, M.S. Information Systems</dd>
             <dt className={styles.metaKey}>SERIES</dt>
             <dd className={styles.metaVal}>Banking &amp; Fintech · 8+ Years</dd>
           </dl>
 
           <p className={styles.bio}>
-            Athavan enjoys building and improving things—taking something ambiguous and shaping it
+            Athavan enjoys building and improving things, taking something ambiguous and shaping it
             into something that works. His current focus is exploring how AI tools can help bring
             ideas to life faster and more practically. Athavan is driven by curiosity, iteration,
             and the process of making things better over time.

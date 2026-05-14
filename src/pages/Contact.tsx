@@ -272,7 +272,7 @@ export function Contact() {
                 {status === 'sending' ? '▶ SENDING…' : status === 'success' ? '✓ REQUEST SENT' : '▶ SEND REQUEST'}
               </button>
               {status === 'success' && (
-                <p className={styles.formSuccess}>Battle request received — I'll be in touch soon.</p>
+                <p className={styles.formSuccess}>Battle request received. I'll be in touch soon.</p>
               )}
               {status === 'error' && (
                 <p className={styles.formError}>Connection failed. Try emailing directly instead.</p>

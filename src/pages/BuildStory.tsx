@@ -24,7 +24,7 @@ const PATCHES: PatchEntry[] = [
       'Card front: full-body fighter photo, name, title (Product Manager · TPM), university badge',
       'Card back: full bio, Universe/Series meta block, location badge, LinkedIn + email icon links',
       'Gold divider between meta block and bio; space-between layout distributes content to card edges',
-      'Tap-to-flip interaction with CSS 3D perspective — no JS animation library needed',
+      'Tap-to-flip interaction with CSS 3D perspective (no JS animation library needed)',
     ],
   },
   {
@@ -33,9 +33,9 @@ const PATCHES: PatchEntry[] = [
     codename: 'Full Roster',
     milestone: 'M4–M6',
     changes: [
-      'Skills page as Games & More expandable submenu — 6 categories with real experience data',
-      'Resume page as Vault archive — tabbed sections, PMP/CSPO/SAFe certs, download button',
-      'Contact page as Online lobby — player card, matchmaking bar, 4-card grid with slide-up CTA panels',
+      'Skills page as Games & More expandable submenu: 6 categories with real experience data',
+      'Resume page as Vault archive: tabbed sections, PMP/CSPO/SAFe certs, download button',
+      'Contact page as Online lobby: player card, matchmaking bar, 4-card grid with slide-up CTA panels',
       'Home Stage card: inline Wasatch Range SVG + clip-path mountain terrain, per-icon hover animations',
       'Easter egg: L → R → A → Space toggles Melee palette (monochromatic navy/gold, flat tiles)',
       'Screen flash on tile click; 404 page styled as Nintendo Switch error dialog',
@@ -47,9 +47,9 @@ const PATCHES: PatchEntry[] = [
     codename: 'Character Select',
     milestone: 'M2–M3',
     changes: [
-      'About page as Character Select — fighter photo (P1), 5 animated stat bars (Strategy → Leadership)',
+      'About page as Character Select: fighter photo (P1), 5 animated stat bars (Strategy → Leadership)',
       'Fighter metadata: Universe (U of Utah MSIS), Series (Banking & Fintech, 8+ yrs), short bio',
-      'Projects page as Spirits Collection — 3 spirits with power ratings, nebula gradient art panels',
+      'Projects page as Spirits Collection: 3 spirits with power ratings, nebula gradient art panels',
       'Spirit detail panel: hex SCOPE slots, type badge (Shield/Attack/Neutral), sort by Power/Name',
       'Press Start splash persists across page navigation via sessionStorage',
     ],
@@ -60,9 +60,9 @@ const PATCHES: PatchEntry[] = [
     codename: 'Press Start',
     milestone: 'M0–M1',
     changes: [
-      'Vite + React + TypeScript scaffold — Vercel auto-deploy wired to GitHub on day one',
+      'Vite + React + TypeScript scaffold; Vercel auto-deploy wired to GitHub on day one',
       'SSBU design token system: tile colors, Rajdhani/Exo 2 typography, CSS custom properties',
-      'SSBU main menu layout — 5 tiles in angled grid, per-tile color theming + animated star background',
+      'SSBU main menu layout: 5 tiles in angled grid, per-tile color theming + animated star background',
       'Perimeter light animation along tile edges; hover: gold border glow + scale + brightness',
       'Press Start splash overlay with flash-dismiss; Framer Motion slide-in page transitions',
     ],
@@ -98,7 +98,7 @@ export function BuildStory() {
               <h1 className={styles.pageTitle}>SSBU Portfolio</h1>
               <p className={styles.pageSubtitle}>
                 A personal portfolio built as a pixel-faithful recreation of the Super Smash Bros. Ultimate UI.
-                Full version history — scaffold to ship.
+                Full version history: scaffold to ship.
               </p>
             </div>
 
@@ -107,13 +107,13 @@ export function BuildStory() {
                 I recently designed and built my personal portfolio to replicate the menu experience from Super Smash Bros. Ultimate. 🎮
               </p>
               <p className={styles.introParagraph}>
-                I wanted to create something interactive and memorable—something that goes beyond a traditional portfolio and reflects both my work and a bit of my personality. In a market where many candidates have strong credentials, I saw this as an opportunity to differentiate through experience and design.
+                I wanted to create something interactive and memorable, something that goes beyond a traditional portfolio and reflects both my work and a bit of my personality. In a market where many candidates have strong credentials, I saw this as an opportunity to differentiate through experience and design.
               </p>
               <p className={styles.introParagraph}>
                 I used Claude Code to bring the idea to life, breaking the build into structured phases and iterating quickly across each section. With reference images and detailed prompting, I was able to prototype, refine the UI, and ship a working version in just a few days.
               </p>
               <p className={styles.introParagraph}>
-                One of the most interesting parts of the process was balancing creativity with usability—staying true to the Smash Bros. inspiration while ensuring the site remained intuitive. It also meant making tradeoffs, particularly between desktop and mobile experiences, and being intentional about what made it into the initial version versus the backlog.
+                One of the most interesting parts of the process was balancing creativity with usability, staying true to the Smash Bros. inspiration while ensuring the site remained intuitive. It also meant making tradeoffs, particularly between desktop and mobile experiences, and being intentional about what made it into the initial version versus the backlog.
               </p>
 
               <div className={styles.introLinks}>
@@ -129,7 +129,7 @@ export function BuildStory() {
               <p className={styles.introNote}>(Desktop offers the full experience.)</p>
 
               <p className={styles.introPS}>
-                <span className={styles.introPSLabel}>P.S.</span> If you're a Super Smash Bros. Melee fan, try the L + R + A + Spacebar sequence — there's a small Easter egg built in.
+                <span className={styles.introPSLabel}>P.S.</span> If you're a Super Smash Bros. Melee fan, try the L + R + A + Spacebar sequence; there's a small Easter egg built in.
               </p>
             </div>
 

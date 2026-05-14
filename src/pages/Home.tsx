@@ -17,7 +17,7 @@ export function Home() {
   const [now, setNow] = useState<Date>(() => new Date())
 
   useEffect(() => {
-    document.title = 'Athavan Elangko — Portfolio'
+    document.title = 'Athavan Elangko | Portfolio'
   }, [])
 
   useEffect(() => {

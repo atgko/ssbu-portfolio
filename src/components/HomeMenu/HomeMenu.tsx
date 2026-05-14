@@ -288,7 +288,7 @@ export function HomeMenu({ activeIndex, onActiveChange }: Props) {
             onMouseEnter={() => onActiveChange(idx)}
             onFocus={() => onActiveChange(idx)}
             onKeyUp={(e) => handleTileKeyUp(e, item.path, idx)}
-            aria-label={`${item.section} — ${item.ssbu}`}
+            aria-label={`${item.section}: ${item.ssbu}`}
           >
             {flashIdx === idx && <span className={styles.tileFlash} aria-hidden="true" />}
             <span className={styles.bgIcon} aria-hidden="true">

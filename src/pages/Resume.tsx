@@ -339,10 +339,10 @@ const SECTION_COMPONENTS: Record<SectionId, () => ReactElement> = {
 }
 
 const SECTION_DESC: Record<SectionId, string> = {
-  experience:     'Battle record — career history and professional achievements.',
-  education:      'Training grounds — academic credentials and degrees.',
-  certifications: 'Unlockables — professional certifications and credentials earned.',
-  skills:         'Moveset — technical and professional skill categories.',
+  experience:     'Battle record: career history and professional achievements.',
+  education:      'Training grounds: academic credentials and degrees.',
+  certifications: 'Unlockables: professional certifications and credentials earned.',
+  skills:         'Moveset: technical and professional skill categories.',
 }
 
 export function Resume() {
