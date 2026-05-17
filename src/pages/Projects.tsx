@@ -215,10 +215,10 @@ export function Projects() {
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       switch (e.key.toLowerCase()) {
-        case 'y': setSortMode(m => SORT_NEXT[m]); break
-        case 'x': setFilterStatus(f => FILTER_NEXT[f]); break
-        case 'l': setCarouselStart(s => Math.max(0, s - 1)); break
-        case 'r': setCarouselStart(s => Math.min(s + 1, allVisible.length - CAROUSEL_WINDOW)); break
+        case 'y': audioManager.playEffect('forward'); setSortMode(m => SORT_NEXT[m]); break
+        case 'x': audioManager.playEffect('forward'); setFilterStatus(f => FILTER_NEXT[f]); break
+        case 'l': audioManager.playEffect('forward'); setCarouselStart(s => Math.max(0, s - 1)); break
+        case 'r': audioManager.playEffect('forward'); setCarouselStart(s => Math.min(s + 1, allVisible.length - CAROUSEL_WINDOW)); break
       }
     }
     window.addEventListener('keydown', handleKey)
