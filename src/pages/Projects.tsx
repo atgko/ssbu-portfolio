@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import { audioManager } from '../audio/audioManager.ts'
 import styles from './Projects.module.css'
@@ -208,6 +208,7 @@ export function Projects() {
   const canPrev = carouselStart > 0
   const canNext = carouselStart + CAROUSEL_WINDOW < allVisible.length
 
+  const navigate = useNavigate()
   const [selected, setSelected] = useState<Project>(() => sortProjects(PROJECTS, 'status')[0]!)
 
   useEffect(() => { document.title = 'Projects · Athavan Elangko' }, [])
@@ -219,11 +220,16 @@ export function Projects() {
         case 'x': setFilterStatus(f => FILTER_NEXT[f]); break
         case 'l': setCarouselStart(s => Math.max(0, s - 1)); break
         case 'r': setCarouselStart(s => Math.min(s + 1, allVisible.length - CAROUSEL_WINDOW)); break
+        case 'z':
+          if (selected.buildStoryUrl) navigate(selected.buildStoryUrl)
+          else if (selected.demoUrl) window.open(selected.demoUrl, '_blank', 'noopener,noreferrer')
+          else if (selected.githubUrl) window.open(selected.githubUrl, '_blank', 'noopener,noreferrer')
+          break
       }
     }
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
-  }, [allVisible.length])
+  }, [allVisible.length, selected, navigate])
 
   return (
     <>
@@ -332,7 +338,7 @@ export function Projects() {
                 </span>
                 <span className={styles.controlDivider} />
                 <span className={styles.controlHint}>
-                  <span className={styles.controlBtn}>X</span>
+                  <span className={styles.controlBtn}>ZR</span>
                   {selected.buildStoryUrl
                     ? <Link to={selected.buildStoryUrl} className={styles.controlLink}>Patch Notes</Link>
                     : selected.demoUrl
