@@ -332,6 +332,7 @@ export function Projects() {
                 </span>
                 <span className={styles.controlDivider} />
                 <span className={styles.controlHint}>
+                  <span className={styles.controlBtn}>ZR</span>
                   {selected.buildStoryUrl
                     ? <Link to={selected.buildStoryUrl} className={styles.controlLink}>Patch Notes</Link>
                     : selected.demoUrl
