@@ -190,14 +190,23 @@ function HexSlot({ filled }: { filled: boolean }) {
   return <span className={[styles.hexSlot, filled ? styles.hexFilled : styles.hexEmpty].join(' ')} />
 }
 
+const CAROUSEL_WINDOW = 3
+
 export function Projects() {
   const [sortMode, setSortMode] = useState<SortMode>('status')
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('all')
+  const [carouselStart, setCarouselStart] = useState(0)
 
-  const visible = sortProjects(
+  const allVisible = sortProjects(
     filterStatus === 'all' ? PROJECTS : PROJECTS.filter(p => p.status === filterStatus),
     sortMode,
   )
+
+  useEffect(() => { setCarouselStart(0) }, [sortMode, filterStatus])
+
+  const carouselCards = allVisible.slice(carouselStart, carouselStart + CAROUSEL_WINDOW)
+  const canPrev = carouselStart > 0
+  const canNext = carouselStart + CAROUSEL_WINDOW < allVisible.length
 
   const [selected, setSelected] = useState<Project>(() => sortProjects(PROJECTS, 'status')[0]!)
 
@@ -341,17 +350,39 @@ export function Projects() {
                 type="button"
                 onClick={() => setFilterStatus(FILTER_NEXT[filterStatus])}
               >
-                <span className={styles.sortBtnIcon}>R</span>
+                <span className={styles.sortBtnIcon}>X</span>
                 Filter
                 <span className={filterStatus !== 'all' ? styles.filterOn : styles.filterOff}>
                   {FILTER_LABEL[filterStatus]}
                 </span>
               </button>
+              <div className={styles.carouselNav}>
+                <button
+                  className={[styles.carouselBtn, !canPrev ? styles.carouselBtnDisabled : ''].join(' ')}
+                  type="button"
+                  disabled={!canPrev}
+                  onClick={() => setCarouselStart(s => s - 1)}
+                >
+                  <span className={styles.sortBtnIcon}>L</span>
+                </button>
+                <span className={styles.carouselCount}>
+                  {carouselStart + 1}–{Math.min(carouselStart + CAROUSEL_WINDOW, allVisible.length)}{' '}
+                  / {allVisible.length}
+                </span>
+                <button
+                  className={[styles.carouselBtn, !canNext ? styles.carouselBtnDisabled : ''].join(' ')}
+                  type="button"
+                  disabled={!canNext}
+                  onClick={() => setCarouselStart(s => s + 1)}
+                >
+                  <span className={styles.sortBtnIcon}>R</span>
+                </button>
+              </div>
             </div>
 
             {/* Card grid */}
             <div className={styles.cardGrid}>
-              {visible.map(p => (
+              {carouselCards.map(p => (
                 <motion.button
                   key={p.id}
                   type="button"
