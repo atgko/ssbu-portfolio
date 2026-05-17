@@ -370,7 +370,6 @@ export function Resume() {
         }
         case 'a':
         case 'A':
-          audioManager.playEffect('forward')
           break
         case 'b':
         case 'B':
@@ -402,6 +401,7 @@ export function Resume() {
               href="/resume.pdf"
               download
               className={styles.downloadBtn}
+              onClick={() => audioManager.playEffect('forward')}
             >
               ↓ DOWNLOAD PDF
             </a>

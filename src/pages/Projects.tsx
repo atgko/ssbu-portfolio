@@ -353,7 +353,7 @@ export function Projects() {
               <button
                 className={styles.sortBtn}
                 type="button"
-                onClick={() => setSortMode(SORT_NEXT[sortMode])}
+                onClick={() => { audioManager.playEffect('forward'); setSortMode(SORT_NEXT[sortMode]) }}
               >
                 <span className={styles.sortBtnIcon}>Y</span>
                 {SORT_LABEL[sortMode]}
@@ -361,7 +361,7 @@ export function Projects() {
               <button
                 className={[styles.filterBtn, filterStatus !== 'all' ? styles.filterActive : ''].join(' ')}
                 type="button"
-                onClick={() => setFilterStatus(FILTER_NEXT[filterStatus])}
+                onClick={() => { audioManager.playEffect('forward'); setFilterStatus(FILTER_NEXT[filterStatus]) }}
               >
                 <span className={styles.sortBtnIcon}>X</span>
                 Filter

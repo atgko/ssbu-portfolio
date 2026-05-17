@@ -202,7 +202,6 @@ export function Skills() {
         }
         case 'a':
         case 'A':
-          audioManager.playEffect('forward')
           break
         case 'b':
         case 'B':
