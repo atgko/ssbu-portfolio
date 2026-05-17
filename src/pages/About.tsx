@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import { audioManager } from '../audio/audioManager.ts'
 import fighterImg from '../assets/personal/fighter.jpg'
@@ -37,7 +37,20 @@ function StatBar({ label, value, delay }: { label: string; value: number; delay:
 }
 
 export function About() {
+  const navigate = useNavigate()
+
   useEffect(() => { document.title = 'About · Athavan Elangko' }, [])
+
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      if (e.key.toLowerCase() === 'b') {
+        audioManager.playEffect('back')
+        navigate('/')
+      }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [navigate])
 
   return (
     <>
