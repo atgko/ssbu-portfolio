@@ -99,6 +99,27 @@ function sortProjects(projects: Project[], mode: SortMode): Project[] {
 
 const PROJECTS: Project[] = [
   {
+    id: 'wayfound',
+    name: 'Wayfound',
+    type: 'shield',
+    level: 34,
+    power: 9800,
+    role: 'PM Lead',
+    status: 'In Progress',
+    slots: 3,
+    skill: 'Product Strategy ↑',
+    isNew: false,
+    starred: true,
+    description:
+      'Conversational AI agent that synthesizes trail data, live weather, and photography conditions into a single opinionated weekend adventure plan. Built for outdoor enthusiasts in the Mountain West.',
+    tags: ['Conversational AI', 'Trail Data', 'Weather', 'Mountain West'],
+    demoUrl: 'https://wayfound-chi.vercel.app/',
+    githubUrl: 'https://github.com/atgko/wayfound',
+    buildStoryUrl: null,
+    artGradient: ['#060e24', '#0a2a6e', '#1a6fff'],
+    artLetter: 'W',
+  },
+  {
     id: 'pocketbeane',
     name: 'PocketBeane',
     type: 'shield',
