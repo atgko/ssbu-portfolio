@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import { audioManager } from '../audio/audioManager.ts'
 import styles from './Skills.module.css'
@@ -180,8 +180,40 @@ const EXPERIENCE: ExperienceEntry[] = [
 export function Skills() {
   const [activeId, setActiveId] = useState<string>(CATEGORIES[0]!.id)
   const active = CATEGORIES.find(c => c.id === activeId)!
+  const navigate = useNavigate()
 
   useEffect(() => { document.title = 'Skills · Athavan Elangko' }, [])
+
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      const idx = CATEGORIES.findIndex(c => c.id === activeId)
+      switch (e.key) {
+        case 'ArrowUp': {
+          e.preventDefault()
+          const prev = CATEGORIES[idx - 1]
+          if (prev) { audioManager.playEffect('forward'); setActiveId(prev.id) }
+          break
+        }
+        case 'ArrowDown': {
+          e.preventDefault()
+          const next = CATEGORIES[idx + 1]
+          if (next) { audioManager.playEffect('forward'); setActiveId(next.id) }
+          break
+        }
+        case 'a':
+        case 'A':
+          audioManager.playEffect('forward')
+          break
+        case 'b':
+        case 'B':
+          audioManager.playEffect('back')
+          navigate('/')
+          break
+      }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [activeId, navigate])
 
   return (
     <>
@@ -209,7 +241,7 @@ export function Skills() {
                   styles.menuRow,
                   activeId === cat.id ? styles.menuRowActive : '',
                 ].join(' ')}
-                onClick={() => setActiveId(cat.id)}
+                onClick={() => { audioManager.playEffect('forward'); setActiveId(cat.id) }}
                 initial={{ opacity: 0, x: -18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.06, duration: 0.24 }}

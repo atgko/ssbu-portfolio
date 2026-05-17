@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import type { ReactElement } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StarsBackground } from '../components/StarsBackground/StarsBackground.tsx'
 import { audioManager } from '../audio/audioManager.ts'
 import styles from './Resume.module.css'
@@ -348,8 +348,40 @@ const SECTION_DESC: Record<SectionId, string> = {
 export function Resume() {
   const [activeSection, setActiveSection] = useState<SectionId>('experience')
   const ActiveContent = SECTION_COMPONENTS[activeSection]
+  const navigate = useNavigate()
 
   useEffect(() => { document.title = 'Resume · Athavan Elangko' }, [])
+
+  useEffect(() => {
+    function handleKey(e: KeyboardEvent) {
+      const idx = VAULT_SECTIONS.findIndex(s => s.id === activeSection)
+      switch (e.key) {
+        case 'ArrowUp': {
+          e.preventDefault()
+          const prev = VAULT_SECTIONS[idx - 1]
+          if (prev) { audioManager.playEffect('forward'); setActiveSection(prev.id) }
+          break
+        }
+        case 'ArrowDown': {
+          e.preventDefault()
+          const next = VAULT_SECTIONS[idx + 1]
+          if (next) { audioManager.playEffect('forward'); setActiveSection(next.id) }
+          break
+        }
+        case 'a':
+        case 'A':
+          audioManager.playEffect('forward')
+          break
+        case 'b':
+        case 'B':
+          audioManager.playEffect('back')
+          navigate('/')
+          break
+      }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [activeSection, navigate])
 
   return (
     <>
@@ -390,7 +422,7 @@ export function Resume() {
                   styles.vaultTile,
                   activeSection === sec.id ? styles.vaultTileActive : '',
                 ].join(' ')}
-                onClick={() => setActiveSection(sec.id)}
+                onClick={() => { audioManager.playEffect('forward'); setActiveSection(sec.id) }}
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.24 }}

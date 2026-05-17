@@ -374,7 +374,7 @@ export function Projects() {
                   className={[styles.carouselBtn, !canPrev ? styles.carouselBtnDisabled : ''].join(' ')}
                   type="button"
                   disabled={!canPrev}
-                  onClick={() => setCarouselStart(s => s - 1)}
+                  onClick={() => { audioManager.playEffect('forward'); setCarouselStart(s => s - 1) }}
                 >
                   <span className={styles.sortBtnIcon}>L</span>
                 </button>
@@ -386,7 +386,7 @@ export function Projects() {
                   className={[styles.carouselBtn, !canNext ? styles.carouselBtnDisabled : ''].join(' ')}
                   type="button"
                   disabled={!canNext}
-                  onClick={() => setCarouselStart(s => s + 1)}
+                  onClick={() => { audioManager.playEffect('forward'); setCarouselStart(s => s + 1) }}
                 >
                   <span className={styles.sortBtnIcon}>R</span>
                 </button>
@@ -400,7 +400,7 @@ export function Projects() {
                   key={p.id}
                   type="button"
                   className={[styles.card, selected.id === p.id ? styles.cardSelected : ''].join(' ')}
-                  onClick={() => setSelected(p)}
+                  onClick={() => { audioManager.playEffect('forward'); setSelected(p) }}
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                 >
