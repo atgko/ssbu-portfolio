@@ -132,7 +132,7 @@ const PROJECTS: Project[] = [
     isNew: true,
     starred: true,
     description:
-      'AI-powered Assistant GM for fantasy sports drafts. Applies the Moneyball approach — sabermetrics, market inefficiencies, and value-over-replacement — to help you outsmart the room on draft day.',
+      'AI-powered Assistant GM for fantasy sports drafts. Inspired by the Moneyball approach, PocketBeane uses metrics, analytics, market inefficiencies, and value-over-replacement to help you outsmart the room on draft day and throughout the season.',
     tags: ['AI', 'Fantasy Sports', 'Moneyball', 'LLM', 'Draft Strategy'],
     demoUrl: null,
     githubUrl: 'https://github.com/atgko/pocketbeane',
