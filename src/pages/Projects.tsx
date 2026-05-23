@@ -111,7 +111,7 @@ const PROJECTS: Project[] = [
     isNew: false,
     starred: true,
     description:
-      'Conversational AI agent that synthesizes trail data, live weather, and photography conditions into a single opinionated weekend adventure plan. Built for outdoor enthusiasts in the Mountain West.',
+      'Conversational AI agent that synthesizes trail data, live weather, and photography conditions into a single opinionated weekend adventure plan. Built for outdoor enthusiasts in the Mountain West. Developed as part of my university Product Management class.',
     tags: ['Conversational AI', 'Trail Data', 'Weather', 'Mountain West'],
     demoUrl: 'https://wayfound-chi.vercel.app/',
     githubUrl: 'https://github.com/atgko/wayfound',
