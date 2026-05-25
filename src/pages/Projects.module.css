@@ -706,6 +706,44 @@
   opacity: 0.85;
 }
 
+/* ─── Grid navigation arrows ──────────────────────────────────────── */
+
+@keyframes arrowPulse {
+  0%, 100% { opacity: 0.45; }
+  50%       { opacity: 0.9;  }
+}
+
+.gridArrowLeft,
+.gridArrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--ssbu-font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  padding: 24px 10px;
+  animation: arrowPulse 2s ease-in-out infinite;
+  transition: color 150ms ease, text-shadow 150ms ease;
+  user-select: none;
+}
+
+.gridArrowLeft  { left: 0; }
+.gridArrowRight { right: 0; }
+
+.gridArrowLeft:hover,
+.gridArrowRight:hover {
+  color: var(--ssbu-gold);
+  text-shadow: 0 0 14px rgba(245, 197, 24, 0.65);
+  animation: none;
+  opacity: 1;
+}
+
 /* ─── Description panel (overlay at bottom of grid) ───────────────── */
 
 .descPanel {
@@ -791,6 +829,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
+  .gridArrowLeft,
+  .gridArrowRight { animation: none; opacity: 0.6; }
 }
 
 /* ─── Large-screen scaling (>1920px) ─────────────────────────────── */

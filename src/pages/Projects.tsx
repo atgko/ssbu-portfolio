@@ -441,6 +441,28 @@ export function Projects() {
               ))}
             </div>
 
+            {/* Side navigation arrows */}
+            {canPrev && (
+              <button
+                className={styles.gridArrowLeft}
+                type="button"
+                onClick={() => { audioManager.playEffect('forward'); setCarouselStart(s => s - 1) }}
+                aria-label="Previous projects"
+              >
+                ‹
+              </button>
+            )}
+            {canNext && (
+              <button
+                className={styles.gridArrowRight}
+                type="button"
+                onClick={() => { audioManager.playEffect('forward'); setCarouselStart(s => s + 1) }}
+                aria-label="Next projects"
+              >
+                ›
+              </button>
+            )}
+
             {/* Description overlay — slides in at bottom of grid panel */}
             <AnimatePresence mode="wait">
               <motion.div
