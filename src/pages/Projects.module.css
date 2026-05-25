@@ -339,6 +339,10 @@
   flex-shrink: 0;
 }
 
+.infoDesc {
+  display: none;
+}
+
 /* ─── Controls bar ────────────────────────────────────────────────── */
 
 .controls {
@@ -792,8 +796,9 @@
 /* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
 
 @media (min-width: 1921px) {
+  /* Art letter + card labels */
   .artLetter {
-    font-size: clamp(11rem, 14vw, 18rem);
+    font-size: clamp(11rem, 14vw, 22rem);
   }
 
   .cardArtLetter {
@@ -806,6 +811,58 @@
 
   .powerNum {
     font-size: clamp(2.6rem, 3vw, 4.5rem);
+  }
+
+  /* Detail panel — give infoArea more room and show description */
+  .artArea {
+    flex: 0 0 52%;
+  }
+
+  .infoArea {
+    gap: clamp(8px, 1.5vh, 18px);
+    padding: clamp(10px, 1.5vh, 22px) clamp(14px, 1.5vw, 24px) clamp(8px, 1vh, 16px);
+  }
+
+  .infoDesc {
+    display: block;
+    font-family: var(--ssbu-font-body);
+    font-size: clamp(0.82rem, 0.9vw, 1.2rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    padding-top: clamp(8px, 1vh, 14px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Card grid — center the row between sort bar and description panel */
+  .cardGrid {
+    padding-bottom: clamp(170px, 32vh, 360px);
+    align-content: center;
+  }
+
+  /* Description panel — much taller, content scales up */
+  .descPanel {
+    min-height: clamp(170px, 30vh, 340px);
+  }
+
+  .descBody {
+    padding: clamp(14px, 2vh, 28px) clamp(20px, 2.5vw, 42px) clamp(16px, 2.5vh, 30px);
+    gap: clamp(8px, 1.5vh, 18px);
+  }
+
+  .descText {
+    font-size: clamp(0.82rem, 0.9vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  .descTag {
+    font-size: clamp(0.58rem, 0.62vw, 0.92rem);
+    padding: clamp(2px, 0.4vh, 6px) clamp(6px, 0.65vw, 12px);
+  }
+
+  .descLink {
+    font-size: clamp(0.74rem, 0.8vw, 1.1rem);
+    padding: clamp(4px, 0.5vh, 9px) clamp(10px, 1vw, 18px);
   }
 }
 

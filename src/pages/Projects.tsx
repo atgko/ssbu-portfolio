@@ -323,6 +323,9 @@ export function Projects() {
                   <span className={styles.skillText}>{selected.skill}</span>
                   <span className={styles.skillArrow}>↑</span>
                 </div>
+
+                {/* Description — only shown on large screens (>1920px) */}
+                <p className={styles.infoDesc}>{selected.description}</p>
               </div>
 
               {/* Bottom controls */}
