@@ -605,6 +605,34 @@
   .page { transition: none; }
 }
 
+/* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
+
+@media (min-width: 1921px) {
+  .content {
+    grid-template-columns: clamp(260px, 18vw, 400px) 1fr;
+  }
+
+  .vaultTileIcon {
+    width: clamp(40px, 3.5vw, 60px);
+    height: clamp(40px, 3.5vw, 60px);
+    font-size: clamp(1.1rem, 1.2vw, 1.8rem);
+  }
+
+  .vaultTileLabel {
+    font-size: clamp(0.86rem, 0.9vw, 1.4rem);
+  }
+
+  .contentHeaderIcon {
+    width: clamp(44px, 4vw, 68px);
+    height: clamp(44px, 4vw, 68px);
+    font-size: clamp(1.2rem, 1.4vw, 2rem);
+  }
+
+  .contentHeaderTitle {
+    font-size: clamp(1.5rem, 1.7vw, 2.4rem);
+  }
+}
+
 /* ─── Melee mode overrides (blue palette) ────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {

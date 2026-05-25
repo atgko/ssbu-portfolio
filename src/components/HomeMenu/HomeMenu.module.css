@@ -480,3 +480,20 @@
     animation: none;
   }
 }
+
+/* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
+
+@media (min-width: 1921px) {
+  .icon {
+    width: clamp(76px, 5.4vw, 110px);
+    height: clamp(76px, 5.4vw, 110px);
+  }
+
+  .label {
+    font-size: clamp(3.4rem, 4vw, 5.5rem);
+  }
+
+  .splashWrap {
+    width: clamp(380px, 22vw, 540px);
+  }
+}

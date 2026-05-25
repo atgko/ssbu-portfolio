@@ -769,3 +769,36 @@
   .card:not(.cardStatic):hover .codeIcon,
   .cardStatic:hover .mountainIcon { animation: none; }
 }
+
+/* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
+
+@media (min-width: 1921px) {
+  .cardLabel {
+    font-size: clamp(1.6rem, 1.8vw, 2.8rem);
+  }
+
+  .cardSubtitle {
+    font-size: clamp(0.76rem, 0.8vw, 1.2rem);
+  }
+
+  .liIcon {
+    width: clamp(50px, 5vw, 90px);
+    height: clamp(50px, 5vw, 90px);
+  }
+
+  .liIconText {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
+
+  .atIcon {
+    font-size: clamp(3.6rem, 5vw, 7rem);
+  }
+
+  .codeIcon {
+    font-size: clamp(2rem, 3vw, 4.5rem);
+  }
+
+  .requestPanel {
+    width: clamp(300px, 18vw, 420px);
+  }
+}

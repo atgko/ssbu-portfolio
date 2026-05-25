@@ -789,6 +789,26 @@
   .page { transition: none; }
 }
 
+/* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
+
+@media (min-width: 1921px) {
+  .artLetter {
+    font-size: clamp(11rem, 14vw, 18rem);
+  }
+
+  .cardArtLetter {
+    font-size: clamp(6.5rem, 5.5vw, 10rem);
+  }
+
+  .spiritName {
+    font-size: clamp(1.75rem, 2.2vw, 3rem);
+  }
+
+  .powerNum {
+    font-size: clamp(2.6rem, 3vw, 4.5rem);
+  }
+}
+
 /* ─── Melee mode overrides ───────────────────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {

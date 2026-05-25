@@ -368,6 +368,33 @@
   .page { transition: none; }
 }
 
+/* ─── Large-screen scaling (>1920px) ─────────────────────────────── */
+
+@media (min-width: 1921px) {
+  .content {
+    grid-template-columns: clamp(300px, 20vw, 440px) 1fr;
+  }
+
+  .menuIcon {
+    width: clamp(36px, 3vw, 54px);
+    height: clamp(36px, 3vw, 54px);
+  }
+
+  .menuLabel {
+    font-size: clamp(0.88rem, 0.9vw, 1.4rem);
+  }
+
+  .categoryIcon {
+    width: clamp(48px, 4vw, 72px);
+    height: clamp(48px, 4vw, 72px);
+    font-size: clamp(1.35rem, 1.5vw, 2.2rem);
+  }
+
+  .categoryName {
+    font-size: clamp(1.55rem, 1.8vw, 2.5rem);
+  }
+}
+
 /* ─── Melee mode overrides (blue palette) ────────────────────────── */
 
 :global([data-theme="melee"]) .topBar {
