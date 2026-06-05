@@ -1,0 +1,167 @@
+.page {
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+/* ── Status bar ─────────────────────────────────────────────────── */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.statusBar {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.statusDot {
+  color: #22cc66;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+.statusText {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.12em;
+}
+
+.statusSub {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+}
+
+/* ── Player card ────────────────────────────────────────────────── */
+
+.playerCard {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--ssbu-bg-panel);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  width: 100%;
+}
+
+.p1Badge {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #000;
+  background: var(--ssbu-gold);
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.playerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.playerName {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+}
+
+.playerTitle {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  display: block;
+}
+
+.playerAvail {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.7rem;
+  color: var(--ssbu-gold);
+  font-weight: 600;
+  display: block;
+}
+
+/* ── Contact buttons ────────────────────────────────────────────── */
+
+.contactBtns {
+  display: flex;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.contactBtn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--ssbu-font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 0.75rem 0.25rem;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.05em;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.contactBtn:active {
+  background: rgba(245, 197, 24, 0.1);
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.contactIcon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ── Desktop nudge ──────────────────────────────────────────────── */
+
+.desktopNudge {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.28);
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nudgeLink {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+}

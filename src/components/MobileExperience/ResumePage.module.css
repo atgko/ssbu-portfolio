@@ -1,0 +1,114 @@
+.page {
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+
+.header {
+  align-self: flex-start;
+}
+
+.headerLabel {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 4.5vw, 1.35rem);
+  color: #fff;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.headerAccent {
+  height: 2px;
+  width: 40px;
+  background: var(--ssbu-gold);
+  border-radius: 1px;
+}
+
+/* ── Tiles grid ─────────────────────────────────────────────────── */
+
+.tilesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.tile {
+  background: var(--ssbu-bg-panel);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tileIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.tileLabel {
+  font-family: var(--ssbu-font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* ── Download button ────────────────────────────────────────────── */
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #000;
+  background: var(--ssbu-gold);
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 0 20px rgba(245, 197, 24, 0.35);
+}
+
+.downloadIcon {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+/* ── Tagline ────────────────────────────────────────────────────── */
+
+.tagline {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
