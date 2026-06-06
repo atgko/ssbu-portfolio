@@ -1,36 +1,27 @@
 .page {
   height: 100svh;
   width: 100%;
-  flex-shrink: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.slideWrap {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* ── Animated pane ───────────────────────────────────────────────── */
-
-.pane {
-  position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1.5rem 1.5rem 2rem;
-  gap: 1.25rem;
+  flex-shrink: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+.content {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 /* ── Header ─────────────────────────────────────────────────────── */
 
 .header {
-  align-self: flex-start;
-  flex-shrink: 0;
+  margin-bottom: 1rem;
 }
 
 .headerLabel {
@@ -50,57 +41,143 @@
   border-radius: 1px;
 }
 
-/* ── Tiles grid ─────────────────────────────────────────────────── */
+/* ── Section heading ─────────────────────────────────────────────── */
 
-.tilesGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  width: 100%;
-  flex-shrink: 0;
+.sectionHeading {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.14em;
+  margin: 0 0 0.75rem;
 }
 
-.tile {
-  background: var(--ssbu-bg-panel);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 4px;
-  padding: 1rem 0.75rem;
+/* ── Education list ─────────────────────────────────────────────── */
+
+.eduList {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: border-color 150ms ease, background 150ms ease;
-  position: relative;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
 }
 
-.tile:active {
-  background: rgba(245, 197, 24, 0.08);
-  border-color: rgba(245, 197, 24, 0.4);
+.eduEntry {
+  display: flex;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 0.75rem 0.75rem 0.75rem 0;
 }
 
-.tileIcon {
-  font-size: 1.4rem;
-  line-height: 1;
+.eduAccent {
+  width: 3px;
+  flex-shrink: 0;
+  border-radius: 0 2px 2px 0;
 }
 
-.tileLabel {
-  font-family: var(--ssbu-font-display);
+.eduBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.eduDegree {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.8rem;
   font-weight: 600;
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+
+.eduSchool {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.73rem;
+  color: rgba(255,255,255,0.65);
+  display: block;
+}
+
+.eduSub {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  display: block;
+}
+
+.eduPeriod {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  display: block;
+  margin-top: 0.1rem;
+}
+
+/* ── Cert list ───────────────────────────────────────────────────── */
+
+.certList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.certEntry {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.certEntry:last-child {
+  border-bottom: none;
+}
+
+.certCode {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #000;
+  padding: 3px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 46px;
   text-align: center;
 }
 
-.tileArrow {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.25);
-  line-height: 1;
+.certBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.certName {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+
+.certIssuer {
+  font-family: var(--ssbu-font-body);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.4);
+  display: block;
+}
+
+.certStatus {
+  font-family: var(--ssbu-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
 }
 
 /* ── Download button ────────────────────────────────────────────── */
@@ -129,195 +206,4 @@
 .downloadIcon {
   font-size: 1.1rem;
   font-weight: 900;
-}
-
-/* ── Swipe prompt ────────────────────────────────────────────────── */
-
-.swipePrompt {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.28);
-  text-align: center;
-  margin: 0;
-  letter-spacing: 0.04em;
-}
-
-/* ── Detail header ───────────────────────────────────────────────── */
-
-.detailHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.backBtn {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.5);
-  font-family: var(--ssbu-font-display);
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  padding: 0.25rem 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.sectionDots {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.sectionDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  transition: all 200ms ease;
-}
-
-.sectionDotActive {
-  width: 14px;
-  border-radius: 3px;
-  background: var(--ssbu-gold);
-}
-
-/* ── Detail title ────────────────────────────────────────────────── */
-
-.detailTitle {
-  font-family: var(--ssbu-font-display);
-  font-weight: 700;
-  font-size: clamp(1.1rem, 4.5vw, 1.35rem);
-  color: #fff;
-  letter-spacing: 0.1em;
-  align-self: flex-start;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-/* ── Detail list ─────────────────────────────────────────────────── */
-
-.detailList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  width: 100%;
-}
-
-.expEntry {
-  display: flex;
-  gap: 0.75rem;
-  background: rgba(255,255,255,0.04);
-  border-radius: 3px;
-  overflow: hidden;
-  padding: 0.75rem 0.75rem 0.75rem 0;
-}
-
-.expAccent {
-  width: 3px;
-  flex-shrink: 0;
-  border-radius: 0 2px 2px 0;
-}
-
-.expBody {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  min-width: 0;
-}
-
-.expTitle {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  display: block;
-}
-
-.expMeta {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.45);
-  display: block;
-}
-
-/* ── Certifications ──────────────────────────────────────────────── */
-
-.certEntry {
-  background: rgba(255,255,255,0.04);
-  border-radius: 3px;
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  width: 100%;
-}
-
-.certName {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-}
-
-.certMeta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.certIssuer {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.45);
-}
-
-.certStatus {
-  font-family: var(--ssbu-font-display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  border: 1px solid;
-  padding: 2px 7px;
-  border-radius: 2px;
-  letter-spacing: 0.06em;
-}
-
-/* ── Skills list ─────────────────────────────────────────────────── */
-
-.skillList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.skillRow {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.skillRow:last-child {
-  border-bottom: none;
-}
-
-.skillIcon {
-  font-size: 0.9rem;
-  width: 20px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.skillLabel {
-  font-family: var(--ssbu-font-body);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.85);
-  flex: 1;
 }

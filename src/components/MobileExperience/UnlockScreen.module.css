@@ -27,11 +27,12 @@
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: repeating-conic-gradient(
-    rgba(255, 255, 255, 0.06) 0deg 10deg,
+    rgba(255, 255, 255, 0.14) 0deg 10deg,
     transparent 10deg 20deg
   );
   animation: rotateSlow 24s linear infinite;
   pointer-events: none;
+  z-index: 0;
 }
 
 .glow {
@@ -44,6 +45,34 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.82;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.85)) drop-shadow(0 0 24px rgba(255,255,255,0.4));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12) rotate(12deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(255,255,255,1)) drop-shadow(0 0 44px rgba(255,255,255,0.55));
+  }
+}
+
+.star {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 88px;
+  background: #ffffff;
+  clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
+  animation: starPulse 2.2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes challengerPulse {
@@ -61,6 +90,8 @@
   margin: 0 0 1.5rem;
   padding: 0 1rem;
   animation: challengerPulse 1.4s ease-in-out infinite;
+  position: relative;
+  z-index: 3;
 }
 
 .silhouette {
@@ -70,6 +101,8 @@
   object-fit: contain;
   filter: brightness(0);
   display: block;
+  position: relative;
+  z-index: 2;
 }
 
 .tapHint {

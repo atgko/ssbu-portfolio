@@ -41,14 +41,14 @@ const EXPERIENCE: ExpEntry[] = [
   {
     title: 'Project Manager, Wealth Technology',
     org: 'TD',
-    period: '2022 – 2024',
+    period: 'Apr 2022 – Mar 2024',
     summary: 'Managed cross-functional delivery for wealth management platform upgrades and digital initiatives.',
     color: '#22aa55',
   },
   {
     title: 'Senior Project Analyst',
     org: 'TD',
-    period: '2020 – 2022',
+    period: 'Apr 2019 – Apr 2022',
     summary: 'Led analysis and coordinated execution across enterprise-scale programs in wealth operations.',
     color: '#efa322',
   },

@@ -33,12 +33,7 @@ function SwipeHint({ onDone }: { onDone: () => void }) {
       onAnimationEnd={(e) => { if (e.target === e.currentTarget) onDone() }}
       aria-hidden="true"
     >
-      <div className={styles.waveWrap}>
-        <span className={styles.waveRing} />
-        <span className={styles.waveRing} />
-        <span className={styles.waveRing} />
-        <span className={styles.swipeEmoji}>👆</span>
-      </div>
+      <span className={styles.swipeEmoji}>👆</span>
     </div>
   )
 }

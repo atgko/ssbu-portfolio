@@ -11,6 +11,7 @@ export function UnlockScreen({ onTap }: Props) {
     <div className={styles.screen} onClick={onTap}>
       <div className={styles.burst} aria-hidden="true" />
       <div className={styles.glow} aria-hidden="true" />
+      <div className={styles.star} aria-hidden="true" />
       <p className={styles.challenger}>NEW CHALLENGER APPROACHING</p>
       <motion.img
         src={fighterImg}

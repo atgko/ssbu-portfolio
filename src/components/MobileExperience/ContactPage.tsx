@@ -5,6 +5,11 @@ export function ContactPage() {
     <div className={styles.page}>
       <div className={styles.content}>
 
+        <header className={styles.header}>
+          <span className={styles.headerLabel}>CONTACT</span>
+          <div className={styles.headerAccent} />
+        </header>
+
         <div className={styles.statusBar}>
           <div className={styles.statusMain}>
             <span className={styles.statusPulse} aria-hidden="true">

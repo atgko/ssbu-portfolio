@@ -18,6 +18,30 @@
   gap: 1.1rem;
 }
 
+/* ── Header ─────────────────────────────────────────────────────── */
+
+.header {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.headerLabel {
+  font-family: var(--ssbu-font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 4.5vw, 1.35rem);
+  color: #fff;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.headerAccent {
+  height: 2px;
+  width: 40px;
+  background: var(--ssbu-gold);
+  border-radius: 1px;
+}
+
 /* ── Status bar ─────────────────────────────────────────────────── */
 
 @keyframes pulseRing {
