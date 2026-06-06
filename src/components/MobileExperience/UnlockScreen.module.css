@@ -72,7 +72,7 @@
   clip-path: polygon(50% 0%, 53% 47%, 100% 50%, 53% 53%, 50% 100%, 47% 53%, 0% 50%, 47% 47%);
   animation: starPulse 2.2s ease-in-out infinite;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 @keyframes challengerPulse {
@@ -91,7 +91,7 @@
   padding: 0 1rem;
   animation: challengerPulse 1.4s ease-in-out infinite;
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
 
 .silhouette {

@@ -62,6 +62,11 @@ export function ContactPage() {
           {' '}on a larger screen for the full experience.
         </p>
 
+        <a href="/resume.pdf" download className={styles.downloadBtn}>
+          <span className={styles.downloadIcon}>↓</span>
+          DOWNLOAD RESUME
+        </a>
+
       </div>
     </div>
   )
