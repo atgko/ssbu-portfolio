@@ -32,25 +32,25 @@ const PROF_COLOR: Record<string, string> = {
 
 const EXPERIENCE: ExpEntry[] = [
   {
-    title: 'Teaching Assistant, Eccles School of Business',
-    org: 'University of Utah',
-    period: 'Feb 2026 – Aug 2026',
-    summary: 'Supporting Project Management and Python Programming courses; labs, office hours, grading.',
-    color: '#00bbcc',
-  },
-  {
-    title: 'Event Committee Chair',
-    org: 'Make Salt Lake',
-    period: 'Jan 2026 – Present',
-    summary: 'Leading monthly makerspace programming with 60+ attendees across 4+ concurrent sessions.',
-    color: '#e86b1a',
-  },
-  {
     title: 'Scrum Master, Wealth Management',
     org: 'TD',
     period: 'March 2024 – Present',
     summary: 'Launched four agile teams supporting ~$100M annual net asset growth; –25% release cycle time.',
     color: '#2a78ff',
+  },
+  {
+    title: 'Project Manager, Wealth Technology',
+    org: 'TD',
+    period: '2022 – 2024',
+    summary: 'Managed cross-functional delivery for wealth management platform upgrades and digital initiatives.',
+    color: '#22aa55',
+  },
+  {
+    title: 'Senior Project Analyst',
+    org: 'TD',
+    period: '2020 – 2022',
+    summary: 'Led analysis and coordinated execution across enterprise-scale programs in wealth operations.',
+    color: '#efa322',
   },
 ]
 

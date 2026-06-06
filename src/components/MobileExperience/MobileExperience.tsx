@@ -28,8 +28,17 @@ function DotNav({ current, onDotClick }: { current: number; onDotClick: (i: numb
 
 function SwipeHint({ onDone }: { onDone: () => void }) {
   return (
-    <div className={styles.swipeHint} onAnimationEnd={onDone} aria-hidden="true">
-      👆
+    <div
+      className={styles.swipeHint}
+      onAnimationEnd={(e) => { if (e.target === e.currentTarget) onDone() }}
+      aria-hidden="true"
+    >
+      <div className={styles.waveWrap}>
+        <span className={styles.waveRing} />
+        <span className={styles.waveRing} />
+        <span className={styles.waveRing} />
+        <span className={styles.swipeEmoji}>👆</span>
+      </div>
     </div>
   )
 }

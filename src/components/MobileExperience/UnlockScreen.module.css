@@ -11,6 +11,39 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  overflow: hidden;
+}
+
+@keyframes rotateSlow {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.burst {
+  position: absolute;
+  width: 80vw;
+  height: 80vw;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    rgba(255, 255, 255, 0.06) 0deg 10deg,
+    transparent 10deg 20deg
+  );
+  animation: rotateSlow 24s linear infinite;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 70%);
+  pointer-events: none;
 }
 
 @keyframes challengerPulse {

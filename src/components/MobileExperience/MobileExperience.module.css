@@ -71,20 +71,57 @@
 
 /* ── Idle swipe hint ────────────────────────────────────────────── */
 
-@keyframes swipeUp {
-  0%   { opacity: 0; transform: translateX(-50%) translateY(0); }
+@keyframes hintFade {
+  0%   { opacity: 0; }
   15%  { opacity: 1; }
-  75%  { opacity: 0.7; transform: translateX(-50%) translateY(-40px); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-40px); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .swipeHint {
   position: fixed;
-  bottom: 80px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1001;
-  font-size: 2rem;
   pointer-events: none;
-  animation: swipeUp 1.3s ease-in-out 2 forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: hintFade 1.8s ease-in-out 2 forwards;
 }
+
+.waveWrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipeEmoji {
+  font-size: 2rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes waveExpand {
+  0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0.75; }
+  100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
+}
+
+.waveRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(245, 197, 24, 0.7);
+  border-radius: 50%;
+  animation: waveExpand 1.4s ease-out infinite;
+}
+
+.waveRing:nth-child(2) { animation-delay: 0.45s; }
+.waveRing:nth-child(3) { animation-delay: 0.9s; }

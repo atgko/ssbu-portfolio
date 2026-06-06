@@ -60,12 +60,17 @@ export function ProjectsPage() {
               onClick={() => handleCardClick(p)}
               style={{ background: `linear-gradient(160deg, ${p.artGradient[0]}, ${p.artGradient[1]} 50%, ${p.artGradient[2]})` }}
             >
-              <span
-                className={styles.cardLetter}
-                style={{ color: p.artGradient[2] }}
-              >
-                {p.artLetter}
-              </span>
+              {p.artImage
+                ? <img src={p.artImage} alt="" className={styles.cardArtImage} />
+                : (
+                  <span
+                    className={styles.cardLetter}
+                    style={{ color: p.artGradient[2] }}
+                  >
+                    {p.artLetter}
+                  </span>
+                )
+              }
 
               <div className={styles.cardBody}>
                 <div className={styles.cardBadges}>

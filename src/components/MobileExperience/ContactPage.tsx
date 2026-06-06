@@ -6,8 +6,13 @@ export function ContactPage() {
       <div className={styles.content}>
 
         <div className={styles.statusBar}>
-          <span className={styles.statusDot}>●</span>
-          <span className={styles.statusText}>SEARCHING FOR OPPONENT…</span>
+          <div className={styles.statusMain}>
+            <span className={styles.statusPulse} aria-hidden="true">
+              <span className={styles.statusPulseRing} />
+              <span className={styles.statusPulseCore} />
+            </span>
+            <span className={styles.statusText}>SEARCHING FOR OPPONENT…</span>
+          </div>
           <span className={styles.statusSub}>Open to New Opportunities in Seattle or Bay Area</span>
         </div>
 

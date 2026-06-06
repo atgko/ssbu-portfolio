@@ -9,6 +9,8 @@ interface Props {
 export function UnlockScreen({ onTap }: Props) {
   return (
     <div className={styles.screen} onClick={onTap}>
+      <div className={styles.burst} aria-hidden="true" />
+      <div className={styles.glow} aria-hidden="true" />
       <p className={styles.challenger}>NEW CHALLENGER APPROACHING</p>
       <motion.img
         src={fighterImg}
