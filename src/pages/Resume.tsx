@@ -74,6 +74,20 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     color: '#2a78ff',
   },
   {
+    id: 'make-slc',
+    title: 'Event Committee Chair',
+    org: 'Make Salt Lake',
+    period: 'Jan 2026 – Present',
+    location: 'Salt Lake City, UT',
+    bullets: [
+      'Coordinate planning and execution of monthly makerspace programming, supporting multi-session events (4+ concurrent classes) with ~60+ attendees.',
+      'Lead biweekly planning meetings, aligning volunteers on timelines, logistics, and event delivery readiness across recurring programming.',
+      'Manage on-site event operations and attendee experience, ensuring smooth coordination across volunteers and participants.',
+      'Track schedules, resource needs, and execution readiness across upcoming events to support consistent program delivery.',
+    ],
+    color: '#e86b1a',
+  },
+  {
     id: 'td-pm',
     title: 'Project Manager, Wealth Management',
     org: 'TD',
@@ -99,20 +113,6 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
       'Developed PMO governance artifacts, reporting dashboards, and executive steering committee presentations',
     ],
     color: '#f5c518',
-  },
-  {
-    id: 'make-slc',
-    title: 'Event Committee Chair',
-    org: 'Make Salt Lake',
-    period: 'Jan 2026 – Present',
-    location: 'Salt Lake City, UT',
-    bullets: [
-      'Coordinate planning and execution of monthly makerspace programming, supporting multi-session events (4+ concurrent classes) with ~60+ attendees.',
-      'Lead biweekly planning meetings, aligning volunteers on timelines, logistics, and event delivery readiness across recurring programming.',
-      'Manage on-site event operations and attendee experience, ensuring smooth coordination across volunteers and participants.',
-      'Track schedules, resource needs, and execution readiness across upcoming events to support consistent program delivery.',
-    ],
-    color: '#e86b1a',
   },
   {
     id: 'rbc',
