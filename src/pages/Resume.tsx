@@ -77,7 +77,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: 'make-slc',
     title: 'Event Committee Chair',
     org: 'Make Salt Lake',
-    period: 'Jan 2026 – Present',
+    period: 'Jan 2026 – Jul 2026',
     location: 'Salt Lake City, UT',
     bullets: [
       'Coordinate planning and execution of monthly makerspace programming, supporting multi-session events (4+ concurrent classes) with ~60+ attendees.',
