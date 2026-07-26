@@ -193,9 +193,9 @@ These were deliberate choices — not limitations:
 
 **Phase 2 — Mobile (Complete)** Unlock sequence, swipe navigation, dot nav, idle hint, sessionStorage state
 
-**Phase 3 — Build Story page** Behind-the-scenes page documenting the inspiration, process, and tech decisions
+**Phase 3 — Build Story page (Complete)** Behind-the-scenes page documenting the inspiration, process, and tech decisions
 
-**Phase 4 — Polish** Home screen photo, additional project Spirit cards, resume PDF, vignette on fighter photo
+**Phase 4 — Polish (Complete)** Home screen photo, additional project Spirit cards, resume PDF, vignette on fighter photo
 
 ---
 
@@ -217,7 +217,6 @@ athavan.gg is one artifact in a broader portfolio built during the University of
 
 - **[Wayfound](https://github.com/atgko/wayfound)** — AI adventure planning agent for the Mountain West
 - **PocketBeane** — AI fantasy sports GM assistant
-- **Mango** — collaborative personal productivity app
 - **Faculty AI Best Practices** — capstone project with the David Eccles School of Business
 
 ---
