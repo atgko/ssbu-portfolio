@@ -66,8 +66,8 @@ export const PROJECTS: Project[] = [
     artImage: '/Wayfound-preview.png',
   },
   {
-    id: 'paxel',
-    name: 'Paxel',
+    id: 'signal',
+    name: 'Signal',
     type: 'attack',
     level: 20,
     power: 8800,
@@ -78,13 +78,13 @@ export const PROJECTS: Project[] = [
     isNew: true,
     starred: true,
     description:
-      'Signal — AI research agent that turns pharma sales call transcripts into a weekly priority report, built and shipped for a real client in two days.',
+      'AI research agent that turns pharma sales call transcripts into a weekly priority report, built and shipped for Paxel in two days.',
     tags: ['AI Agent', 'LLM', 'Pharma Sales', 'Streamlit'],
     demoUrl: 'https://signalbypaxel.streamlit.app/',
     githubUrl: null,
     buildStoryUrl: null,
     artGradient: ['#1a0524', '#4a0a6e', '#a01aff'],
-    artLetter: 'P',
+    artLetter: 'S',
     artImage: '/signalbypaxel.png',
   },
   {
