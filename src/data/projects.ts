@@ -50,7 +50,7 @@ export const PROJECTS: Project[] = [
     level: 34,
     power: 8500,
     role: 'PM Lead',
-    status: 'In Progress',
+    status: 'Shipped',
     slots: 3,
     skill: 'Product Strategy ↑',
     isNew: false,
