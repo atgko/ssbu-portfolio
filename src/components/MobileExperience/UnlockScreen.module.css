@@ -94,17 +94,6 @@
   z-index: 4;
 }
 
-.silhouette {
-  height: 52vh;
-  width: auto;
-  max-width: 80vw;
-  object-fit: contain;
-  filter: brightness(0);
-  display: block;
-  position: relative;
-  z-index: 2;
-}
-
 .tapHint {
   font-family: var(--ssbu-font-display);
   font-weight: 500;
