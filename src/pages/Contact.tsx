@@ -178,7 +178,7 @@ export function Contact() {
             <span className={styles.ruleVal}>Full-time</span>
             <span className={styles.ruleDot}>·</span>
             <span className={styles.ruleKey}>Stage</span>
-            <span className={styles.ruleVal}>Seattle or Bay Area</span>
+            <span className={styles.ruleVal}>Chicago</span>
             <span className={styles.ruleDot}>·</span>
             <span className={styles.ruleKey}>Items</span>
             <span className={styles.ruleVal}>Remote-friendly</span>

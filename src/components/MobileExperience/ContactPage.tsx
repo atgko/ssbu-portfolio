@@ -18,7 +18,7 @@ export function ContactPage() {
             </span>
             <span className={styles.statusText}>SEARCHING FOR OPPONENT…</span>
           </div>
-          <span className={styles.statusSub}>Open to New Opportunities in Seattle or Bay Area</span>
+          <span className={styles.statusSub}>Open to New Opportunities in Chicago</span>
         </div>
 
         <div className={styles.playerCard}>

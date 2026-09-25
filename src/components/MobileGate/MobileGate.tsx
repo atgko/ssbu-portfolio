@@ -119,7 +119,7 @@ export function MobileGate() {
         {/* Location */}
         <p className={styles.location}>
           <span className={styles.locationLabel}>LOCATION </span>
-          Salt Lake City · Open to Seattle &amp; Bay Area
+          Salt Lake City · Open to Chicago
         </p>
 
         {/* Contact links */}
