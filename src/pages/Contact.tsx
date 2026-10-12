@@ -178,7 +178,7 @@ export function Contact() {
             <span className={styles.ruleVal}>Full-time</span>
             <span className={styles.ruleDot}>·</span>
             <span className={styles.ruleKey}>Stage</span>
-            <span className={styles.ruleVal}>Chicago</span>
+            <span className={styles.ruleVal}>Salt Lake City (UT), Chicago (IL), Toronto (ON), Vancouver (BC)</span>
             <span className={styles.ruleDot}>·</span>
             <span className={styles.ruleKey}>Items</span>
             <span className={styles.ruleVal}>Remote-friendly</span>

@@ -119,7 +119,7 @@ export function MobileGate() {
         {/* Location */}
         <p className={styles.location}>
           <span className={styles.locationLabel}>LOCATION </span>
-          Salt Lake City · Open to Chicago
+          Salt Lake City (UT), Chicago (IL), Toronto (ON), Vancouver (BC)
         </p>
 
         {/* Contact links */}
